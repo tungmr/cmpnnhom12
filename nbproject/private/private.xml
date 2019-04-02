@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/view/NhanVienJPanel.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/controller/ChuyenManHinhController.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/view/TrangChuJPanel.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/dao/AdminDAO.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/view/LoginJFrame.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/view/AccountManager.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/view/SanPhamJPanel.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/dao/NhanVienDAO.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/model/NhanVien.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/view/KhachHangJPanel.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/model/admin.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/view/NhanVienJFrame.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/dao/UserDAO.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/view/MainJFrame.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/dao/KhachHangDAO.java</file>
+        </group>
+    </open-files>
+</project-private>
