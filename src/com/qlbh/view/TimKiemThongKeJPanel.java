@@ -14,7 +14,7 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
     /**
      * Creates new form TimKiemThongKeJPanel
      */
-    public TimKiemThongKeJPanel() {
+    public TimKiemThongKeJPanel(String username) {
         initComponents();
     }
 

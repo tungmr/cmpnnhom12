@@ -16,14 +16,16 @@ public class DanhMucBean {
     private String Loai;
     private JPanel jPanel;
     private JLabel jLabel;
+    private String username;
 
     public DanhMucBean() {
     }
 
-    public DanhMucBean(String Loai, JPanel jPanel, JLabel jLabel) {
+    public DanhMucBean(String Loai, JPanel jPanel, JLabel jLabel, String username) {
         this.Loai = Loai;
         this.jPanel = jPanel;
         this.jLabel = jLabel;
+        this.username = username;
     }
 
     public String getLoai() {
@@ -49,6 +51,15 @@ public class DanhMucBean {
     public void setjLabel(JLabel jLabel) {
         this.jLabel = jLabel;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
     
     
 }

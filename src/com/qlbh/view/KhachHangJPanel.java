@@ -25,7 +25,7 @@ public class KhachHangJPanel extends javax.swing.JPanel {
     ImageIcon sai = new ImageIcon("tinhsai.png");
     ImageIcon dung = new ImageIcon("dau-check.png");
 
-    public KhachHangJPanel() {
+    public KhachHangJPanel(String username) {
         initComponents();
         khachHangtableModel = (DefaultTableModel) khachHangjTable.getModel();
         ArrayList<KhachHang> listKhachHang = KhachHangDAO.getListKhachHang();

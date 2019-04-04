@@ -26,7 +26,7 @@ public class SanPhamJPanel extends javax.swing.JPanel {
     ImageIcon sai = new ImageIcon("tinhsai.png");
     ImageIcon dung = new ImageIcon("dau-check.png");
 
-    public SanPhamJPanel() {
+    public SanPhamJPanel(String username) {
         initComponents();
         sanPhamtableModel = (DefaultTableModel) sanPhamjTable.getModel();
         ArrayList<SanPham> listSanPham = SanPhamDAO.getListSanPham();
@@ -37,6 +37,7 @@ public class SanPhamJPanel extends javax.swing.JPanel {
         }
         loadMaNCC("");
         setEnabledButton();
+        maNhanVienSPjTextField.setText(username);
     }
 
     /**

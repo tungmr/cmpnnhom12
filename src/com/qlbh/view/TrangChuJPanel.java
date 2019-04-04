@@ -14,8 +14,9 @@ public class TrangChuJPanel extends javax.swing.JPanel {
     /**
      * Creates new form TrangChuJPanel
      */
-    public TrangChuJPanel() {
+    public TrangChuJPanel(String username) {
         initComponents();
+        welcomeTrangChujLabel.setText(username);
     }
 
     /**
@@ -28,6 +29,7 @@ public class TrangChuJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        welcomeTrangChujLabel = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 102, 102));
 
@@ -44,18 +46,25 @@ public class TrangChuJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1238, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(welcomeTrangChujLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(703, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addComponent(welcomeTrangChujLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(605, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel welcomeTrangChujLabel;
     // End of variables declaration//GEN-END:variables
 }

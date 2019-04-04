@@ -14,7 +14,7 @@ public class BanHangJPanel extends javax.swing.JPanel {
     /**
      * Creates new form BanHangJPanel
      */
-    public BanHangJPanel() {
+    public BanHangJPanel(String username) {
         initComponents();
     }
 

@@ -19,7 +19,7 @@ public class NhanVienJPanel extends javax.swing.JPanel {
     /**
      * Creates new form NhanVienJPanel
      */
-    public NhanVienJPanel() {
+    public NhanVienJPanel(String username) {
         initComponents();
         
     }

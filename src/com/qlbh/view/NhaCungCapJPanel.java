@@ -25,7 +25,7 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
     ImageIcon sai = new ImageIcon("tinhsai.png");
     ImageIcon dung = new ImageIcon("dau-check.png");
 
-    public NhaCungCapJPanel() {
+    public NhaCungCapJPanel(String username) {
         initComponents();
         nhaCungCaptableModel = (DefaultTableModel) nhaCungCapjTable.getModel();
         ArrayList<NhaCungCap> listNhaCungCap = NhaCungCapDAO.getListNhaCungCap();

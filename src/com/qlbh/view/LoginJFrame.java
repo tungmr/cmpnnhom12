@@ -209,7 +209,7 @@ public class LoginJFrame extends javax.swing.JFrame {
                 }
             } else {
                 if (UserDAO.checkUser(username, password)) {
-                    MainJFrame mainJFrame = new MainJFrame();
+                    MainJFrame mainJFrame = new MainJFrame(username);
                     mainJFrame.setLocationRelativeTo(null);
                     mainJFrame.setVisible(true);
                     this.dispose();

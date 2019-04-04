@@ -18,21 +18,21 @@ public class MainJFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form MainJFrame
+     * @param username
      */
-    public MainJFrame() {
+    public MainJFrame(String username) {
         initComponents();
         MainJFrame.super.setLocationRelativeTo(null);
-
         List<DanhMucBean> listDanhMuc = new ArrayList<>();
-        listDanhMuc.add(new DanhMucBean("TrangChinh", jPanelTrangChu, jLabelTrangChu));
-        listDanhMuc.add(new DanhMucBean("SanPham", jPanelSanPham, jLabelSanPham));
-        listDanhMuc.add(new DanhMucBean("NhaCungCap", jPanelNhaCungCap, jLabelNhaCungCap));
-        listDanhMuc.add(new DanhMucBean("KhachHang", jPanelKhachHang, jLabelKhachHang));
-        listDanhMuc.add(new DanhMucBean("BanHang", jPanelBanHang, jLabelBanHang));
-        listDanhMuc.add(new DanhMucBean("NhanVien", jPanelNhanVien, jLabelNhanVien));
-        listDanhMuc.add(new DanhMucBean("TimKiemThongKe", jPanelTimKiemThongKe, jLabelTimKiemThongKe));
-
-        ChuyenManHinhController controller = new ChuyenManHinhController(jPanelXem);
+        listDanhMuc.add(new DanhMucBean("TrangChinh", jPanelTrangChu, jLabelTrangChu, username));
+        listDanhMuc.add(new DanhMucBean("SanPham", jPanelSanPham, jLabelSanPham, username));
+        listDanhMuc.add(new DanhMucBean("NhaCungCap", jPanelNhaCungCap, jLabelNhaCungCap, username));
+        listDanhMuc.add(new DanhMucBean("KhachHang", jPanelKhachHang, jLabelKhachHang, username));
+        listDanhMuc.add(new DanhMucBean("BanHang", jPanelBanHang, jLabelBanHang, username));
+        listDanhMuc.add(new DanhMucBean("NhanVien", jPanelNhanVien, jLabelNhanVien, username));
+        listDanhMuc.add(new DanhMucBean("TimKiemThongKe", jPanelTimKiemThongKe, jLabelTimKiemThongKe, username));
+        
+        ChuyenManHinhController controller = new ChuyenManHinhController(jPanelXem, username);
         controller.setView(jPanelTrangChu, jLabelTrangChu);
         controller.setEvent(listDanhMuc);
         
@@ -40,6 +40,8 @@ public class MainJFrame extends javax.swing.JFrame {
         
         
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -381,7 +383,7 @@ public class MainJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainJFrame().setVisible(true);
+                new MainJFrame(null).setVisible(true);
             }
         });
     }

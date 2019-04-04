@@ -29,11 +29,13 @@ public class ChuyenManHinhController {
 
     private JPanel root;
     private String loaiMacDinh = "";
+    private String username;
 
     private List<DanhMucBean> listItem = null;
 
-    public ChuyenManHinhController(JPanel jpnRoot) {
+    public ChuyenManHinhController(JPanel jpnRoot, String username) {
         this.root = jpnRoot;
+        this.username = username;
     }
 
     // mặc đỉnh mở lên là trang chủ .
@@ -44,7 +46,7 @@ public class ChuyenManHinhController {
         
         root.removeAll();
         root.setLayout(new BorderLayout());
-        root.add(new TrangChuJPanel());
+        root.add(new TrangChuJPanel(username));
         root.validate();
         root.repaint();
     }
@@ -73,28 +75,28 @@ public class ChuyenManHinhController {
         public void mouseClicked(MouseEvent e) {
             switch (loai) {
                 case "TrangChu":
-                    node = new TrangChuJPanel();
+                    node = new TrangChuJPanel(username);
                     break;
                 case "SanPham":
-                    node = new SanPhamJPanel();
+                    node = new SanPhamJPanel(username);
                     break;
                 case "NhaCungCap":
-                    node = new NhaCungCapJPanel();
+                    node = new NhaCungCapJPanel(username);
                     break;
                 case "KhachHang":
-                    node = new KhachHangJPanel();
+                    node = new KhachHangJPanel(username);
                     break;
                 case "BanHang":
-                    node = new BanHangJPanel();
+                    node = new BanHangJPanel(username);
                     break;
                 case "NhanVien":
-                    node = new NhanVienJPanel();
+                    node = new NhanVienJPanel(username);
                     break;
                 case "TimKiemThongKe":
-                    node = new TimKiemThongKeJPanel();
+                    node = new TimKiemThongKeJPanel(username);
                     break;
                 default:
-                    node = new TrangChuJPanel();
+                    node = new TrangChuJPanel(username);
                     break;
             }
             root.removeAll();
@@ -145,5 +147,15 @@ public class ChuyenManHinhController {
             }
         }
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
+    
 
 }
