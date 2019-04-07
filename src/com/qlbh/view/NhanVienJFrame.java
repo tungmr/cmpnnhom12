@@ -521,7 +521,7 @@ public class NhanVienJFrame extends javax.swing.JFrame {
     private void themNhanVienjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_themNhanVienjButtonActionPerformed
         // TODO add your handling code here:
         try {
-            String maNhanVien = maNhanVienjTextField.getText();
+            String maNhanVien = maNhanVienjTextField.getText().toUpperCase();
             if (NhanVienDAO.kiemTraMaNhanVienDaTonTai(maNhanVien)) {
                 JOptionPane.showMessageDialog(null, "Mã nhân viên đã tồn tại", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
                 
@@ -582,7 +582,7 @@ public class NhanVienJFrame extends javax.swing.JFrame {
         try {
             int row = nhanVienjTable.getSelectedRow();
             if (row != -1) {
-                String maNhanVien = maNhanVienjTextField.getText();
+                String maNhanVien = maNhanVienjTextField.getText().toUpperCase();
                 NhanVien nhanVien = new NhanVien();
                 nhanVien.setTenNhanVien(hoTenjTextField.getText());
                 nhanVien.setGioiTinh(namjRadioButton.isSelected() ? true : false);

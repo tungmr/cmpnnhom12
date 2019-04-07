@@ -11,15 +11,15 @@ package com.qlbh.model;
  */
 public class ChiTietHoaDon {
     private int idChiTiet;
-    private String maHoaDonChiTiet;
+    private long maHoaDonChiTiet;
     private String maSanPhamMua;
-    private String soLuongMua;
-    private String giaSanPhamMua;
+    private int soLuongMua;
+    private double giaSanPhamMua;
 
     public ChiTietHoaDon() {
     }
 
-    public ChiTietHoaDon(int idChiTiet, String maHoaDonChiTiet, String maSanPhamMua, String soLuongMua, String giaSanPhamMua) {
+    public ChiTietHoaDon(int idChiTiet, long maHoaDonChiTiet, String maSanPhamMua, int soLuongMua, double giaSanPhamMua) {
         this.idChiTiet = idChiTiet;
         this.maHoaDonChiTiet = maHoaDonChiTiet;
         this.maSanPhamMua = maSanPhamMua;
@@ -35,11 +35,11 @@ public class ChiTietHoaDon {
         this.idChiTiet = idChiTiet;
     }
 
-    public String getMaHoaDonChiTiet() {
+    public long getMaHoaDonChiTiet() {
         return maHoaDonChiTiet;
     }
 
-    public void setMaHoaDonChiTiet(String maHoaDonChiTiet) {
+    public void setMaHoaDonChiTiet(long maHoaDonChiTiet) {
         this.maHoaDonChiTiet = maHoaDonChiTiet;
     }
 
@@ -51,22 +51,26 @@ public class ChiTietHoaDon {
         this.maSanPhamMua = maSanPhamMua;
     }
 
-    public String getSoLuongMua() {
+    public int getSoLuongMua() {
         return soLuongMua;
     }
 
-    public void setSoLuongMua(String soLuongMua) {
+    public void setSoLuongMua(int soLuongMua) {
         this.soLuongMua = soLuongMua;
     }
 
-    public String getGiaSanPhamMua() {
+    public double getGiaSanPhamMua() {
         return giaSanPhamMua;
     }
 
-    public void setGiaSanPhamMua(String giaSanPhamMua) {
+    public void setGiaSanPhamMua(double giaSanPhamMua) {
         this.giaSanPhamMua = giaSanPhamMua;
     }
     
+    public double tinhTien(){
+        return soLuongMua*giaSanPhamMua;
+    }
+            
     
             
 }

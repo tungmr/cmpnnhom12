@@ -115,6 +115,47 @@ public class SanPhamDAO {
         }
         return false;
     }
+    
+    public static SanPham getMotSanPham(String maSanPham){
+        SanPham sanPham = new SanPham();
+        Connection connection = JDBCConnection.myConnect();
+        String sql = "SELECT * FROM sanpham WHERE ma_san_pham=?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, maSanPham);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                sanPham.setMaSanPham(resultSet.getString(1));
+                sanPham.setTenSanPham(resultSet.getString(2));
+                sanPham.setSoLuong(resultSet.getInt(3));
+                sanPham.setDonGia(resultSet.getDouble(4));
+                sanPham.setMaNhaCungCapSP(resultSet.getString(5));
+                sanPham.setMaNhanVienSP(resultSet.getString(6));
+            }
+        } catch (Exception e) {
+        }
+        return sanPham;
+    }
+    
+    public static boolean kiemTraDuSoLuong(String maSanPham, int soLuong){
+        String sql = "SELECT * FROM sanpham WHERE ma_san_pham=?";
+        Connection connection = JDBCConnection.myConnect();
+        int soLuongSP = 0;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, maSanPham);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next())
+            {
+               soLuongSP = resultSet.getInt(3);
+               return soLuongSP >= soLuong;
+                     
+            }
+        } catch (Exception e) {
+        }
+        return false;
+    }
+    
 
     public static void main(String[] args) {
 //        System.out.println(SanPhamDAO.themSanPham(new SanPham("DT", "Điện thoại", 100, 1000000, null, null)));

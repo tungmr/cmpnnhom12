@@ -84,9 +84,10 @@ public class KhachHangDAO {
     
     public static boolean kiemTraMaKHDaTonTai(String maKhachHang){
         Connection connection = JDBCConnection.myConnect();
-        String sql = "SELECT ma_khach_hang FROM khachhang";
+        String sql = "SELECT ma_khach_hang FROM khachhang WHERE ma_khach_hang=?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, maKhachHang);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next())
                 return true;
@@ -94,6 +95,27 @@ public class KhachHangDAO {
         }
         return false;
     }
+    
+    public static KhachHang getMotKhachHang (String maKhachHang){
+        KhachHang khachHang = new KhachHang();
+        String sql ="SELECT * FROM khachhang WHERE ma_khach_hang=?";
+        Connection connection = JDBCConnection.myConnect();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, maKhachHang);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                khachHang.setMaKhachHang(maKhachHang);
+                khachHang.setTenKhachHang(resultSet.getString(2));
+                khachHang.setEmailKhachHang(resultSet.getString(3));
+                khachHang.setDiaChiKhachHang(resultSet.getString(4));
+                khachHang.setSoDienThoaiKH(resultSet.getString(5));
+            }
+        } catch (Exception e) {
+        }
+        return khachHang;
+    }
+    
     public static void main(String[] args) {
         System.out.println(KhachHangDAO.kiemTraMaKHDaTonTai("MR"));
     }

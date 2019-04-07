@@ -28,7 +28,7 @@
                   <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="xuatKhachHangjButton" min="-2" pref="101" max="-2" attributes="0"/>
+                      <Component id="xuatKhachHangjButton" min="-2" pref="150" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -39,39 +39,38 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="tenKhachHangjLabel" alignment="0" max="32767" attributes="0"/>
-                          <Component id="maKhachHangjLabel" alignment="0" pref="151" max="32767" attributes="0"/>
+                          <Component id="maKhachHangjLabel" alignment="0" max="32767" attributes="0"/>
                           <Component id="diaChiKhachHangjLabel" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="diaChiKhachHangjTextField" pref="228" max="32767" attributes="0"/>
-                          <Component id="hoTenKhachHangjTextField" alignment="1" max="32767" attributes="0"/>
-                          <Component id="maKhachHangjTextField" alignment="1" max="32767" attributes="0"/>
+                          <Component id="diaChiKhachHangjTextField" max="32767" attributes="0"/>
+                          <Component id="hoTenKhachHangjTextField" alignment="1" pref="250" max="32767" attributes="0"/>
+                          <Component id="maKhachHangjTextField" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="189" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="29" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="soDienThoaiKhachHangjLabel" pref="141" max="32767" attributes="0"/>
-                          <Component id="emailKhachHangjLabel" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace pref="261" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="soDienThoaiKhachHangjTextField" pref="264" max="32767" attributes="0"/>
-                          <Component id="emailKhachHangjTextField" max="32767" attributes="0"/>
+                          <Component id="emailKhachHangjLabel" min="-2" pref="150" max="-2" attributes="0"/>
+                          <Component id="soDienThoaiKhachHangjLabel" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="emailKhachHangjTextField" pref="250" max="32767" attributes="0"/>
+                          <Component id="soDienThoaiKhachHangjTextField" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
@@ -80,16 +79,16 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                      <Component id="themKhachHangjButton" min="-2" pref="101" max="-2" attributes="0"/>
+                      <Component id="themKhachHangjButton" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="suaKhachHangjButton" min="-2" pref="101" max="-2" attributes="0"/>
+                      <Component id="suaKhachHangjButton" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="xoaKhachHangjButton" min="-2" pref="101" max="-2" attributes="0"/>
+                      <Component id="xoaKhachHangjButton" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="huyKhachHangjButton" min="-2" pref="101" max="-2" attributes="0"/>
+                      <Component id="huyKhachHangjButton" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="nhapKhachHangjButton" min="-2" pref="101" max="-2" attributes="0"/>
-                      <EmptySpace pref="35" max="32767" attributes="0"/>
+                      <Component id="nhapKhachHangjButton" min="-2" pref="150" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -103,8 +102,8 @@
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="emailKhachHangjLabel" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="emailKhachHangjTextField" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="maKhachHangjTextField" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="emailKhachHangjTextField" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="maKhachHangjTextField" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="maKhachHangjLabel" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -113,29 +112,29 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="tenKhachHangjLabel" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                   <Component id="soDienThoaiKhachHangjLabel" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="hoTenKhachHangjTextField" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="soDienThoaiKhachHangjTextField" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="hoTenKhachHangjTextField" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="soDienThoaiKhachHangjTextField" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="diaChiKhachHangjLabel" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="diaChiKhachHangjTextField" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="diaChiKhachHangjTextField" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="themKhachHangjButton" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                  <Component id="xoaKhachHangjButton" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                  <Component id="suaKhachHangjButton" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                  <Component id="huyKhachHangjButton" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                  <Component id="nhapKhachHangjButton" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="themKhachHangjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="xoaKhachHangjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="suaKhachHangjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="huyKhachHangjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="nhapKhachHangjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="367" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="385" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-              <Component id="xuatKhachHangjButton" min="-2" pref="38" max="-2" attributes="0"/>
+              <Component id="xuatKhachHangjButton" min="-2" pref="60" max="-2" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -216,6 +215,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/dog-tag.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="H&#x1ecd; t&#xea;n"/>
       </Properties>
     </Component>
@@ -226,6 +228,9 @@
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/notebook.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="&#x110;&#x1ecb;a ch&#x1ec9;"/>
       </Properties>
@@ -238,6 +243,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/email.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Email"/>
       </Properties>
     </Component>
@@ -249,6 +257,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/id-card.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="M&#xe3; kh&#xe1;ch h&#xe0;ng"/>
       </Properties>
     </Component>
@@ -259,6 +270,9 @@
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/agenda.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="S&#x1ed1; &#x111;i&#x1ec7;n tho&#x1ea1;i"/>
       </Properties>
@@ -281,6 +295,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/x-button.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="H&#x1ee6;Y"/>
       </Properties>
       <Events>
@@ -295,6 +312,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/import (1).png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="NH&#x1eac;P"/>
       </Properties>
     </Component>
@@ -305,6 +325,9 @@
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/plus.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="TH&#xca;M"/>
       </Properties>
@@ -320,6 +343,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/share.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="XU&#x1ea4;T"/>
       </Properties>
     </Component>
@@ -330,6 +356,9 @@
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/database.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="X&#xd3;A"/>
       </Properties>
@@ -344,6 +373,9 @@
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/edit (1).png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="S&#x1eec;A"/>
       </Properties>

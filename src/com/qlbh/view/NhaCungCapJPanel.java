@@ -109,27 +109,33 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
 
         maNhaCungCapjLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         maNhaCungCapjLabel.setForeground(new java.awt.Color(255, 255, 255));
+        maNhaCungCapjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/business-card-of-folded-diptych-design.png"))); // NOI18N
         maNhaCungCapjLabel.setText("Mã nhà cung cấp");
 
         tenNhaCungCapjLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         tenNhaCungCapjLabel.setForeground(new java.awt.Color(255, 255, 255));
+        tenNhaCungCapjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/dog-tag.png"))); // NOI18N
         tenNhaCungCapjLabel.setText("Tên nhà cung cấp");
 
         diaChiNhaCungCapjLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         diaChiNhaCungCapjLabel.setForeground(new java.awt.Color(255, 255, 255));
         diaChiNhaCungCapjLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        diaChiNhaCungCapjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/notebook.png"))); // NOI18N
         diaChiNhaCungCapjLabel.setText("Địa chỉ");
 
         emailNhaCungCapjLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         emailNhaCungCapjLabel.setForeground(new java.awt.Color(255, 255, 255));
+        emailNhaCungCapjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/email.png"))); // NOI18N
         emailNhaCungCapjLabel.setText("Email");
 
         soDienThoaiNCCjLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         soDienThoaiNCCjLabel.setForeground(new java.awt.Color(255, 255, 255));
+        soDienThoaiNCCjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/agenda.png"))); // NOI18N
         soDienThoaiNCCjLabel.setText("Số điện thoại");
 
         themNCCjButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         themNCCjButton.setForeground(new java.awt.Color(0, 102, 102));
+        themNCCjButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/plus.png"))); // NOI18N
         themNCCjButton.setText("THÊM");
         themNCCjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,6 +145,7 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
 
         xoaNCCjButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         xoaNCCjButton.setForeground(new java.awt.Color(0, 102, 102));
+        xoaNCCjButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/database.png"))); // NOI18N
         xoaNCCjButton.setText("XÓA");
         xoaNCCjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +155,7 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
 
         nhapNCCjButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         nhapNCCjButton.setForeground(new java.awt.Color(0, 102, 102));
+        nhapNCCjButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/import (1).png"))); // NOI18N
         nhapNCCjButton.setText("NHẬP");
 
         maNhaCungCapjTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -170,6 +178,7 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
 
         huyNCCjButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         huyNCCjButton.setForeground(new java.awt.Color(0, 102, 102));
+        huyNCCjButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/x-button.png"))); // NOI18N
         huyNCCjButton.setText("HỦY");
         huyNCCjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,10 +188,12 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
 
         xuatNCCjButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         xuatNCCjButton.setForeground(new java.awt.Color(0, 102, 102));
+        xuatNCCjButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/share.png"))); // NOI18N
         xuatNCCjButton.setText("XUẤT");
 
         suaNCCjButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         suaNCCjButton.setForeground(new java.awt.Color(0, 102, 102));
+        suaNCCjButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/edit (1).png"))); // NOI18N
         suaNCCjButton.setText("SỬA");
         suaNCCjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,21 +233,21 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(themNCCjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(themNCCjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(suaNCCjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(suaNCCjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(xoaNCCjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(xoaNCCjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(huyNCCjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(huyNCCjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(nhapNCCjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(nhapNCCjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(158, 158, 158))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(xuatNCCjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(xuatNCCjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1290, Short.MAX_VALUE))
                         .addGap(24, 24, 24))))
         );
@@ -264,15 +275,15 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
                     .addComponent(diaChiNhaCungCapjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nhapNCCjButton)
-                    .addComponent(huyNCCjButton)
-                    .addComponent(xoaNCCjButton)
-                    .addComponent(themNCCjButton)
-                    .addComponent(suaNCCjButton))
+                    .addComponent(nhapNCCjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(huyNCCjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(xoaNCCjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(themNCCjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(suaNCCjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(xuatNCCjButton)
+                .addComponent(xuatNCCjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -294,7 +305,7 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         try {
             NhaCungCap nhaCungCap = new NhaCungCap();
-            String maNhaCungCap = maNhaCungCapjTextField.getText();
+            String maNhaCungCap = maNhaCungCapjTextField.getText().toUpperCase();
             if (NhaCungCapDAO.kiemTraMaNhaCungCapDaTonTai(maNhaCungCap)) {
                 JOptionPane.showMessageDialog(null, "Mã nhà cung cấp đã tồn tại", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
             } else {
@@ -341,7 +352,7 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
         int row = nhaCungCapjTable.getSelectedRow();
         if (row != -1) {
             maNhaCungCapjTextField.setEditable(false);
-            String maNhaCungCap = maNhaCungCapjTextField.getText();
+            String maNhaCungCap = maNhaCungCapjTextField.getText().toUpperCase();
             NhaCungCap nhaCungCap = new NhaCungCap();
             try {
                 nhaCungCap.setMaNhaCungCap(maNhaCungCap);

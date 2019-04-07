@@ -57,15 +57,15 @@
                           <Component id="jLabel1" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="themNCCjButton" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="themNCCjButton" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="suaNCCjButton" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="suaNCCjButton" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="xoaNCCjButton" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="xoaNCCjButton" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="huyNCCjButton" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="huyNCCjButton" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="nhapNCCjButton" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="nhapNCCjButton" min="-2" pref="150" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
@@ -74,7 +74,7 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="xuatNCCjButton" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="xuatNCCjButton" min="-2" pref="150" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane1" pref="1290" max="32767" attributes="0"/>
                       </Group>
@@ -112,16 +112,16 @@
               </Group>
               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="nhapNCCjButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="huyNCCjButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="xoaNCCjButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="themNCCjButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="suaNCCjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="nhapNCCjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="huyNCCjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="xoaNCCjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="themNCCjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="suaNCCjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="394" max="32767" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Component id="xuatNCCjButton" min="-2" max="-2" attributes="0"/>
+              <Component id="xuatNCCjButton" min="-2" pref="60" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -212,6 +212,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/business-card-of-folded-diptych-design.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="M&#xe3; nh&#xe0; cung c&#x1ea5;p"/>
       </Properties>
     </Component>
@@ -222,6 +225,9 @@
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/dog-tag.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="T&#xea;n nh&#xe0; cung c&#x1ea5;p"/>
       </Properties>
@@ -235,6 +241,9 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="2"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/notebook.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="&#x110;&#x1ecb;a ch&#x1ec9;"/>
       </Properties>
     </Component>
@@ -245,6 +254,9 @@
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/email.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Email"/>
       </Properties>
@@ -257,6 +269,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/agenda.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="S&#x1ed1; &#x111;i&#x1ec7;n tho&#x1ea1;i"/>
       </Properties>
     </Component>
@@ -267,6 +282,9 @@
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/plus.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="TH&#xca;M"/>
       </Properties>
@@ -282,6 +300,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/database.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="X&#xd3;A"/>
       </Properties>
       <Events>
@@ -295,6 +316,9 @@
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/import (1).png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="NH&#x1eac;P"/>
       </Properties>
@@ -326,6 +350,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/x-button.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="H&#x1ee6;Y"/>
       </Properties>
       <Events>
@@ -340,6 +367,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/share.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="XU&#x1ea4;T"/>
       </Properties>
     </Component>
@@ -350,6 +380,9 @@
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/edit (1).png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="S&#x1eec;A"/>
       </Properties>

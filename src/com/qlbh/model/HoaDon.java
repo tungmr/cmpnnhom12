@@ -6,38 +6,39 @@
 package com.qlbh.model;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 /**
  *
  * @author HoangDucTung
  */
 public class HoaDon {
-    private String maHoaDon;
+    private long maHoaDon;
     private String maKhachHangMua;
     private String tenKhachHangMua;
+    private String soDienThoaiKH;
     private String diaChiKhachHangMua;
-    private double tongTien;
     private Timestamp ngayMua;
     private String maNhanVienBan;
 
     public HoaDon() {
     }
 
-    public HoaDon(String maHoaDon, String maKhachHangMua, String tenKhachHangMua, String diaChiKhachHangMua, double tongTien, Timestamp ngayMua, String maNhanVienBan) {
+    public HoaDon(long maHoaDon, String maKhachHangMua, String tenKhachHangMua, String soDienThoaiKH, String diaChiKhachHangMua,  Timestamp ngayMua, String maNhanVienBan) {
         this.maHoaDon = maHoaDon;
         this.maKhachHangMua = maKhachHangMua;
         this.tenKhachHangMua = tenKhachHangMua;
+        this.soDienThoaiKH = soDienThoaiKH;
         this.diaChiKhachHangMua = diaChiKhachHangMua;
-        this.tongTien = tongTien;
         this.ngayMua = ngayMua;
         this.maNhanVienBan = maNhanVienBan;
     }
 
-    public String getMaHoaDon() {
+    public long getMaHoaDon() {
         return maHoaDon;
     }
 
-    public void setMaHoaDon(String maHoaDon) {
+    public void setMaHoaDon(long maHoaDon) {
         this.maHoaDon = maHoaDon;
     }
 
@@ -57,6 +58,16 @@ public class HoaDon {
         this.tenKhachHangMua = tenKhachHangMua;
     }
 
+    public String getSoDienThoaiKH() {
+        return soDienThoaiKH;
+    }
+
+    public void setSoDienThoaiKH(String soDienThoaiKH) {
+        this.soDienThoaiKH = soDienThoaiKH;
+    }
+    
+    
+
     public String getDiaChiKhachHangMua() {
         return diaChiKhachHangMua;
     }
@@ -65,14 +76,15 @@ public class HoaDon {
         this.diaChiKhachHangMua = diaChiKhachHangMua;
     }
 
-    public double getTongTien() {
+    public double getTongTien(ArrayList<ChiTietHoaDon> listChiTietHoaDon) {
+        double tongTien = 0;
+        for (int i=0;i<listChiTietHoaDon.size();i++){
+            tongTien += listChiTietHoaDon.get(i).getGiaSanPhamMua()*listChiTietHoaDon.get(i).getSoLuongMua();
+        }
         return tongTien;
     }
 
-    public void setTongTien(double tongTien) {
-        this.tongTien = tongTien;
-    }
-
+    
     public Timestamp getNgayMua() {
         return ngayMua;
     }

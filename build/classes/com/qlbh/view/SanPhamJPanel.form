@@ -40,12 +40,12 @@
                           <Component id="tenSanPhamjTextField" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="maNhaCungCapSPjLabel" min="-2" pref="156" max="-2" attributes="0"/>
-                          <Component id="donGiaSanPhamjLabel" min="-2" pref="129" max="-2" attributes="0"/>
-                          <Component id="maNhanVienSPjLabel" min="-2" pref="148" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="maNhaCungCapSPjLabel" pref="196" max="32767" attributes="0"/>
+                          <Component id="maNhanVienSPjLabel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="donGiaSanPhamjLabel" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="194" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="maNhaCungCapSPjComboBox" pref="226" max="32767" attributes="0"/>
                           <Component id="donGiaSanPhamjTextField" max="32767" attributes="0"/>
@@ -54,22 +54,22 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="themSanPhamjButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="themSanPhamjButton" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="suaSanPhamjButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="suaSanPhamjButton" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="xoaSanPhamjButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="xoaSanPhamjButton" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="huySanPhamjButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="huySanPhamjButton" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="nhapSanPhamjButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="nhapSanPhamjButton" min="-2" pref="150" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="xuatSanPhamjButton" min="-2" max="-2" attributes="0"/>
+              <Component id="xuatSanPhamjButton" min="-2" pref="150" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
@@ -119,16 +119,16 @@
               </Group>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="nhapSanPhamjButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="huySanPhamjButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="themSanPhamjButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="xoaSanPhamjButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="suaSanPhamjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="nhapSanPhamjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="huySanPhamjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="themSanPhamjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="xoaSanPhamjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="suaSanPhamjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="360" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="304" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="xuatSanPhamjButton" min="-2" max="-2" attributes="0"/>
+              <Component id="xuatSanPhamjButton" min="-2" pref="60" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -246,6 +246,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/stats.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="S&#x1ed1; l&#x1b0;&#x1ee3;ng"/>
       </Properties>
     </Component>
@@ -256,6 +259,9 @@
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/price-tag.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="&#x110;&#x1a1;n gi&#xe1;"/>
       </Properties>
@@ -278,6 +284,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/business-card-of-folded-diptych-design.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="M&#xe3; nh&#xe0; cung c&#x1ea5;p"/>
       </Properties>
     </Component>
@@ -288,6 +297,9 @@
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/id-card.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="M&#xe3; nh&#xe2;n vi&#xea;n"/>
       </Properties>
@@ -313,6 +325,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/plus.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="TH&#xca;M"/>
       </Properties>
       <Events>
@@ -326,6 +341,9 @@
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/x-button.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="H&#x1ee6;Y"/>
       </Properties>
@@ -341,6 +359,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/import (1).png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="NH&#x1eac;P"/>
       </Properties>
     </Component>
@@ -352,6 +373,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/share.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="XU&#x1ea4;T"/>
       </Properties>
     </Component>
@@ -362,6 +386,9 @@
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/database.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="X&#xd3;A"/>
       </Properties>
@@ -376,6 +403,9 @@
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/qlbh/images/edit (1).png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="S&#x1eec;A"/>
       </Properties>

@@ -74,7 +74,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="xuatTiemKiemjButton" min="-2" pref="120" max="-2" attributes="0"/>
+                      <Component id="xuatTiemKiemjButton" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -84,21 +84,21 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="loaTimKiemjLabel" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="tuKhoaTimKiemjLabel" pref="147" max="32767" attributes="0"/>
+                                  <Component id="tuKhoaTimKiemjLabel" pref="161" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="maTimKiemjComboBox" pref="120" max="32767" attributes="0"/>
+                                      <Component id="maTimKiemjComboBox" pref="126" max="32767" attributes="0"/>
                                       <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
-                                      <Component id="thuocTimKiemjLabel" pref="130" max="32767" attributes="0"/>
+                                      <Component id="thuocTimKiemjLabel" pref="134" max="32767" attributes="0"/>
                                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                      <Component id="thuocTimKiemjComboBox" pref="197" max="32767" attributes="0"/>
+                                      <Component id="thuocTimKiemjComboBox" pref="201" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="tuKhoaTimKiemjTextField" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
-                              <Component id="timKiemjButton" pref="181" max="32767" attributes="0"/>
+                              <Component id="timKiemjButton" min="-2" pref="162" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="225" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -127,13 +127,13 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="timKiemjButton" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="timKiemjButton" min="-2" pref="60" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="jScrollPane1" pref="325" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="374" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="xuatTiemKiemjButton" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="xuatTiemKiemjButton" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -166,6 +166,9 @@
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="0" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/qlbh/images/key.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="T&#x1eeb; kh&#xf3;a"/>
               </Properties>
@@ -202,6 +205,9 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="0" type="rgb"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/qlbh/images/list.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Lo&#x1ea1;i"/>
               </Properties>
             </Component>
@@ -212,6 +218,9 @@
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="0" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/qlbh/images/diagram.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Thu&#x1ed9;c"/>
               </Properties>
@@ -249,6 +258,9 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="0" type="rgb"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/qlbh/images/search.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="T&#xcc;M"/>
               </Properties>
             </Component>
@@ -259,6 +271,9 @@
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="0" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/qlbh/images/share.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="XU&#x1ea4;T"/>
               </Properties>
@@ -301,12 +316,12 @@
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="thangThongKejComboBox" max="32767" attributes="0"/>
-                                  <Component id="maThongKejComboBox" pref="170" max="32767" attributes="0"/>
+                                  <Component id="maThongKejComboBox" pref="139" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="xemSPThongKejButton" pref="146" max="32767" attributes="0"/>
-                                  <Component id="xemThangThongKejButton" max="32767" attributes="0"/>
+                                  <Component id="xemSPThongKejButton" pref="150" max="32767" attributes="0"/>
+                                  <Component id="xemThangThongKejButton" pref="150" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
                           </Group>
@@ -314,7 +329,7 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="xuatThongKejButton" min="-2" pref="141" max="-2" attributes="0"/>
+                      <Component id="xuatThongKejButton" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -324,7 +339,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="xemSPThongKejButton" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="xemSPThongKejButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
                           <Component id="tuKhoaThongKejLabel" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                           <Component id="tuKhoaThongKejTextField" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                           <Component id="maThongKejComboBox" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
@@ -334,12 +349,12 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="thangThongKejLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="thangThongKejComboBox" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="xemThangThongKejButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="xemThangThongKejButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" pref="372" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" pref="363" max="32767" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="xuatThongKejButton" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="xuatThongKejButton" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -354,6 +369,9 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="0" type="rgb"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/qlbh/images/key.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="T&#x1eeb; kh&#xf3;a"/>
               </Properties>
             </Component>
@@ -364,6 +382,9 @@
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="0" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/qlbh/images/weekly-calendar.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ch&#x1ecd;n th&#xe1;ng"/>
               </Properties>
@@ -405,6 +426,9 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="0" type="rgb"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/qlbh/images/hunter.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Xem"/>
               </Properties>
             </Component>
@@ -415,6 +439,9 @@
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="0" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/qlbh/images/hunter.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Xem"/>
               </Properties>
@@ -475,6 +502,9 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="0" type="rgb"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/qlbh/images/list.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Lo&#x1ea1;i"/>
               </Properties>
             </Component>
@@ -485,6 +515,9 @@
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="0" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/qlbh/images/share.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="XU&#x1ea4;T"/>
               </Properties>
