@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * @author HoangDucTung
  */
 public class KhachHangDAO {
-
+    
     public static ArrayList<KhachHang> getListKhachHang() {
         ArrayList<KhachHang> listKhachHang = new ArrayList<>();
         String sql = "SELECT * FROM khachhang";
@@ -37,7 +37,7 @@ public class KhachHangDAO {
         }
         return listKhachHang;
     }
-
+    
     public static boolean themKhachHang(KhachHang khachHang) {
         Connection connection = JDBCConnection.myConnect();
         String sql = "INSERT INTO khachhang(ma_khach_hang,ten_khach_hang,email_khach_hang,dia_chi,so_dien_thoai) VALUES (?,?,?,?,?)";
@@ -53,7 +53,7 @@ public class KhachHangDAO {
         }
         return false;
     }
-
+    
     public static boolean suaKhachHang(KhachHang khachHang, String maKH) {
         Connection connection = JDBCConnection.myConnect();
         String sql = "UPDATE khachhang SET ten_khach_hang=?, email_khach_hang=?, dia_chi=?, so_dien_thoai=? WHERE ma_khach_hang=?";
@@ -69,7 +69,7 @@ public class KhachHangDAO {
         }
         return false;
     }
-
+    
     public static boolean xoaKhachHang(String maKhachHang) {
         Connection connection = JDBCConnection.myConnect();
         String sql = "DELETE FROM khachhang WHERE ma_khach_hang=?";
@@ -82,29 +82,30 @@ public class KhachHangDAO {
         return false;
     }
     
-    public static boolean kiemTraMaKHDaTonTai(String maKhachHang){
+    public static boolean kiemTraMaKHDaTonTai(String maKhachHang) {
         Connection connection = JDBCConnection.myConnect();
         String sql = "SELECT ma_khach_hang FROM khachhang WHERE ma_khach_hang=?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, maKhachHang);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next())
+            while (resultSet.next()) {
                 return true;
+            }
         } catch (Exception e) {
         }
         return false;
     }
     
-    public static KhachHang getMotKhachHang (String maKhachHang){
+    public static KhachHang getMotKhachHang(String maKhachHang) {
         KhachHang khachHang = new KhachHang();
-        String sql ="SELECT * FROM khachhang WHERE ma_khach_hang=?";
+        String sql = "SELECT * FROM khachhang WHERE ma_khach_hang=?";
         Connection connection = JDBCConnection.myConnect();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, maKhachHang);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 khachHang.setMaKhachHang(maKhachHang);
                 khachHang.setTenKhachHang(resultSet.getString(2));
                 khachHang.setEmailKhachHang(resultSet.getString(3));
@@ -114,6 +115,49 @@ public class KhachHangDAO {
         } catch (Exception e) {
         }
         return khachHang;
+    }
+    
+    public static ArrayList<KhachHang> timKiemKhachHangTheoTen(String tuKhoa) {
+        ArrayList<KhachHang> listKhachHang = new ArrayList<>();
+        String sql = "SELECT * FROM khachhang WHERE ten_khach_hang LIKE '%"+tuKhoa+"%'";
+        Connection connection = JDBCConnection.myConnect();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                KhachHang khachHang = new KhachHang();
+                khachHang.setMaKhachHang(resultSet.getString(1));
+                khachHang.setTenKhachHang(resultSet.getString(2));
+                khachHang.setEmailKhachHang(resultSet.getString(3));
+                khachHang.setDiaChiKhachHang(resultSet.getString(4));
+                khachHang.setSoDienThoaiKH(resultSet.getString(5));
+                listKhachHang.add(khachHang);
+            }
+        } catch (Exception e) {
+        }
+        return listKhachHang;
+    }
+    
+    
+    public static ArrayList<KhachHang> timKiemKhachHangTheoMa(String tuKhoa) {
+        ArrayList<KhachHang> listKhachHang = new ArrayList<>();
+        String sql = "SELECT * FROM khachhang WHERE ma_khach_hang LIKE '%"+tuKhoa+"%'";
+        Connection connection = JDBCConnection.myConnect();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                KhachHang khachHang = new KhachHang();
+                khachHang.setMaKhachHang(resultSet.getString(1));
+                khachHang.setTenKhachHang(resultSet.getString(2));
+                khachHang.setEmailKhachHang(resultSet.getString(3));
+                khachHang.setDiaChiKhachHang(resultSet.getString(4));
+                khachHang.setSoDienThoaiKH(resultSet.getString(5));
+                listKhachHang.add(khachHang);
+            }
+        } catch (Exception e) {
+        }
+        return listKhachHang;
     }
     
     public static void main(String[] args) {

@@ -133,6 +133,56 @@ public class NhanVienDAO {
         return false;
     }
 
+    public static ArrayList<NhanVien> timKiemNhanVienTheoTen(String tuKhoa) {
+        ArrayList<NhanVien> listNhanVien = new ArrayList<>();
+        String sql = "SELECT * FROM nhanvien WHERE ten_nhan_vien LIKE '%"+tuKhoa+"%'";
+        Connection connection = JDBCConnection.myConnect();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                NhanVien nhanVien = new NhanVien();
+                nhanVien.setMaNhanVien(resultSet.getString(1));
+                nhanVien.setTenNhanVien(resultSet.getString(2));
+                nhanVien.setChucVu(resultSet.getString(3));
+                nhanVien.setLuongNhanVien(resultSet.getDouble(4));
+                nhanVien.setDiaChiNhanVien(resultSet.getString(5));
+                nhanVien.setSoDienThoai(resultSet.getString(6));
+                nhanVien.setEmailNhanVien(resultSet.getString(7));
+                nhanVien.setNgaySinh(resultSet.getDate(8));
+                nhanVien.setGioiTinh(resultSet.getBoolean(9));
+                listNhanVien.add(nhanVien);
+            }
+        } catch (Exception e) {
+        }
+        return listNhanVien;
+    }
+    
+     public static ArrayList<NhanVien> timKiemNhanVienTheoMa(String tuKhoa) {
+        ArrayList<NhanVien> listNhanVien = new ArrayList<>();
+        String sql = "SELECT * FROM nhanvien WHERE ma_nhan_vien LIKE '%"+tuKhoa+"%'";
+        Connection connection = JDBCConnection.myConnect();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                NhanVien nhanVien = new NhanVien();
+                nhanVien.setMaNhanVien(resultSet.getString(1));
+                nhanVien.setTenNhanVien(resultSet.getString(2));
+                nhanVien.setChucVu(resultSet.getString(3));
+                nhanVien.setLuongNhanVien(resultSet.getDouble(4));
+                nhanVien.setDiaChiNhanVien(resultSet.getString(5));
+                nhanVien.setSoDienThoai(resultSet.getString(6));
+                nhanVien.setEmailNhanVien(resultSet.getString(7));
+                nhanVien.setNgaySinh(resultSet.getDate(8));
+                nhanVien.setGioiTinh(resultSet.getBoolean(9));
+                listNhanVien.add(nhanVien);
+            }
+        } catch (Exception e) {
+        }
+        return listNhanVien;
+    }
+
 //     public static void main(String[] args) {
 //         System.out.println(NhanVienDAO.getListNhanVien().size());
 //    }

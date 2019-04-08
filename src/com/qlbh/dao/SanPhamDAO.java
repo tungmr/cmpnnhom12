@@ -99,24 +99,23 @@ public class SanPhamDAO {
         }
         return false;
     }
-    
-    public static boolean kiemTraMaSPTonTai(String maSP){
+
+    public static boolean kiemTraMaSPTonTai(String maSP) {
         Connection connection = JDBCConnection.myConnect();
         String sql = "SELECT * FROM sanpham WHERE ma_san_pham=?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, maSP);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while(resultSet.next())
-            {
+            while (resultSet.next()) {
                 return true;
             }
         } catch (Exception e) {
         }
         return false;
     }
-    
-    public static SanPham getMotSanPham(String maSanPham){
+
+    public static SanPham getMotSanPham(String maSanPham) {
         SanPham sanPham = new SanPham();
         Connection connection = JDBCConnection.myConnect();
         String sql = "SELECT * FROM sanpham WHERE ma_san_pham=?";
@@ -124,7 +123,7 @@ public class SanPhamDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, maSanPham);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 sanPham.setMaSanPham(resultSet.getString(1));
                 sanPham.setTenSanPham(resultSet.getString(2));
                 sanPham.setSoLuong(resultSet.getInt(3));
@@ -136,8 +135,8 @@ public class SanPhamDAO {
         }
         return sanPham;
     }
-    
-    public static boolean kiemTraDuSoLuong(String maSanPham, int soLuong){
+
+    public static boolean kiemTraDuSoLuong(String maSanPham, int soLuong) {
         String sql = "SELECT * FROM sanpham WHERE ma_san_pham=?";
         Connection connection = JDBCConnection.myConnect();
         int soLuongSP = 0;
@@ -145,17 +144,83 @@ public class SanPhamDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, maSanPham);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next())
-            {
-               soLuongSP = resultSet.getInt(3);
-               return soLuongSP >= soLuong;
-                     
+            while (resultSet.next()) {
+                soLuongSP = resultSet.getInt(3);
+                return soLuongSP >= soLuong;
+
             }
         } catch (Exception e) {
         }
         return false;
     }
-    
+
+    public static ArrayList<SanPham> timKiemSanPhamTheoTen(String tuKhoa) {
+        ArrayList<SanPham> listSanPham = new ArrayList<>();
+        Connection connection = JDBCConnection.myConnect();
+        String sql = "SELECT * FROM sanpham WHERE ten_san_pham LIKE '%" + tuKhoa + "%'";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                SanPham sanPham = new SanPham();
+                sanPham.setMaSanPham(resultSet.getString(1));
+                sanPham.setTenSanPham(resultSet.getString(2));
+                sanPham.setSoLuong(resultSet.getInt(3));
+                sanPham.setDonGia(resultSet.getDouble(4));
+                sanPham.setMaNhaCungCapSP(resultSet.getString(5));
+                sanPham.setMaNhanVienSP(resultSet.getString(6));
+                listSanPham.add(sanPham);
+            }
+        } catch (Exception e) {
+        }
+        return listSanPham;
+    }
+
+    public static ArrayList<SanPham> timKiemSanPhamTheoMa(String tuKhoa) {
+        ArrayList<SanPham> listSanPham = new ArrayList<>();
+        Connection connection = JDBCConnection.myConnect();
+        String sql = "SELECT * FROM sanpham WHERE ma_san_pham LIKE '%" + tuKhoa + "%'";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                SanPham sanPham = new SanPham();
+                sanPham.setMaSanPham(resultSet.getString(1));
+                sanPham.setTenSanPham(resultSet.getString(2));
+                sanPham.setSoLuong(resultSet.getInt(3));
+                sanPham.setDonGia(resultSet.getDouble(4));
+                sanPham.setMaNhaCungCapSP(resultSet.getString(5));
+                sanPham.setMaNhanVienSP(resultSet.getString(6));
+                listSanPham.add(sanPham);
+            }
+        } catch (Exception e) {
+
+        }
+        return listSanPham;
+    }
+
+    public static ArrayList<SanPham> locSanPhamTheoSoLuong(int soLuong) {
+        String sql = "SELECT * FROM sanpham WHERE so_luong <= ?";
+        ArrayList<SanPham> listSanPham = new ArrayList<>();
+        Connection connection = JDBCConnection.myConnect();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, soLuong);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                SanPham sanPham = new SanPham();
+                sanPham.setMaSanPham(resultSet.getString(1));
+                sanPham.setTenSanPham(resultSet.getString(2));
+                sanPham.setSoLuong(resultSet.getInt(3));
+                sanPham.setDonGia(resultSet.getDouble(4));
+                sanPham.setMaNhaCungCapSP(resultSet.getString(5));
+                sanPham.setMaNhanVienSP(resultSet.getString(6));
+                listSanPham.add(sanPham);
+            }
+        } catch (Exception e) {
+        }
+        return listSanPham;
+    }
 
     public static void main(String[] args) {
 //        System.out.println(SanPhamDAO.themSanPham(new SanPham("DT", "Điện thoại", 100, 1000000, null, null)));
@@ -163,5 +228,7 @@ public class SanPhamDAO {
 //            System.out.println(SanPhamDAO.suaSanPham(new SanPham(null, "Siêu máy giặt", 10, 10, null, null), "MG"));
 //            System.out.println(SanPhamDAO.capNhapSoLuongSanPham("MG", 111));
 //        System.out.println(SanPhamDAO.kiemTraMaSPTonTai("DH1234"));
+        //System.out.println(SanPhamDAO.timKiemSanPhamTheoMa("DH").size());
+        //System.out.println(SanPhamDAO.locSanPhamTheoSoLuong(50).size());
     }
 }
