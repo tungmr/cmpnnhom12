@@ -16,15 +16,15 @@ import java.util.ArrayList;
  * @author HoangDucTung
  */
 public class ChiTietHoaDonDAO {
-    
-    public static ArrayList<ChiTietHoaDon> getListChiTietHD (){
+
+    public static ArrayList<ChiTietHoaDon> getListChiTietHD() {
         ArrayList<ChiTietHoaDon> listChiTiet = new ArrayList<>();
         Connection connection = JDBCConnection.myConnect();
-        String sql ="SELECT * FROM chitiethoadon";
+        String sql = "SELECT * FROM chitiethoadon";
         try {
-            PreparedStatement preparedStatement =connection.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon();
                 chiTietHoaDon.setIdChiTiet(resultSet.getInt(1));
                 chiTietHoaDon.setMaHoaDonChiTiet(resultSet.getLong(2));
@@ -37,16 +37,16 @@ public class ChiTietHoaDonDAO {
         }
         return listChiTiet;
     }
-    
-    public static ArrayList<ChiTietHoaDon> getMotChiTietHoaDon (long maHoaDon){
+
+    public static ArrayList<ChiTietHoaDon> getMotChiTietHoaDon(long maHoaDon) {
         ArrayList<ChiTietHoaDon> listMotChiTiet = new ArrayList<>();
         String sql = "SELECT * FROM chitiethoadon WHERE ma_hd=?";
         Connection connection = JDBCConnection.myConnect();
-         try {
-            PreparedStatement preparedStatement =connection.prepareStatement(sql);
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setLong(1, maHoaDon);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon();
                 chiTietHoaDon.setIdChiTiet(resultSet.getInt(1));
                 chiTietHoaDon.setMaHoaDonChiTiet(resultSet.getLong(2));
@@ -59,9 +59,9 @@ public class ChiTietHoaDonDAO {
         }
         return listMotChiTiet;
     }
-    
-    public static boolean themChiTietHoaDon(ChiTietHoaDon chiTietHoaDon){
-        String sql ="INSERT INTO chitiethoadon (ma_hd, ma_sp, so_luong, gia_sp) VALUES (?,?,?,?)";
+
+    public static boolean themChiTietHoaDon(ChiTietHoaDon chiTietHoaDon) {
+        String sql = "INSERT INTO chitiethoadon (ma_hd, ma_sp, so_luong, gia_sp) VALUES (?,?,?,?)";
         Connection connection = JDBCConnection.myConnect();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -74,35 +74,65 @@ public class ChiTietHoaDonDAO {
         }
         return false;
     }
-    
-    public static boolean suaChiTietHoaDon(ChiTietHoaDon chiTietHoaDon, int idChiTiet){
-        String sql ="UPDATE chitiethoadon SET ma_sp = ?, so_luong = ?, gia_sp =? WHERE id_chitiet =?";
+
+    public static boolean suaChiTietHoaDon(ChiTietHoaDon chiTietHoaDon, int idChiTiet) {
+        String sql = "UPDATE chitiethoadon SET ma_sp = ?, so_luong = ?, gia_sp =? WHERE id_chitiet =?";
         Connection connection = JDBCConnection.myConnect();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, chiTietHoaDon.getMaSanPhamMua());
             preparedStatement.setInt(2, chiTietHoaDon.getSoLuongMua());
-            preparedStatement.setDouble(3,chiTietHoaDon.getGiaSanPhamMua());
+            preparedStatement.setDouble(3, chiTietHoaDon.getGiaSanPhamMua());
             preparedStatement.setInt(4, idChiTiet);
             return preparedStatement.executeUpdate() == 1;
         } catch (Exception e) {
         }
         return false;
-        
+
     }
-    
-    public static boolean xoaChiTietHoaDon(int idChiTiet){
+
+    public static boolean xoaChiTietHoaDon(int idChiTiet) {
         String sql = "DELETE FROM chitiethoadon WHERE id_chitiet=?";
         Connection connection = JDBCConnection.myConnect();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, idChiTiet);
-            return preparedStatement.executeUpdate()==1;
+            return preparedStatement.executeUpdate() == 1;
         } catch (Exception e) {
         }
         return false;
     }
-    
+
+    public static boolean xoaMotChiTietHoaDon(long maHoaDon, String maSanPham) {
+        String sql = "DELETE FROM chitiethoadon WHERE ma_hd=? and ma_sp=?";
+        Connection connection = JDBCConnection.myConnect();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setLong(1, maHoaDon);
+            preparedStatement.setString(2, maSanPham);
+            return preparedStatement.executeUpdate() == 1;
+        } catch (Exception e) {
+        }
+        return false;
+    }
+
+    public static boolean capNhapMotChiTietHoaDon(long maHoaDon, ChiTietHoaDon chiTietHoaDon, String maSPCu) {
+        String sql = "UPDATE chitiethoadon SET ma_sp =?, so_luong=?, gia_sp=? WHERE ma_hd=? and ma_sp=?";
+        Connection connection = JDBCConnection.myConnect();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, chiTietHoaDon.getMaSanPhamMua());
+            preparedStatement.setInt(2, chiTietHoaDon.getSoLuongMua());
+            preparedStatement.setDouble(3, chiTietHoaDon.getGiaSanPhamMua());
+            preparedStatement.setLong(4, maHoaDon);
+            preparedStatement.setString(5, maSPCu);
+            return preparedStatement.executeUpdate() == 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         System.out.println(ChiTietHoaDonDAO.getListChiTietHD().size());
     }

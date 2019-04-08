@@ -79,7 +79,7 @@ public class HoaDon {
     public double getTongTien(ArrayList<ChiTietHoaDon> listChiTietHoaDon) {
         double tongTien = 0;
         for (int i=0;i<listChiTietHoaDon.size();i++){
-            tongTien += listChiTietHoaDon.get(i).getGiaSanPhamMua()*listChiTietHoaDon.get(i).getSoLuongMua();
+            tongTien += listChiTietHoaDon.get(i).tinhTien();
         }
         return tongTien;
     }

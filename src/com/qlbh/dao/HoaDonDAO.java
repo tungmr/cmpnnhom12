@@ -102,6 +102,19 @@ public class HoaDonDAO {
         return false;
     }
     
+    public static boolean suaKhachHangHoaDon (String maKhachHang, long maHoaDon){
+        String sql = "UPDATE hoadon SET ma_kh = ? WHERE  ma_hoa_don=?";
+        Connection connection = JDBCConnection.myConnect();
+        try {
+            PreparedStatement  preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, maKhachHang);
+            preparedStatement.setLong(2, maHoaDon);
+            return preparedStatement.executeUpdate() == 1;
+        } catch (Exception e) {
+        }
+        return false;
+    }
+    
     public static void main(String[] args) {
         System.out.println(HoaDonDAO.getListHoaDon().size());
     }

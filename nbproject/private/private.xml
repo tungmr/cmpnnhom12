@@ -6,8 +6,10 @@
             <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/dao/ChiTietHoaDonDAO.java</file>
             <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/model/HoaDon.java</file>
             <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/view/BanHangJPanel.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/view/KhachHangJPanel.java</file>
             <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/dao/HoaDonDAO.java</file>
             <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/dao/SanPhamDAO.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/model/ChiTietHoaDon.java</file>
         </group>
     </open-files>
 </project-private>
