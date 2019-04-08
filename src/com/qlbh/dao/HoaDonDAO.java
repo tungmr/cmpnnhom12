@@ -54,6 +54,7 @@ public class HoaDonDAO {
             preparedStatement.setString(7, hoaDon.getMaNhanVienBan());
             return preparedStatement.executeUpdate() == 1;
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return false;
     }
@@ -114,6 +115,22 @@ public class HoaDonDAO {
         }
         return false;
     }
+    
+     public static boolean suaKhachHangKhongThanhVienHoaDon (String tenKhachHang,String soDienThoai, String diaChiKH, long maHoaDon){
+        String sql = "UPDATE hoadon SET ten_kh =?, so_dien_thoai_kh=?, dia_chi_kh =? WHERE  ma_hoa_don=?";
+        Connection connection = JDBCConnection.myConnect();
+        try {
+            PreparedStatement  preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, tenKhachHang);
+            preparedStatement.setString(2, soDienThoai);
+            preparedStatement.setString(3, diaChiKH);
+            preparedStatement.setLong(4, maHoaDon);
+            return preparedStatement.executeUpdate() == 1;
+        } catch (Exception e) {
+        }
+        return false;
+    }
+    
     
     public static void main(String[] args) {
         System.out.println(HoaDonDAO.getListHoaDon().size());

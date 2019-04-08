@@ -453,6 +453,7 @@ public class KhachHangJPanel extends javax.swing.JPanel {
         themKhachHangjButton.setEnabled(true);
         nhapKhachHangjButton.setEnabled(true);
         huyKhachHangjButton.setEnabled(false);
+        khachHangjTable.clearSelection();
     }//GEN-LAST:event_huyKhachHangjButtonActionPerformed
 
 

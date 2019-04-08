@@ -709,6 +709,7 @@ public class NhanVienJFrame extends javax.swing.JFrame {
         nhapNhanVienjButton.setEnabled(true);
         huyNhanVienjButton.setEnabled(false);
         xuatNhanVienjButton.setEnabled(true);
+        nhanVienjTable.clearSelection();
     }//GEN-LAST:event_huyNhanVienjButtonActionPerformed
 
     /**

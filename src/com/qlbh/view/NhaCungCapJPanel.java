@@ -420,6 +420,7 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
         diaChiNhaCungCapjTextField.setText("");
         emailNhaCungCapjTextField.setText("");
         soDienThoaiNCCjTextField.setText("");
+        nhaCungCapjTable.clearSelection();
     }//GEN-LAST:event_huyNCCjButtonActionPerformed
 
     public void setDefaultInput() {

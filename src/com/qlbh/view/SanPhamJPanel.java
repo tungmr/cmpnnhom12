@@ -432,6 +432,7 @@ public class SanPhamJPanel extends javax.swing.JPanel {
         suaSanPhamjButton.setEnabled(false);
         huySanPhamjButton.setEnabled(false);
         xoaSanPhamjButton.setEnabled(false);
+        sanPhamjTable.clearSelection();
     }//GEN-LAST:event_huySanPhamjButtonActionPerformed
 
 
