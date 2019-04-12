@@ -5,9 +5,11 @@
  */
 package com.qlbh.view;
 
+import com.qlbh.dao.HoaDonDAO;
 import com.qlbh.dao.KhachHangDAO;
 import com.qlbh.dao.NhaCungCapDAO;
 import com.qlbh.dao.SanPhamDAO;
+import com.qlbh.model.HoaDon;
 import com.qlbh.model.KhachHang;
 import com.qlbh.model.NhaCungCap;
 import com.qlbh.model.SanPham;
@@ -29,6 +31,7 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
     ImageIcon dung = new ImageIcon("dau-check.png");
     DefaultTableModel ketQuaTableModel;
     DefaultTableModel ketQuaThongKeSoLuongTableModel;
+    DefaultTableModel thongKeTheoThangTableModel;
 
     public TimKiemThongKeJPanel(String username) {
         initComponents();
@@ -195,7 +198,7 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
         tuKhoaThongKejLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         tuKhoaThongKejLabel.setForeground(new java.awt.Color(0, 102, 102));
         tuKhoaThongKejLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/key.png"))); // NOI18N
-        tuKhoaThongKejLabel.setText("Từ khóa");
+        tuKhoaThongKejLabel.setText("Số lượng");
 
         thangThongKejLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         thangThongKejLabel.setForeground(new java.awt.Color(0, 102, 102));
@@ -277,13 +280,13 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(56, 56, 56)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(xemSPThongKejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(soLuongThongKejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tuKhoaThongKejLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(4, 4, 4)))
+                        .addGap(4, 4, 4))
+                    .addComponent(xemSPThongKejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(thangThongKejLabel)
@@ -492,9 +495,47 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
         }
         try {
             int thangSo = Integer.parseInt(thang);
-            
+            ArrayList<HoaDon> listHD = HoaDonDAO.thongKeTheoThang(thangSo);
+            thongKeTheoThangTableModel = (DefaultTableModel) thongKejTable.getModel();
+            thongKeTheoThangTableModel.setRowCount(0);
+            String[] col = {"STT", "Mã hóa đơn", "Mã khách hàng", "Tên khách hàng", "Số điện thoại", "Địa chỉ", "Ngày mua", "Mã nhân viên"};
+            thongKeTheoThangTableModel.setColumnIdentifiers(col);
+            for (int i = 0; i < listHD.size(); i++) {
+                if (listHD.get(i).getMaKhachHangMua()==null) {
+                    thongKeTheoThangTableModel.addRow(new Object[]{
+                        i + 1,
+                        listHD.get(i).getMaHoaDon(),
+                        "",
+                        listHD.get(i).getTenKhachHangMua(),
+                        listHD.get(i).getSoDienThoaiKH(),
+                        listHD.get(i).getDiaChiKhachHangMua(),
+                        listHD.get(i).getNgayMua(),
+                        listHD.get(i).getMaNhanVienBan()
+                    });
+                } else {
+                    KhachHang khachHang = KhachHangDAO.getMotKhachHang(listHD.get(i).getMaKhachHangMua());
+                    thongKeTheoThangTableModel.addRow(new Object[]{
+                        i + 1,
+                        listHD.get(i).getMaHoaDon(),
+                        listHD.get(i).getMaKhachHangMua(),
+                        khachHang.getTenKhachHang(),
+                        khachHang.getSoDienThoaiKH(),
+                        khachHang.getDiaChiKhachHang(),
+                        listHD.get(i).getNgayMua(),
+                        listHD.get(i).getMaNhanVienBan()
+                    });
+
+                }
+            }
+
+            if (thongKeTheoThangTableModel.getRowCount() == 0) {
+                String[] colkq = {};
+                thongKeTheoThangTableModel.setColumnIdentifiers(colkq);
+                JOptionPane.showMessageDialog(null, "Không tìm thấy kết quả", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+            }
+
         } catch (Exception e) {
-            
+
         }
 
     }//GEN-LAST:event_xemThangThongKejButtonActionPerformed

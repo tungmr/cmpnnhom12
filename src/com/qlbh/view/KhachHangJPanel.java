@@ -7,10 +7,18 @@ package com.qlbh.view;
 
 import com.qlbh.dao.KhachHangDAO;
 import com.qlbh.model.KhachHang;
+import com.qlbh.tools.Excel;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import jxl.Cell;
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
 
 /**
  *
@@ -31,7 +39,7 @@ public class KhachHangJPanel extends javax.swing.JPanel {
         ArrayList<KhachHang> listKhachHang = KhachHangDAO.getListKhachHang();
         for (KhachHang khachHang : listKhachHang) {
             khachHangtableModel.addRow(new Object[]{
-                khachHang.getMaKhachHang(), khachHang.getTenKhachHang(), khachHang.getEmailKhachHang(), khachHang.getDiaChiKhachHang(), khachHang.getSoDienThoaiKH()
+                khachHang.getMaKhachHang(), khachHang.getTenKhachHang(), khachHang.getDiaChiKhachHang(), khachHang.getSoDienThoaiKH(), khachHang.getEmailKhachHang()
             });
         }
         setEnabledButton();
@@ -147,6 +155,11 @@ public class KhachHangJPanel extends javax.swing.JPanel {
         nhapKhachHangjButton.setForeground(new java.awt.Color(0, 102, 102));
         nhapKhachHangjButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/import (1).png"))); // NOI18N
         nhapKhachHangjButton.setText("NHẬP");
+        nhapKhachHangjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nhapKhachHangjButtonActionPerformed(evt);
+            }
+        });
 
         themKhachHangjButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         themKhachHangjButton.setForeground(new java.awt.Color(0, 102, 102));
@@ -162,6 +175,11 @@ public class KhachHangJPanel extends javax.swing.JPanel {
         xuatKhachHangjButton.setForeground(new java.awt.Color(0, 102, 102));
         xuatKhachHangjButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/share.png"))); // NOI18N
         xuatKhachHangjButton.setText("XUẤT");
+        xuatKhachHangjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xuatKhachHangjButtonActionPerformed(evt);
+            }
+        });
 
         xoaKhachHangjButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         xoaKhachHangjButton.setForeground(new java.awt.Color(0, 102, 102));
@@ -314,34 +332,34 @@ public class KhachHangJPanel extends javax.swing.JPanel {
             String maKhachHang = maKhachHangjTextField.getText().toUpperCase();
             String tenKhachHang = hoTenKhachHangjTextField.getText();
             String soDienThoai = soDienThoaiKhachHangjTextField.getText();
-            if (maKhachHang.equals("") || tenKhachHang.equals("") || soDienThoai.equals("")){
+            if (maKhachHang.equals("") || tenKhachHang.equals("") || soDienThoai.equals("")) {
                 JOptionPane.showMessageDialog(null, "Vui lòng nhập vào các trường bắt buộc", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
 
-            }else{
-                if (KhachHangDAO.kiemTraMaKHDaTonTai(maKhachHang)) {
-                JOptionPane.showMessageDialog(null, "Mã khách hàng đã tồn tại", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
             } else {
-                
-                khachHang.setMaKhachHang(maKhachHang);
-                khachHang.setTenKhachHang(hoTenKhachHangjTextField.getText());
-                khachHang.setDiaChiKhachHang(diaChiKhachHangjTextField.getText());
-                khachHang.setEmailKhachHang(emailKhachHangjTextField.getText());
-                khachHang.setSoDienThoaiKH(soDienThoaiKhachHangjTextField.getText());
-                
-                if (KhachHangDAO.themKhachHang(khachHang)) {
-                    khachHangtableModel.addRow(new Object[]{
-                        khachHang.getMaKhachHang(), khachHang.getTenKhachHang(), khachHang.getDiaChiKhachHang(), khachHang.getSoDienThoaiKH(), khachHang.getEmailKhachHang()
-                    });
-                    JOptionPane.showMessageDialog(null, "Đã thêm", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
-
+                if (KhachHangDAO.kiemTraMaKHDaTonTai(maKhachHang)) {
+                    JOptionPane.showMessageDialog(null, "Mã khách hàng đã tồn tại", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Kiểm tra lại thông tin nhập vào", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+
+                    khachHang.setMaKhachHang(maKhachHang);
+                    khachHang.setTenKhachHang(hoTenKhachHangjTextField.getText());
+                    khachHang.setDiaChiKhachHang(diaChiKhachHangjTextField.getText());
+                    khachHang.setEmailKhachHang(emailKhachHangjTextField.getText());
+                    khachHang.setSoDienThoaiKH(soDienThoaiKhachHangjTextField.getText());
+
+                    if (KhachHangDAO.themKhachHang(khachHang)) {
+                        khachHangtableModel.addRow(new Object[]{
+                            khachHang.getMaKhachHang(), khachHang.getTenKhachHang(), khachHang.getDiaChiKhachHang(), khachHang.getSoDienThoaiKH(), khachHang.getEmailKhachHang()
+                        });
+                        JOptionPane.showMessageDialog(null, "Đã thêm", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Kiểm tra lại thông tin nhập vào", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+
+                    }
 
                 }
+            }
 
-            }
-            }
-            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Kiểm tra lại thông tin nhập vào", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
 
@@ -437,7 +455,7 @@ public class KhachHangJPanel extends javax.swing.JPanel {
         diaChiKhachHangjTextField.setText("");
         emailKhachHangjTextField.setText("");
         soDienThoaiKhachHangjTextField.setText("");
-        
+
         themKhachHangjButton.setEnabled(true);
         nhapKhachHangjButton.setEnabled(true);
         huyKhachHangjButton.setEnabled(false);
@@ -455,6 +473,72 @@ public class KhachHangJPanel extends javax.swing.JPanel {
         huyKhachHangjButton.setEnabled(false);
         khachHangjTable.clearSelection();
     }//GEN-LAST:event_huyKhachHangjButtonActionPerformed
+
+    private void nhapKhachHangjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nhapKhachHangjButtonActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jFileChooser = new JFileChooser();
+        jFileChooser.setDialogTitle("Chọn file");
+        int chonFile = jFileChooser.showOpenDialog(null);
+        if (chonFile == JFileChooser.APPROVE_OPTION) {
+            try {
+                int count = 0;
+                String duongDanExcel = jFileChooser.getSelectedFile().getAbsolutePath();
+                JOptionPane.showMessageDialog(null, duongDanExcel);
+                File file = new File(duongDanExcel);
+                Workbook workbook = Workbook.getWorkbook(file);
+                Sheet sheet = workbook.getSheet(0);
+                int row = sheet.getRows();
+                for (int i = 1; i < row; i++) {
+                    Cell col1 = sheet.getCell(0, i);
+                    Cell col2 = sheet.getCell(1, i);
+                    Cell col3 = sheet.getCell(2, i);
+                    Cell col4 = sheet.getCell(3, i);
+                    Cell col5 = sheet.getCell(4, i);
+                    String maKH = col1.getContents();
+                    String tenKH = col2.getContents();
+                    String diaChiKH = col3.getContents();
+                    String soDienThoaiKH = col4.getContents();
+                    String emailKH = col5.getContents();
+                    KhachHang khachHang = new KhachHang(maKH, tenKH, emailKH, diaChiKH, soDienThoaiKH);
+                    if (KhachHangDAO.themKhachHang(khachHang)) {
+                        khachHangtableModel.addRow(new Object[]{
+                            khachHang.getMaKhachHang(),
+                            khachHang.getTenKhachHang(),
+                            khachHang.getDiaChiKhachHang(),
+                            khachHang.getSoDienThoaiKH(),
+                            khachHang.getEmailKhachHang()
+                        });
+                        count++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Kiểm tra lại giá trị trong file", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+                    }
+
+                }
+                if (count == row - 1) {
+                    JOptionPane.showMessageDialog(null, "Nhập file thành công", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+
+                }
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Kiểm tra lại cấu trúc file", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+            } catch (BiffException ex) {
+                JOptionPane.showMessageDialog(null, "Kiểm tra lại cấu trúc file", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+            }
+        }
+    }//GEN-LAST:event_nhapKhachHangjButtonActionPerformed
+
+    private void xuatKhachHangjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xuatKhachHangjButtonActionPerformed
+        // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new java.io.File("."));
+        chooser.setDialogTitle("Chọn thư mục để lưu");
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        chooser.setAcceptAllFileFilterUsed(false);
+        if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            Excel.xuatFileExcel(khachHangjTable, chooser.getSelectedFile() + "\\\\Khachhang.xls");
+            JOptionPane.showMessageDialog(null, "Đã lưu file tại đường dẫn: " + chooser.getSelectedFile(), "Message", JOptionPane.INFORMATION_MESSAGE, dung);
+        } else {
+        }
+    }//GEN-LAST:event_xuatKhachHangjButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

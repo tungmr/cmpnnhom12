@@ -8,10 +8,20 @@ package com.qlbh.view;
 import com.qlbh.dao.NhaCungCapDAO;
 import com.qlbh.dao.SanPhamDAO;
 import com.qlbh.model.SanPham;
+import com.qlbh.tools.Excel;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import jxl.Cell;
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
 
 /**
  *
@@ -164,11 +174,21 @@ public class SanPhamJPanel extends javax.swing.JPanel {
         nhapSanPhamjButton.setForeground(new java.awt.Color(0, 102, 102));
         nhapSanPhamjButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/import (1).png"))); // NOI18N
         nhapSanPhamjButton.setText("NHẬP");
+        nhapSanPhamjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nhapSanPhamjButtonActionPerformed(evt);
+            }
+        });
 
         xuatSanPhamjButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         xuatSanPhamjButton.setForeground(new java.awt.Color(0, 102, 102));
         xuatSanPhamjButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/share.png"))); // NOI18N
         xuatSanPhamjButton.setText("XUẤT");
+        xuatSanPhamjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xuatSanPhamjButtonActionPerformed(evt);
+            }
+        });
 
         xoaSanPhamjButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         xoaSanPhamjButton.setForeground(new java.awt.Color(0, 102, 102));
@@ -342,35 +362,42 @@ public class SanPhamJPanel extends javax.swing.JPanel {
 
     private void suaSanPhamjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suaSanPhamjButtonActionPerformed
         // TODO add your handling code here:
-        try {
-            SanPham sanPham = new SanPham();
-            String maSP = maSanPhamjTextField.getText().toUpperCase();
-            sanPham.setMaSanPham(maSP);
-            sanPham.setTenSanPham(tenSanPhamjTextField.getText());
-            sanPham.setDonGia(Double.parseDouble(donGiaSanPhamjTextField.getText()));
-            sanPham.setSoLuong(Integer.parseInt(soLuongSanPhamjTextField.getText()));
-            sanPham.setMaNhanVienSP(maNhanVienSPjTextField.getText().toUpperCase());
-            sanPham.setMaNhaCungCapSP(maNhaCungCapSPjComboBox.getSelectedItem().toString());
-            if (SanPhamDAO.suaSanPham(sanPham, maSP)) {
-                int row = sanPhamjTable.getSelectedRow();
-                sanPhamtableModel.setValueAt(sanPham.getTenSanPham(), row, 1);
-                sanPhamtableModel.setValueAt(sanPham.getMaNhaCungCapSP(), row, 2);
-                sanPhamtableModel.setValueAt(sanPham.getSoLuong(), row, 3);
-                sanPhamtableModel.setValueAt(sanPham.getDonGia(), row, 4);
-                JOptionPane.showMessageDialog(null, "Đã sửa", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
+        int chonHang = sanPhamjTable.getSelectedRow();
+        if (sanPhamtableModel.getValueAt(chonHang, 5).equals(maNhanVienSPjTextField.getText())) {
+            try {
+                SanPham sanPham = new SanPham();
+                String maSP = maSanPhamjTextField.getText().toUpperCase();
+                sanPham.setMaSanPham(maSP);
+                sanPham.setTenSanPham(tenSanPhamjTextField.getText());
+                sanPham.setDonGia(Double.parseDouble(donGiaSanPhamjTextField.getText()));
+                sanPham.setSoLuong(Integer.parseInt(soLuongSanPhamjTextField.getText()));
+                sanPham.setMaNhanVienSP(maNhanVienSPjTextField.getText().toUpperCase());
+                sanPham.setMaNhaCungCapSP(maNhaCungCapSPjComboBox.getSelectedItem().toString());
+                if (SanPhamDAO.suaSanPham(sanPham, maSP)) {
+                    int row = sanPhamjTable.getSelectedRow();
+                    sanPhamtableModel.setValueAt(sanPham.getTenSanPham(), row, 1);
+                    sanPhamtableModel.setValueAt(sanPham.getMaNhaCungCapSP(), row, 2);
+                    sanPhamtableModel.setValueAt(sanPham.getSoLuong(), row, 3);
+                    sanPhamtableModel.setValueAt(sanPham.getDonGia(), row, 4);
+                    JOptionPane.showMessageDialog(null, "Đã sửa", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
 
-            } else {
+                } else {
+                    JOptionPane.showMessageDialog(null, "Kiểm tra lại thông tin nhập vào", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+
+                }
+
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Kiểm tra lại thông tin nhập vào", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
 
             }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Kiểm tra lại thông tin nhập vào", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+            themSanPhamjButton.setEnabled(true);
+            nhapSanPhamjButton.setEnabled(true);
+            huySanPhamjButton.setEnabled(false);
+        } else {
+            JOptionPane.showMessageDialog(null, "Không có quyền sửa sản phẩm này", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
 
         }
-        themSanPhamjButton.setEnabled(true);
-        nhapSanPhamjButton.setEnabled(true);
-        huySanPhamjButton.setEnabled(false);
+
 
     }//GEN-LAST:event_suaSanPhamjButtonActionPerformed
 
@@ -387,7 +414,6 @@ public class SanPhamJPanel extends javax.swing.JPanel {
         loadMaNCC(sanPhamtableModel.getValueAt(row, 2).toString());
         soLuongSanPhamjTextField.setText(sanPhamtableModel.getValueAt(row, 3).toString());
         donGiaSanPhamjTextField.setText(sanPhamtableModel.getValueAt(row, 4).toString());
-        maNhanVienSPjTextField.setText(sanPhamtableModel.getValueAt(row, 5).toString());
         maSanPhamjTextField.setEditable(false);
     }//GEN-LAST:event_sanPhamjTableMouseClicked
 
@@ -434,6 +460,79 @@ public class SanPhamJPanel extends javax.swing.JPanel {
         xoaSanPhamjButton.setEnabled(false);
         sanPhamjTable.clearSelection();
     }//GEN-LAST:event_huySanPhamjButtonActionPerformed
+
+    private void nhapSanPhamjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nhapSanPhamjButtonActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jFileChooser = new JFileChooser();
+        jFileChooser.setDialogTitle("Chọn file");
+        int chonFile = jFileChooser.showOpenDialog(null);
+        if (chonFile == JFileChooser.APPROVE_OPTION) {
+            try {
+                int count =0;
+                String duongDanExcel = jFileChooser.getSelectedFile().getAbsolutePath();
+                JOptionPane.showMessageDialog(null, duongDanExcel);
+                File file = new File(duongDanExcel);
+                Workbook workbook = Workbook.getWorkbook(file);
+                Sheet sheet = workbook.getSheet(0);
+                int row = sheet.getRows();
+                for (int i = 1; i < row; i++) {
+                    Cell col1 = sheet.getCell(0, i);
+                    Cell col2 = sheet.getCell(1, i);
+                    Cell col3 = sheet.getCell(2, i);
+                    Cell col4 = sheet.getCell(3, i);
+                    Cell col5 = sheet.getCell(4, i);
+                    Cell col6 = sheet.getCell(5, i);
+                    String maSanPham = col1.getContents();
+                    String tenSanPham = col2.getContents();
+                    String maNCCSanPham = col3.getContents();
+                    int soLuong = Integer.parseInt(col4.getContents());
+                    double donGia = Double.parseDouble(col5.getContents());
+                    String maNhanVien = col6.getContents();
+                    SanPham sanPham = new SanPham(maSanPham, tenSanPham, soLuong, donGia, maNCCSanPham, maNhanVien);
+                    if (SanPhamDAO.themSanPham(sanPham)) {
+                        count ++;
+                        sanPhamtableModel.addRow(new Object[]{
+                            sanPham.getMaSanPham(),
+                            sanPham.getTenSanPham(),
+                            sanPham.getMaNhaCungCapSP(),
+                            sanPham.getSoLuong(),
+                            sanPham.getDonGia(),
+                            sanPham.getMaNhanVienSP()
+                        });
+                        
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Kiểm tra lại giá trị trong file", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+                    }
+
+                }
+
+                if (count == row - 1) {
+                    JOptionPane.showMessageDialog(null, "Nhập file thành công", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+
+                }
+
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Kiểm tra lại cấu trúc file", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+            } catch (BiffException ex) {
+                JOptionPane.showMessageDialog(null, "Kiểm tra lại cấu trúc file", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+            }
+        }
+    }//GEN-LAST:event_nhapSanPhamjButtonActionPerformed
+
+    private void xuatSanPhamjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xuatSanPhamjButtonActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jFileChooser = new JFileChooser();
+        jFileChooser.setCurrentDirectory(new java.io.File("."));
+        jFileChooser.setDialogTitle("Chọn thư mục để lưu");
+        jFileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        jFileChooser.setAcceptAllFileFilterUsed(false);
+        if (jFileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            Excel.xuatFileExcel(sanPhamjTable, jFileChooser.getSelectedFile() + "\\\\Sanpham.xls");
+            JOptionPane.showMessageDialog(null, "Đã lưu file tại đường dẫn: " + jFileChooser.getSelectedFile(), "Message", JOptionPane.INFORMATION_MESSAGE, dung);
+        } else {
+        }
+
+    }//GEN-LAST:event_xuatSanPhamjButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

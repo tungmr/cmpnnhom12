@@ -7,10 +7,18 @@ package com.qlbh.view;
 
 import com.qlbh.dao.NhaCungCapDAO;
 import com.qlbh.model.NhaCungCap;
+import com.qlbh.tools.Excel;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import jxl.Cell;
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
 
 /**
  *
@@ -157,6 +165,11 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
         nhapNCCjButton.setForeground(new java.awt.Color(0, 102, 102));
         nhapNCCjButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/import (1).png"))); // NOI18N
         nhapNCCjButton.setText("NHẬP");
+        nhapNCCjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nhapNCCjButtonActionPerformed(evt);
+            }
+        });
 
         maNhaCungCapjTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,6 +203,11 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
         xuatNCCjButton.setForeground(new java.awt.Color(0, 102, 102));
         xuatNCCjButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/share.png"))); // NOI18N
         xuatNCCjButton.setText("XUẤT");
+        xuatNCCjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xuatNCCjButtonActionPerformed(evt);
+            }
+        });
 
         suaNCCjButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         suaNCCjButton.setForeground(new java.awt.Color(0, 102, 102));
@@ -422,6 +440,72 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
         soDienThoaiNCCjTextField.setText("");
         nhaCungCapjTable.clearSelection();
     }//GEN-LAST:event_huyNCCjButtonActionPerformed
+
+    private void xuatNCCjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xuatNCCjButtonActionPerformed
+        // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new java.io.File("."));
+        chooser.setDialogTitle("Chọn thư mục để lưu");
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        chooser.setAcceptAllFileFilterUsed(false);
+        if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            Excel.xuatFileExcel(nhaCungCapjTable, chooser.getSelectedFile() + "\\\\Nhacungcap.xls");
+            JOptionPane.showMessageDialog(null, "Đã lưu file tại đường dẫn: " + chooser.getSelectedFile(), "Message", JOptionPane.INFORMATION_MESSAGE, dung);
+        } else {
+        }
+    }//GEN-LAST:event_xuatNCCjButtonActionPerformed
+
+    private void nhapNCCjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nhapNCCjButtonActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jFileChooser = new JFileChooser();
+        jFileChooser.setDialogTitle("Chọn file");
+        int chonFile = jFileChooser.showOpenDialog(null);
+        if (chonFile == JFileChooser.APPROVE_OPTION) {
+            try {
+                int count = 0;
+                String duongDanExcel = jFileChooser.getSelectedFile().getAbsolutePath();
+                JOptionPane.showMessageDialog(null, duongDanExcel);
+                File file = new File(duongDanExcel);
+                Workbook workbook = Workbook.getWorkbook(file);
+                Sheet sheet = workbook.getSheet(0);
+                int row = sheet.getRows();
+                for (int i = 1; i < row; i++) {
+                    Cell col1 = sheet.getCell(0, i);
+                    Cell col2 = sheet.getCell(1, i);
+                    Cell col3 = sheet.getCell(2, i);
+                    Cell col4 = sheet.getCell(3, i);
+                    Cell col5 = sheet.getCell(4, i);
+                    String maNCC = col1.getContents();
+                    String tenNCC = col2.getContents();
+                    String diaChiNCC = col3.getContents();
+                    String emailNCC = col4.getContents();
+                    String soDienThoaiNCC = col5.getContents();
+                    NhaCungCap nhaCungCap = new NhaCungCap(maNCC, tenNCC, diaChiNCC, emailNCC, soDienThoaiNCC);
+                    if (NhaCungCapDAO.themNhaCungCap(nhaCungCap)) {
+                        nhaCungCaptableModel.addRow(new Object[]{
+                            nhaCungCap.getMaNhaCungCap(),
+                            nhaCungCap.getTenNhaCungCap(),
+                            nhaCungCap.getDiaChiNhaCungCap(),
+                            nhaCungCap.getEmailNhaCungCap(),
+                            nhaCungCap.getSoDienThoaiNCC()
+                        });
+                        count++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Kiểm tra lại giá trị trong file", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+                    }
+
+                }
+                if (count == row - 1) {
+                    JOptionPane.showMessageDialog(null, "Nhập file thành công", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
+
+                }
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Kiểm tra lại cấu trúc file", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+            } catch (BiffException ex) {
+                JOptionPane.showMessageDialog(null, "Kiểm tra lại cấu trúc file", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+            }
+        }
+    }//GEN-LAST:event_nhapNCCjButtonActionPerformed
 
     public void setDefaultInput() {
         tenNhaCungCapjTextField.setText("");

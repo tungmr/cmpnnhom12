@@ -16,15 +16,15 @@ import java.util.ArrayList;
  * @author HoangDucTung
  */
 public class HoaDonDAO {
-    
-    public static ArrayList<HoaDon> getListHoaDon (){
+
+    public static ArrayList<HoaDon> getListHoaDon() {
         ArrayList<HoaDon> listHoaDon = new ArrayList<>();
         String sql = "SELECT * FROM hoadon";
         Connection connection = JDBCConnection.myConnect();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 HoaDon hoaDon = new HoaDon();
                 hoaDon.setMaHoaDon(resultSet.getLong(1));
                 hoaDon.setMaKhachHangMua(resultSet.getString(2));
@@ -76,9 +76,9 @@ public class HoaDonDAO {
         }
         return false;
     }
-    
-    public static boolean xoaHoaDon (long maHoaDon){
-        String sql ="DELETE FROM hoadon WHERE ma_hoa_don= ?";
+
+    public static boolean xoaHoaDon(long maHoaDon) {
+        String sql = "DELETE FROM hoadon WHERE ma_hoa_don= ?";
         Connection connection = JDBCConnection.myConnect();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -88,26 +88,27 @@ public class HoaDonDAO {
         }
         return false;
     }
-    
-    public static boolean checkHoaDon (long maHoaDon){
+
+    public static boolean checkHoaDon(long maHoaDon) {
         String sql = "SELECT * FROM hoadon WHERE ma_hoa_don=?";
         Connection connection = JDBCConnection.myConnect();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setLong(1, maHoaDon);
             ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next())
+            if (resultSet.next()) {
                 return true;
+            }
         } catch (Exception e) {
         }
         return false;
     }
-    
-    public static boolean suaKhachHangHoaDon (String maKhachHang, long maHoaDon){
+
+    public static boolean suaKhachHangHoaDon(String maKhachHang, long maHoaDon) {
         String sql = "UPDATE hoadon SET ma_kh = ? WHERE  ma_hoa_don=?";
         Connection connection = JDBCConnection.myConnect();
         try {
-            PreparedStatement  preparedStatement = connection.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, maKhachHang);
             preparedStatement.setLong(2, maHoaDon);
             return preparedStatement.executeUpdate() == 1;
@@ -115,12 +116,12 @@ public class HoaDonDAO {
         }
         return false;
     }
-    
-     public static boolean suaKhachHangKhongThanhVienHoaDon (String tenKhachHang,String soDienThoai, String diaChiKH, long maHoaDon){
+
+    public static boolean suaKhachHangKhongThanhVienHoaDon(String tenKhachHang, String soDienThoai, String diaChiKH, long maHoaDon) {
         String sql = "UPDATE hoadon SET ten_kh =?, so_dien_thoai_kh=?, dia_chi_kh =? WHERE  ma_hoa_don=?";
         Connection connection = JDBCConnection.myConnect();
         try {
-            PreparedStatement  preparedStatement = connection.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, tenKhachHang);
             preparedStatement.setString(2, soDienThoai);
             preparedStatement.setString(3, diaChiKH);
@@ -130,10 +131,31 @@ public class HoaDonDAO {
         }
         return false;
     }
-     
-     
-    
-    
+
+    public static ArrayList<HoaDon> thongKeTheoThang(int thang) {
+        ArrayList<HoaDon> listHD = new ArrayList<>();
+        String sql = "SELECT * FROM hoadon where month(ngay_mua)=?";
+        Connection connection = JDBCConnection.myConnect();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, thang);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                HoaDon hoaDon = new HoaDon();
+                hoaDon.setMaHoaDon(resultSet.getLong(1));
+                hoaDon.setMaKhachHangMua(resultSet.getString(2));
+                hoaDon.setTenKhachHangMua(resultSet.getString(3));
+                hoaDon.setSoDienThoaiKH(resultSet.getString(4));
+                hoaDon.setDiaChiKhachHangMua(resultSet.getString(5));
+                hoaDon.setNgayMua(resultSet.getTimestamp(6));
+                hoaDon.setMaNhanVienBan(resultSet.getString(7));
+                listHD.add(hoaDon);
+            }
+        } catch (Exception e) {
+        }
+        return listHD;
+    }
+
     public static void main(String[] args) {
         System.out.println(HoaDonDAO.getListHoaDon().size());
     }

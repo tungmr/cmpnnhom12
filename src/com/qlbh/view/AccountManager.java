@@ -29,14 +29,7 @@ public class AccountManager extends javax.swing.JFrame {
     ImageIcon dung = new ImageIcon("dau-check.png");
     private String username ;
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        System.out.println(username);
-        this.username = username;
-    }
+    
     
     public AccountManager(String username) {
         initComponents();
@@ -44,7 +37,6 @@ public class AccountManager extends javax.swing.JFrame {
         userTableModel = (DefaultTableModel) userjTable.getModel();
         loadAllUser();
         huyUserjButton.setEnabled(false);
-        System.out.println(username);
         welcome.setText(username);
     }
 
@@ -262,10 +254,20 @@ public class AccountManager extends javax.swing.JFrame {
                 .addContainerGap(84, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("File");
+        jMenu1.setText("Đăng xuất");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("thoát");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -431,6 +433,20 @@ public class AccountManager extends javax.swing.JFrame {
 //        nhanVienJFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_nhanVienjLabelMouseClicked
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        // TODO add your handling code here:
+        LoginJFrame loginJFrame = new LoginJFrame();
+        loginJFrame.setLocationRelativeTo(null);
+        loginJFrame.setResizable(false);
+        loginJFrame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jMenu2MouseClicked
 
     /**
      * @param args the command line arguments
