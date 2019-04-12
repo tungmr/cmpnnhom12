@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/view/NhaCungCapJPanel.java</file>
-            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/view/SanPhamJPanel.java</file>
-            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/tools/Excel.java</file>
-            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/view/NhanVienJPanel.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/view/TrangChuJPanel.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/view/DoiMatKhauJFrame.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/view/LoginJFrame.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/view/NhanVienJFrame.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/dao/UserDAO.java</file>
+            <file>file:/D:/CNPM/QuanLiBanHang/src/com/qlbh/view/MainJFrame.java</file>
         </group>
     </open-files>
 </project-private>

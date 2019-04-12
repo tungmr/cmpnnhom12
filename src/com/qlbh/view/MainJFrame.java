@@ -71,6 +71,9 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanelTimKiemThongKe = new javax.swing.JPanel();
         jLabelTimKiemThongKe = new javax.swing.JLabel();
         jPanelXem = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản lí bán hàng");
@@ -123,7 +126,7 @@ public class MainJFrame extends javax.swing.JFrame {
             jPanelTrangChuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTrangChuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelTrangChu, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                .addComponent(jLabelTrangChu, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -147,7 +150,7 @@ public class MainJFrame extends javax.swing.JFrame {
             jPanelSanPhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSanPhamLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelSanPham, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                .addComponent(jLabelSanPham, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -171,7 +174,7 @@ public class MainJFrame extends javax.swing.JFrame {
             jPanelNhaCungCapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelNhaCungCapLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelNhaCungCap, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                .addComponent(jLabelNhaCungCap, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -195,7 +198,7 @@ public class MainJFrame extends javax.swing.JFrame {
             jPanelKhachHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelKhachHangLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                .addComponent(jLabelKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -219,7 +222,7 @@ public class MainJFrame extends javax.swing.JFrame {
             jPanelBanHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBanHangLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelBanHang, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                .addComponent(jLabelBanHang, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -243,7 +246,7 @@ public class MainJFrame extends javax.swing.JFrame {
             jPanelNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelNhanVienLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelNhanVien, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                .addComponent(jLabelNhanVien, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -267,7 +270,7 @@ public class MainJFrame extends javax.swing.JFrame {
             jPanelTimKiemThongKeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTimKiemThongKeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelTimKiemThongKe, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+                .addComponent(jLabelTimKiemThongKe, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -337,6 +340,26 @@ public class MainJFrame extends javax.swing.JFrame {
             .addComponent(jPanelXem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jMenu1.setText("Đăng xuất");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Thoát");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -352,6 +375,20 @@ public class MainJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        // TODO add your handling code here:
+        LoginJFrame loginJFrame = new LoginJFrame();
+        loginJFrame.setLocationRelativeTo(null);
+        loginJFrame.setResizable(false);
+        loginJFrame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        // TODO add your handling code here:
+        System.exit(1);
+    }//GEN-LAST:event_jMenu2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -397,6 +434,9 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelSanPham;
     private javax.swing.JLabel jLabelTimKiemThongKe;
     private javax.swing.JLabel jLabelTrangChu;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanelBanHang;
     private javax.swing.JPanel jPanelKhachHang;
     private javax.swing.JPanel jPanelMenu;

@@ -27,10 +27,8 @@ public class AccountManager extends javax.swing.JFrame {
     DefaultTableModel userTableModel;
     ImageIcon sai = new ImageIcon("tinhsai.png");
     ImageIcon dung = new ImageIcon("dau-check.png");
-    private String username ;
+    private String username;
 
-    
-    
     public AccountManager(String username) {
         initComponents();
         AccountManager.super.setLocationRelativeTo(null);
@@ -39,12 +37,6 @@ public class AccountManager extends javax.swing.JFrame {
         huyUserjButton.setEnabled(false);
         welcome.setText(username);
     }
-
-    
-    
-
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -321,7 +313,7 @@ public class AccountManager extends javax.swing.JFrame {
                     if (UserDAO.themUser(user)) {
                         int rowCount = userTableModel.getRowCount();
                         userTableModel.addRow(new Object[]{
-                            rowCount+1, user.getMaNhanVien(),user.getPassword(),user.getRole()==1? "Nhân viên" : "Quản lí"
+                            rowCount + 1, user.getMaNhanVien(), user.getPassword(), user.getRole() == 1 ? "Nhân viên" : "Quản lí"
                         });
                         JOptionPane.showMessageDialog(null, "Đã thêm user", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
 
@@ -429,9 +421,7 @@ public class AccountManager extends javax.swing.JFrame {
         nhanVienJFrame.setLocationRelativeTo(null);
         nhanVienJFrame.setResizable(false);
         nhanVienJFrame.setVisible(true);
-//        nhanVienJFrame.pack();
-//        nhanVienJFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.dispose();
+        nhanVienJFrame.setDefaultCloseOperation(HIDE_ON_CLOSE);
     }//GEN-LAST:event_nhanVienjLabelMouseClicked
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked

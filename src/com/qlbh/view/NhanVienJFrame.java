@@ -180,6 +180,7 @@ public class NhanVienJFrame extends javax.swing.JFrame {
         nujRadioButton.setText("Nữ");
 
         ngaySinhjDateChooser.setDateFormatString("dd/MM/yyyy");
+        ngaySinhjDateChooser.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         soDienThoaijTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
