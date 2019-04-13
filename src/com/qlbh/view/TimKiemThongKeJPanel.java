@@ -5,16 +5,21 @@
  */
 package com.qlbh.view;
 
+import com.qlbh.dao.ChiTietHoaDonDAO;
 import com.qlbh.dao.HoaDonDAO;
 import com.qlbh.dao.KhachHangDAO;
 import com.qlbh.dao.NhaCungCapDAO;
 import com.qlbh.dao.SanPhamDAO;
+import com.qlbh.model.ChiTietHoaDon;
 import com.qlbh.model.HoaDon;
 import com.qlbh.model.KhachHang;
 import com.qlbh.model.NhaCungCap;
 import com.qlbh.model.SanPham;
+import com.qlbh.tools.Excel;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -32,6 +37,8 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
     DefaultTableModel ketQuaTableModel;
     DefaultTableModel ketQuaThongKeSoLuongTableModel;
     DefaultTableModel thongKeTheoThangTableModel;
+
+    DecimalFormat format = new DecimalFormat("###,###,###");
 
     public TimKiemThongKeJPanel(String username) {
         initComponents();
@@ -136,6 +143,11 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
         xuatTiemKiemjButton.setForeground(new java.awt.Color(0, 102, 102));
         xuatTiemKiemjButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/share.png"))); // NOI18N
         xuatTiemKiemjButton.setText("XUẤT");
+        xuatTiemKiemjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xuatTiemKiemjButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -246,6 +258,11 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
         xuatThongKejButton.setForeground(new java.awt.Color(0, 102, 102));
         xuatThongKejButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/share.png"))); // NOI18N
         xuatThongKejButton.setText("XUẤT");
+        xuatThongKejButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xuatThongKejButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -354,7 +371,7 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
                                     listSP.get(i).getMaSanPham(),
                                     listSP.get(i).getTenSanPham(),
                                     listSP.get(i).getSoLuong(),
-                                    listSP.get(i).getDonGia(),
+                                    format.format(listSP.get(i).getDonGia()),
                                     listSP.get(i).getMaNhaCungCapSP(),
                                     listSP.get(i).getMaNhanVienSP(),});
                             }
@@ -470,7 +487,7 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
                         listSP.get(i).getMaSanPham(),
                         listSP.get(i).getTenSanPham(),
                         listSP.get(i).getSoLuong(),
-                        listSP.get(i).getDonGia(),
+                        format.format(listSP.get(i).getDonGia()),
                         listSP.get(i).getMaNhaCungCapSP(),
                         listSP.get(i).getMaNhanVienSP(),});
                 }
@@ -498,10 +515,11 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
             ArrayList<HoaDon> listHD = HoaDonDAO.thongKeTheoThang(thangSo);
             thongKeTheoThangTableModel = (DefaultTableModel) thongKejTable.getModel();
             thongKeTheoThangTableModel.setRowCount(0);
-            String[] col = {"STT", "Mã hóa đơn", "Mã khách hàng", "Tên khách hàng", "Số điện thoại", "Địa chỉ", "Ngày mua", "Mã nhân viên"};
+            String[] col = {"STT", "Mã hóa đơn", "Mã khách hàng", "Tên khách hàng", "Số điện thoại", "Địa chỉ", "Ngày mua", "Tổng tiền", "Mã nhân viên"};
             thongKeTheoThangTableModel.setColumnIdentifiers(col);
             for (int i = 0; i < listHD.size(); i++) {
-                if (listHD.get(i).getMaKhachHangMua()==null) {
+                ArrayList<ChiTietHoaDon> listChiTiet = ChiTietHoaDonDAO.getMotChiTietHoaDon(listHD.get(i).getMaHoaDon());
+                if (listHD.get(i).getMaKhachHangMua() == null) {
                     thongKeTheoThangTableModel.addRow(new Object[]{
                         i + 1,
                         listHD.get(i).getMaHoaDon(),
@@ -510,6 +528,7 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
                         listHD.get(i).getSoDienThoaiKH(),
                         listHD.get(i).getDiaChiKhachHangMua(),
                         listHD.get(i).getNgayMua(),
+                        format.format(listHD.get(i).getTongTien(listChiTiet)),
                         listHD.get(i).getMaNhanVienBan()
                     });
                 } else {
@@ -522,6 +541,7 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
                         khachHang.getSoDienThoaiKH(),
                         khachHang.getDiaChiKhachHang(),
                         listHD.get(i).getNgayMua(),
+                        format.format(listHD.get(i).getTongTien(listChiTiet)),
                         listHD.get(i).getMaNhanVienBan()
                     });
 
@@ -539,6 +559,34 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_xemThangThongKejButtonActionPerformed
+
+    private void xuatTiemKiemjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xuatTiemKiemjButtonActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jFileChooser = new JFileChooser();
+        jFileChooser.setCurrentDirectory(new java.io.File("."));
+        jFileChooser.setDialogTitle("Chọn thư mục để lưu");
+        jFileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        jFileChooser.setAcceptAllFileFilterUsed(false);
+        if (jFileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            Excel.xuatFileExcel(timKiemjTable, jFileChooser.getSelectedFile() + "\\\\timkiem.xls");
+            JOptionPane.showMessageDialog(null, "Đã lưu file tại đường dẫn: " + jFileChooser.getSelectedFile(), "Message", JOptionPane.INFORMATION_MESSAGE, dung);
+        } else {
+        }
+    }//GEN-LAST:event_xuatTiemKiemjButtonActionPerformed
+
+    private void xuatThongKejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xuatThongKejButtonActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jFileChooser = new JFileChooser();
+        jFileChooser.setCurrentDirectory(new java.io.File("."));
+        jFileChooser.setDialogTitle("Chọn thư mục để lưu");
+        jFileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        jFileChooser.setAcceptAllFileFilterUsed(false);
+        if (jFileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            Excel.xuatFileExcel(thongKejTable, jFileChooser.getSelectedFile() + "\\\\thongke.xls");
+            JOptionPane.showMessageDialog(null, "Đã lưu file tại đường dẫn: " + jFileChooser.getSelectedFile(), "Message", JOptionPane.INFORMATION_MESSAGE, dung);
+        } else {
+        }
+    }//GEN-LAST:event_xuatThongKejButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

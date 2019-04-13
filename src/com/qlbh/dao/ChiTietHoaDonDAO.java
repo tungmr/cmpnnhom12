@@ -112,6 +112,7 @@ public class ChiTietHoaDonDAO {
             preparedStatement.setString(2, maSanPham);
             return preparedStatement.executeUpdate() == 1;
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return false;
     }
@@ -134,6 +135,8 @@ public class ChiTietHoaDonDAO {
     }
 
     public static void main(String[] args) {
-        System.out.println(ChiTietHoaDonDAO.getListChiTietHD().size());
+        if (ChiTietHoaDonDAO.xoaMotChiTietHoaDon(1554706531644L, "MG")){
+            System.out.println("com.qlbh.dao.ChiTietHoaDonDAO.main()");
+        }
     }
 }

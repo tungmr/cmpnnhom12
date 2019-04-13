@@ -280,6 +280,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="XU&#x1ea4;T"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xuatTiemKiemjButtonActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -493,6 +496,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="XU&#x1ea4;T"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xuatThongKejButtonActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
