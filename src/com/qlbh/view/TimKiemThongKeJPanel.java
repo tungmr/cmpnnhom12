@@ -69,12 +69,9 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
         timKiemjButton = new javax.swing.JButton();
         xuatTiemKiemjButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        tuKhoaThongKejLabel = new javax.swing.JLabel();
         thangThongKejLabel = new javax.swing.JLabel();
         thangThongKejComboBox = new javax.swing.JComboBox<>();
         xemThangThongKejButton = new javax.swing.JButton();
-        xemSPThongKejButton = new javax.swing.JButton();
-        soLuongThongKejTextField = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         thongKejTable = new javax.swing.JTable();
         xuatThongKejButton = new javax.swing.JButton();
@@ -85,6 +82,10 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("TÌM KIẾM VÀ THỐNG KÊ");
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
         timKiemjTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -122,7 +123,7 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
 
         thuocTimKiemjComboBox.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         thuocTimKiemjComboBox.setForeground(new java.awt.Color(0, 102, 102));
-        thuocTimKiemjComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Sản phẩm", "Nhà cung cấp", "Khách hàng" }));
+        thuocTimKiemjComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Sản phẩm", "Nhà cung cấp", "Khách hàng", "Hóa đơn" }));
         thuocTimKiemjComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 thuocTimKiemjComboBoxActionPerformed(evt);
@@ -207,10 +208,7 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Tìm kiếm", jPanel1);
 
-        tuKhoaThongKejLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        tuKhoaThongKejLabel.setForeground(new java.awt.Color(0, 102, 102));
-        tuKhoaThongKejLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/key.png"))); // NOI18N
-        tuKhoaThongKejLabel.setText("Số lượng");
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         thangThongKejLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         thangThongKejLabel.setForeground(new java.awt.Color(0, 102, 102));
@@ -231,18 +229,8 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
             }
         });
 
-        xemSPThongKejButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        xemSPThongKejButton.setForeground(new java.awt.Color(0, 102, 102));
-        xemSPThongKejButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/hunter.png"))); // NOI18N
-        xemSPThongKejButton.setText("Xem");
-        xemSPThongKejButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                xemSPThongKejButtonActionPerformed(evt);
-            }
-        });
-
-        soLuongThongKejTextField.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        soLuongThongKejTextField.setForeground(new java.awt.Color(0, 102, 102));
+        jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setBorder(null);
 
         thongKejTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -252,6 +240,7 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
 
             }
         ));
+        thongKejTable.setEnabled(false);
         jScrollPane2.setViewportView(thongKejTable);
 
         xuatThongKejButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -270,47 +259,31 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2)
-                        .addContainerGap())
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 315, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tuKhoaThongKejLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(thangThongKejLabel, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(50, 50, 50)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(soLuongThongKejTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                            .addComponent(thangThongKejComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(190, 190, 190)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(xemSPThongKejButton, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(xemThangThongKejButton, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
-                        .addGap(175, 175, 175))))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1244, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(xuatThongKejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(thangThongKejLabel)
+                .addGap(131, 131, 131)
+                .addComponent(thangThongKejComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(133, 133, 133)
+                .addComponent(xemThangThongKejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(soLuongThongKejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tuKhoaThongKejLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(4, 4, 4))
-                    .addComponent(xemSPThongKejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
+                .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(thangThongKejLabel)
                     .addComponent(thangThongKejComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(xemThangThongKejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(xuatThongKejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -404,6 +377,57 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
                                     listKH.get(i).getSoDienThoaiKH(),});
                             }
                             break;
+                        case "Hóa đơn":
+                            HoaDon hoaDon = HoaDonDAO.getHoaDon(Long.parseLong(tuKhoa));
+                            ArrayList<ChiTietHoaDon> listChiTiet = ChiTietHoaDonDAO.getMotChiTietHoaDon(Long.parseLong(tuKhoa));
+
+                            if (hoaDon.getMaKhachHangMua() == null) {
+                                String[] colHD = {"Mã hóa đơn", "Tên khách hàng", "Địa chỉ", "Số điện thoại", "Mã sản phẩm", "Tên sản phẩm",
+                                    "Đơn giá", "Số lượng", "Thành tiền", "Ngày mua", "Mã nhân viên"
+                                };
+                                ketQuaTableModel.setColumnIdentifiers(colHD);
+                                for (int i = 0; i < listChiTiet.size(); i++) {
+                                    SanPham sanPham = SanPhamDAO.getMotSanPham(listChiTiet.get(i).getMaSanPhamMua());
+                                    ketQuaTableModel.addRow(new Object[]{
+                                        tuKhoa,
+                                        hoaDon.getTenKhachHangMua(),
+                                        hoaDon.getDiaChiKhachHangMua(),
+                                        hoaDon.getSoDienThoaiKH(),
+                                        listChiTiet.get(i).getMaSanPhamMua(),
+                                        sanPham.getTenSanPham(),
+                                        format.format(listChiTiet.get(i).getGiaSanPhamMua()),
+                                        listChiTiet.get(i).getSoLuongMua(),
+                                        format.format(listChiTiet.get(i).tinhTien()),
+                                        hoaDon.getNgayMua(),
+                                        hoaDon.getMaNhanVienBan()
+                                    });
+
+                                }
+                            } else {
+
+                                String[] colHD = {"Mã hóa đơn", "Mã khách hàng", "Tên khách hàng", "Mã sản phẩm", "Tên sản phẩm",
+                                    "Đơn giá", "Số lượng", "Thành tiền", "Ngày mua", "Mã nhân viên"
+                                };
+                                ketQuaTableModel.setColumnIdentifiers(colHD);
+                                for (int i = 0; i < listChiTiet.size(); i++) {
+                                    KhachHang khachHang = KhachHangDAO.getMotKhachHang(hoaDon.getMaKhachHangMua());
+                                    SanPham sanPham = SanPhamDAO.getMotSanPham(listChiTiet.get(i).getMaSanPhamMua());
+                                    ketQuaTableModel.addRow(new Object[]{
+                                        tuKhoa,
+                                        hoaDon.getMaKhachHangMua(),
+                                        khachHang.getTenKhachHang(),
+                                        listChiTiet.get(i).getMaSanPhamMua(),
+                                        sanPham.getTenSanPham(),
+                                        format.format(listChiTiet.get(i).getGiaSanPhamMua()),
+                                        listChiTiet.get(i).getSoLuongMua(),
+                                        format.format(listChiTiet.get(i).tinhTien()),
+                                        hoaDon.getNgayMua(),
+                                        hoaDon.getMaNhanVienBan()
+                                    });
+                                }
+
+                            }
+                            break;
                         default:
                             break;
                     }
@@ -420,7 +444,7 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
                                     listSP.get(i).getMaSanPham(),
                                     listSP.get(i).getTenSanPham(),
                                     listSP.get(i).getSoLuong(),
-                                    listSP.get(i).getDonGia(),
+                                    format.format(listSP.get(i).getDonGia()),
                                     listSP.get(i).getMaNhaCungCapSP(),
                                     listSP.get(i).getMaNhanVienSP(),});
                             }
@@ -453,6 +477,10 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
                                     listKH.get(i).getSoDienThoaiKH(),});
                             }
                             break;
+
+                        case "Hóa đơn":
+                            JOptionPane.showMessageDialog(null, "Hóa đơn chỉ tìm kiếm theo mã", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+                            break;
                         default:
                             break;
                     }
@@ -469,40 +497,6 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Kiểm tra giá trị nhập vào", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
         }
     }//GEN-LAST:event_timKiemjButtonActionPerformed
-
-    private void xemSPThongKejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xemSPThongKejButtonActionPerformed
-        // TODO add your handling code here:
-        try {
-            ketQuaThongKeSoLuongTableModel.setRowCount(0);
-            int soLuong = Integer.parseInt(soLuongThongKejTextField.getText());
-            if (soLuong <= 0) {
-                JOptionPane.showMessageDialog(null, "Số lượng phải lớn hơn 0", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
-            } else {
-                ArrayList<SanPham> listSP = SanPhamDAO.locSanPhamTheoSoLuong(soLuong);
-                String[] colSP = {"STT", "Mã sản phẩn", "Tên sản phẩm", "Số lượng", "Đơn giá", "Mã nhà cung cấp", "Mã nhân viên"};
-                ketQuaThongKeSoLuongTableModel.setColumnIdentifiers(colSP);
-                for (int i = 0; i < listSP.size(); i++) {
-                    ketQuaThongKeSoLuongTableModel.addRow(new Object[]{
-                        i + 1,
-                        listSP.get(i).getMaSanPham(),
-                        listSP.get(i).getTenSanPham(),
-                        listSP.get(i).getSoLuong(),
-                        format.format(listSP.get(i).getDonGia()),
-                        listSP.get(i).getMaNhaCungCapSP(),
-                        listSP.get(i).getMaNhanVienSP(),});
-                }
-                if (ketQuaThongKeSoLuongTableModel.getRowCount() == 0) {
-                    String[] col = {};
-                    ketQuaThongKeSoLuongTableModel.setColumnIdentifiers(col);
-                    JOptionPane.showMessageDialog(null, "Không có sản phẩm nào trong khoảng này", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
-
-                }
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Kiểm tra giá trị nhập vào", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
-        }
-    }//GEN-LAST:event_xemSPThongKejButtonActionPerformed
 
     private void xemThangThongKejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xemThangThongKejButtonActionPerformed
         // TODO add your handling code here:
@@ -598,7 +592,6 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel loaTimKiemjLabel;
     private javax.swing.JComboBox<String> loaiTimKiemjComboBox;
-    private javax.swing.JTextField soLuongThongKejTextField;
     private javax.swing.JComboBox<String> thangThongKejComboBox;
     private javax.swing.JLabel thangThongKejLabel;
     private javax.swing.JTable thongKejTable;
@@ -606,10 +599,8 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel thuocTimKiemjLabel;
     private javax.swing.JButton timKiemjButton;
     private javax.swing.JTable timKiemjTable;
-    private javax.swing.JLabel tuKhoaThongKejLabel;
     private javax.swing.JLabel tuKhoaTimKiemjLabel;
     private javax.swing.JTextField tuKhoaTimKiemjTextField;
-    private javax.swing.JButton xemSPThongKejButton;
     private javax.swing.JButton xemThangThongKejButton;
     private javax.swing.JButton xuatThongKejButton;
     private javax.swing.JButton xuatTiemKiemjButton;

@@ -11,9 +11,8 @@ import com.qlbh.model.SanPham;
 import com.qlbh.tools.Excel;
 import java.io.File;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -35,16 +34,13 @@ public class SanPhamJPanel extends javax.swing.JPanel {
     DefaultTableModel sanPhamtableModel;
     ImageIcon sai = new ImageIcon("tinhsai.png");
     ImageIcon dung = new ImageIcon("dau-check.png");
+    DecimalFormat format = new DecimalFormat("### ### ###");
+    ArrayList<SanPham> listSanPham = null;
 
     public SanPhamJPanel(String username) {
         initComponents();
         sanPhamtableModel = (DefaultTableModel) sanPhamjTable.getModel();
-        ArrayList<SanPham> listSanPham = SanPhamDAO.getListSanPham();
-        for (SanPham sanPham : listSanPham) {
-            sanPhamtableModel.addRow(new Object[]{
-                sanPham.getMaSanPham(), sanPham.getTenSanPham(), sanPham.getMaNhaCungCapSP(), sanPham.getSoLuong(), sanPham.getDonGia(), sanPham.getMaNhanVienSP()
-            });
-        }
+        loadSanPham();
         loadMaNCC("");
         setEnabledButton();
         maNhanVienSPjTextField.setText(username);
@@ -80,6 +76,8 @@ public class SanPhamJPanel extends javax.swing.JPanel {
         xuatSanPhamjButton = new javax.swing.JButton();
         xoaSanPhamjButton = new javax.swing.JButton();
         suaSanPhamjButton = new javax.swing.JButton();
+        soLuongThongKejTextField = new javax.swing.JTextField();
+        locSanPhamjButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -210,6 +208,13 @@ public class SanPhamJPanel extends javax.swing.JPanel {
             }
         });
 
+        locSanPhamjButton.setText("LỌC");
+        locSanPhamjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                locSanPhamjButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -250,7 +255,11 @@ public class SanPhamJPanel extends javax.swing.JPanel {
                         .addComponent(nhapSanPhamjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(94, 94, 94))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(43, 43, 43)
+                .addComponent(soLuongThongKejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(locSanPhamjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(xuatSanPhamjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -298,10 +307,22 @@ public class SanPhamJPanel extends javax.swing.JPanel {
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(xuatSanPhamjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(xuatSanPhamjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(soLuongThongKejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(locSanPhamjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    public void loadSanPham() {
+        listSanPham = SanPhamDAO.getListSanPham();
+        for (SanPham sanPham : listSanPham) {
+            sanPhamtableModel.addRow(new Object[]{
+                sanPham.getMaSanPham(), sanPham.getTenSanPham(), sanPham.getMaNhaCungCapSP(), sanPham.getSoLuong(), sanPham.getDonGia(), sanPham.getMaNhanVienSP()
+            });
+        }
+    }
 
     public void setEnabledButton() {
         huySanPhamjButton.setEnabled(false);
@@ -363,38 +384,44 @@ public class SanPhamJPanel extends javax.swing.JPanel {
     private void suaSanPhamjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suaSanPhamjButtonActionPerformed
         // TODO add your handling code here:
         int chonHang = sanPhamjTable.getSelectedRow();
-        if (sanPhamtableModel.getValueAt(chonHang, 5).equals(maNhanVienSPjTextField.getText())) {
-            try {
-                SanPham sanPham = new SanPham();
-                String maSP = maSanPhamjTextField.getText().toUpperCase();
-                sanPham.setMaSanPham(maSP);
-                sanPham.setTenSanPham(tenSanPhamjTextField.getText());
-                sanPham.setDonGia(Double.parseDouble(donGiaSanPhamjTextField.getText()));
-                sanPham.setSoLuong(Integer.parseInt(soLuongSanPhamjTextField.getText()));
-                sanPham.setMaNhanVienSP(maNhanVienSPjTextField.getText().toUpperCase());
-                sanPham.setMaNhaCungCapSP(maNhaCungCapSPjComboBox.getSelectedItem().toString());
-                if (SanPhamDAO.suaSanPham(sanPham, maSP)) {
-                    int row = sanPhamjTable.getSelectedRow();
-                    sanPhamtableModel.setValueAt(sanPham.getTenSanPham(), row, 1);
-                    sanPhamtableModel.setValueAt(sanPham.getMaNhaCungCapSP(), row, 2);
-                    sanPhamtableModel.setValueAt(sanPham.getSoLuong(), row, 3);
-                    sanPhamtableModel.setValueAt(sanPham.getDonGia(), row, 4);
-                    JOptionPane.showMessageDialog(null, "Đã sửa", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
+        if (chonHang != -1) {
+            if (sanPhamtableModel.getValueAt(chonHang, 5).equals(maNhanVienSPjTextField.getText())) {
 
-                } else {
+                try {
+                    SanPham sanPham = new SanPham();
+                    String maSP = maSanPhamjTextField.getText().toUpperCase();
+                    sanPham.setMaSanPham(maSP);
+                    sanPham.setTenSanPham(tenSanPhamjTextField.getText());
+                    sanPham.setDonGia(Double.parseDouble(donGiaSanPhamjTextField.getText()));
+                    sanPham.setSoLuong(Integer.parseInt(soLuongSanPhamjTextField.getText()));
+                    sanPham.setMaNhanVienSP(maNhanVienSPjTextField.getText().toUpperCase());
+                    sanPham.setMaNhaCungCapSP(maNhaCungCapSPjComboBox.getSelectedItem().toString());
+                    if (SanPhamDAO.suaSanPham(sanPham, maSP)) {
+                        int row = sanPhamjTable.getSelectedRow();
+                        sanPhamtableModel.setValueAt(sanPham.getTenSanPham(), row, 1);
+                        sanPhamtableModel.setValueAt(sanPham.getMaNhaCungCapSP(), row, 2);
+                        sanPhamtableModel.setValueAt(sanPham.getSoLuong(), row, 3);
+                        sanPhamtableModel.setValueAt(sanPham.getDonGia(), row, 4);
+                        JOptionPane.showMessageDialog(null, "Đã sửa", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Kiểm tra lại thông tin nhập vào", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+
+                    }
+
+                } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, "Kiểm tra lại thông tin nhập vào", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
 
                 }
-
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Kiểm tra lại thông tin nhập vào", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+                themSanPhamjButton.setEnabled(true);
+                nhapSanPhamjButton.setEnabled(true);
+                huySanPhamjButton.setEnabled(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "Không có quyền sửa sản phẩm này", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
 
             }
-            themSanPhamjButton.setEnabled(true);
-            nhapSanPhamjButton.setEnabled(true);
-            huySanPhamjButton.setEnabled(false);
         } else {
-            JOptionPane.showMessageDialog(null, "Không có quyền sửa sản phẩm này", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+            JOptionPane.showMessageDialog(null, "Chọn một hàng để sửa");
 
         }
 
@@ -446,18 +473,19 @@ public class SanPhamJPanel extends javax.swing.JPanel {
 
     private void huySanPhamjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huySanPhamjButtonActionPerformed
         // TODO add your handling code here:
+        sanPhamtableModel.setRowCount(0);
+        loadSanPham();
         maSanPhamjTextField.setText("");
         tenSanPhamjTextField.setText("");
         soLuongSanPhamjTextField.setText("");
         donGiaSanPhamjTextField.setText("");
         maNhaCungCapSPjComboBox.removeAllItems();
         maNhaCungCapSPjComboBox.addItem("");
+        soLuongThongKejTextField.setText("");
         loadMaNCC("");
         themSanPhamjButton.setEnabled(true);
         nhapSanPhamjButton.setEnabled(true);
-        suaSanPhamjButton.setEnabled(false);
         huySanPhamjButton.setEnabled(false);
-        xoaSanPhamjButton.setEnabled(false);
         sanPhamjTable.clearSelection();
     }//GEN-LAST:event_huySanPhamjButtonActionPerformed
 
@@ -468,7 +496,7 @@ public class SanPhamJPanel extends javax.swing.JPanel {
         int chonFile = jFileChooser.showOpenDialog(null);
         if (chonFile == JFileChooser.APPROVE_OPTION) {
             try {
-                int count =0;
+                int count = 0;
                 String duongDanExcel = jFileChooser.getSelectedFile().getAbsolutePath();
                 JOptionPane.showMessageDialog(null, duongDanExcel);
                 File file = new File(duongDanExcel);
@@ -490,7 +518,7 @@ public class SanPhamJPanel extends javax.swing.JPanel {
                     String maNhanVien = col6.getContents();
                     SanPham sanPham = new SanPham(maSanPham, tenSanPham, soLuong, donGia, maNCCSanPham, maNhanVien);
                     if (SanPhamDAO.themSanPham(sanPham)) {
-                        count ++;
+                        count++;
                         sanPhamtableModel.addRow(new Object[]{
                             sanPham.getMaSanPham(),
                             sanPham.getTenSanPham(),
@@ -499,7 +527,7 @@ public class SanPhamJPanel extends javax.swing.JPanel {
                             sanPham.getDonGia(),
                             sanPham.getMaNhanVienSP()
                         });
-                        
+
                     } else {
                         JOptionPane.showMessageDialog(null, "Kiểm tra lại giá trị trong file", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
                     }
@@ -534,6 +562,36 @@ public class SanPhamJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_xuatSanPhamjButtonActionPerformed
 
+    private void locSanPhamjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_locSanPhamjButtonActionPerformed
+        // TODO add your handling code here:
+        try {
+            huySanPhamjButton.setEnabled(true);
+            sanPhamtableModel.setRowCount(0);
+            int soLuong = Integer.parseInt(soLuongThongKejTextField.getText());
+            if (soLuong <= 0) {
+                JOptionPane.showMessageDialog(null, "Số lượng phải lớn hơn 0", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+            } else {
+                ArrayList<SanPham> listSP = SanPhamDAO.locSanPhamTheoSoLuong(soLuong);
+                for (int i = 0; i < listSP.size(); i++) {
+                    sanPhamtableModel.addRow(new Object[]{
+                        listSP.get(i).getMaSanPham(),
+                        listSP.get(i).getTenSanPham(),
+                        listSP.get(i).getSoLuong(),
+                        format.format(listSP.get(i).getDonGia()),
+                        listSP.get(i).getMaNhaCungCapSP(),
+                        listSP.get(i).getMaNhanVienSP(),});
+                }
+                if (sanPhamtableModel.getRowCount() == 0) {
+                    JOptionPane.showMessageDialog(null, "Không có sản phẩm nào trong khoảng này", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+
+                }
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Kiểm tra giá trị nhập vào", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+        }
+    }//GEN-LAST:event_locSanPhamjButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel donGiaSanPhamjLabel;
@@ -541,6 +599,7 @@ public class SanPhamJPanel extends javax.swing.JPanel {
     private javax.swing.JButton huySanPhamjButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton locSanPhamjButton;
     private javax.swing.JComboBox<String> maNhaCungCapSPjComboBox;
     private javax.swing.JLabel maNhaCungCapSPjLabel;
     private javax.swing.JLabel maNhanVienSPjLabel;
@@ -551,6 +610,7 @@ public class SanPhamJPanel extends javax.swing.JPanel {
     public javax.swing.JTable sanPhamjTable;
     private javax.swing.JLabel soLuongSanPhamjLabel;
     private javax.swing.JTextField soLuongSanPhamjTextField;
+    private javax.swing.JTextField soLuongThongKejTextField;
     private javax.swing.JButton suaSanPhamjButton;
     private javax.swing.JLabel tenSanPhamjLabel;
     private javax.swing.JTextField tenSanPhamjTextField;

@@ -156,6 +156,28 @@ public class HoaDonDAO {
         return listHD;
     }
 
+    public static HoaDon getHoaDon(Long maHoaDon) {
+        HoaDon hoaDon = new HoaDon();
+        String sql = "SELECT * FROM hoadon WHERE ma_hoa_don=?";
+        Connection connection = JDBCConnection.myConnect();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setLong(1, maHoaDon);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                hoaDon.setMaHoaDon(resultSet.getLong(1));
+                hoaDon.setMaKhachHangMua(resultSet.getString(2));
+                hoaDon.setTenKhachHangMua(resultSet.getString(3));
+                hoaDon.setSoDienThoaiKH(resultSet.getString(4));
+                hoaDon.setDiaChiKhachHangMua(resultSet.getString(5));
+                hoaDon.setNgayMua(resultSet.getTimestamp(6));
+                hoaDon.setMaNhanVienBan(resultSet.getString(7));
+            }
+        } catch (Exception e) {
+        }
+        return hoaDon;
+    }
+
     public static void main(String[] args) {
         System.out.println(HoaDonDAO.getListHoaDon().size());
     }

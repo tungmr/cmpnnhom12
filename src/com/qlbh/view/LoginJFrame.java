@@ -9,6 +9,7 @@ import com.qlbh.dao.AdminDAO;
 import com.qlbh.dao.UserDAO;
 import com.qlbh.tools.MD5;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -68,6 +69,11 @@ public class LoginJFrame extends javax.swing.JFrame {
         passwordjPasswordField.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
         passwordjPasswordField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         passwordjPasswordField.setBorder(null);
+        passwordjPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordjPasswordFieldKeyPressed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(20, 33, 61));
@@ -221,6 +227,42 @@ public class LoginJFrame extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_xacNhanjLabelMouseClicked
+
+    private void passwordjPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordjPasswordFieldKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            String username = usernamejTextField.getText();
+            String password = String.valueOf(passwordjPasswordField.getPassword());
+            if (username.equals("") || password.equals("")) {
+                thongBaojLabel.setText("Vui lòng điền đầy đủ thông tin");
+            } else {
+
+                if (username.equals("administrator")) {
+                    if (AdminDAO.checkLogin(username, password)) {
+                        AccountManager accountManager = new AccountManager(username);
+                        //accountManager.setUsername(username);
+                        accountManager.setLocationRelativeTo(null);
+                        accountManager.setResizable(false);
+                        accountManager.setVisible(true);
+                        this.dispose();
+
+                    } else {
+                        thongBaojLabel.setText("Mật khẩu không đúng");
+                    }
+                } else {
+                    if (UserDAO.checkUser(username, password)) {
+                        MainJFrame mainJFrame = new MainJFrame(username);
+                        mainJFrame.setLocationRelativeTo(null);
+                        mainJFrame.setVisible(true);
+                        this.dispose();
+                    } else {
+                        thongBaojLabel.setText("Tên đăng nhập hoặc mật khẩu không đúng");
+
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_passwordjPasswordFieldKeyPressed
 
     /**
      * @param args the command line arguments

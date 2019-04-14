@@ -486,7 +486,7 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/com/qlbh/images/seo.png"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="T&#xcc;M KI&#xca;M &amp; TH&#x1ed0;NG K&#xca;"/>
+                    <Property name="text" type="java.lang.String" value="T&#xcc;M KI&#x1ebe;M &amp; TH&#x1ed0;NG K&#xca;"/>
                   </Properties>
                 </Component>
               </SubComponents>

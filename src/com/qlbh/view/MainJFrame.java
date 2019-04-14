@@ -255,7 +255,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabelTimKiemThongKe.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabelTimKiemThongKe.setForeground(new java.awt.Color(255, 22, 84));
         jLabelTimKiemThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/seo.png"))); // NOI18N
-        jLabelTimKiemThongKe.setText("TÌM KIÊM & THỐNG KÊ");
+        jLabelTimKiemThongKe.setText("TÌM KIẾM & THỐNG KÊ");
 
         javax.swing.GroupLayout jPanelTimKiemThongKeLayout = new javax.swing.GroupLayout(jPanelTimKiemThongKe);
         jPanelTimKiemThongKe.setLayout(jPanelTimKiemThongKeLayout);

@@ -104,7 +104,7 @@ public class BanHangJPanel extends javax.swing.JPanel {
         themSLBHTVjButton = new javax.swing.JButton();
         ngayMuaBHtvjLabel = new javax.swing.JLabel();
         maNhanVienBHTVjTextField = new javax.swing.JTextField();
-        inHoaDonjButton = new javax.swing.JButton();
+        inHoaDonBHTVjButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         banHangKTVjTable = new javax.swing.JTable();
@@ -135,6 +135,7 @@ public class BanHangJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        inHoaDonBHKTVjButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
 
@@ -142,6 +143,8 @@ public class BanHangJPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("BÁN HÀNG");
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         banhangTVjTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -329,10 +332,13 @@ public class BanHangJPanel extends javax.swing.JPanel {
             }
         });
 
-        inHoaDonjButton.setText("IN HÓA ĐƠN");
-        inHoaDonjButton.addActionListener(new java.awt.event.ActionListener() {
+        inHoaDonBHTVjButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        inHoaDonBHTVjButton.setForeground(new java.awt.Color(0, 102, 102));
+        inHoaDonBHTVjButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/printer.png"))); // NOI18N
+        inHoaDonBHTVjButton.setText("IN HÓA ĐƠN");
+        inHoaDonBHTVjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inHoaDonjButtonActionPerformed(evt);
+                inHoaDonBHTVjButtonActionPerformed(evt);
             }
         });
 
@@ -391,8 +397,8 @@ public class BanHangJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(inHoaDonjButton)
-                        .addGap(171, 171, 171)
+                        .addComponent(inHoaDonBHTVjButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(xuatBHtvjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1378, Short.MAX_VALUE)
@@ -437,14 +443,16 @@ public class BanHangJPanel extends javax.swing.JPanel {
                             .addComponent(xoaBHtvjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(huyBHtvjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(12, 12, 12)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(xuatBHtvjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inHoaDonjButton)))
+                    .addComponent(inHoaDonBHTVjButton)))
         );
 
         jTabbedPane1.addTab("THÀNH VIÊN", jPanel1);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         banHangKTVjTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -639,6 +647,16 @@ public class BanHangJPanel extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("* Các trường có dấu sao là bắt buộc");
 
+        inHoaDonBHKTVjButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        inHoaDonBHKTVjButton.setForeground(new java.awt.Color(0, 102, 102));
+        inHoaDonBHKTVjButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/printer.png"))); // NOI18N
+        inHoaDonBHKTVjButton.setText("IN HÓA ĐƠN");
+        inHoaDonBHKTVjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inHoaDonBHKTVjButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -653,15 +671,13 @@ public class BanHangJPanel extends javax.swing.JPanel {
                 .addGap(37, 37, 37)
                 .addComponent(soLuongBHKTVjTextField)
                 .addGap(158, 158, 158)
-                .addComponent(themSLBHKTVjButton)
-                .addGap(409, 409, 409))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(1239, 1239, 1239)
-                        .addComponent(xuatBHKTVjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(308, 308, 308))
+                .addComponent(themSLBHKTVjButton))
+            .addComponent(jScrollPane2)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(inHoaDonBHKTVjButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(xuatBHKTVjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -692,7 +708,7 @@ public class BanHangJPanel extends javax.swing.JPanel {
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(46, 46, 46)
                                         .addComponent(hoTenBHKTVjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 131, Short.MAX_VALUE)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -714,8 +730,7 @@ public class BanHangJPanel extends javax.swing.JPanel {
                                 .addComponent(xoaBHKTVjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(huyBHKTVjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(305, 305, 305))
+                                .addGap(0, 122, Short.MAX_VALUE))))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -759,7 +774,9 @@ public class BanHangJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(xuatBHKTVjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(xuatBHKTVjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inHoaDonBHKTVjButton))
                 .addContainerGap())
         );
 
@@ -1802,7 +1819,7 @@ public class BanHangJPanel extends javax.swing.JPanel {
         return s1.length() > s2.length();
     }
 
-    private void inHoaDonjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inHoaDonjButtonActionPerformed
+    private void inHoaDonBHTVjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inHoaDonBHTVjButtonActionPerformed
         // TODO add your handling code here:
 
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
@@ -1829,13 +1846,13 @@ public class BanHangJPanel extends javax.swing.JPanel {
                     fileWriter = new FileWriter(file);
                     fileWriter.write("\t\tHÓA ĐƠN BÁN HÀNG\r\n");
 
-                    fileWriter.write("----------------------------------------------------------------\r\n");
+                    fileWriter.write("-------------------------------------------------------------------\r\n");
                     fileWriter.write("\r\nMã Hóa đơn: " + maHoaDon + "\r\n");
                     fileWriter.write("Ngày mua: " + ngayXuat + "\r\n");
                     fileWriter.write("Mã nhân viên: " + maNhanVien + "\r\n");
                     fileWriter.write("Nhân viên: " + nhanVien.getTenNhanVien() + "\r\n");
 
-                    fileWriter.write("----------------------------------------------------------------\r\n");
+                    fileWriter.write("-------------------------------------------------------------------\r\n");
                     fileWriter.write("\r\n");
 
                     fileWriter.write("Mã khách hàng: " + khachHang.getMaKhachHang() + "\r\n");
@@ -1843,7 +1860,7 @@ public class BanHangJPanel extends javax.swing.JPanel {
                     fileWriter.write("Số điện thoại: " + khachHang.getSoDienThoaiKH() + "\r\n");
                     fileWriter.write("Địa chỉ: " + khachHang.getDiaChiKhachHang() + "\r\n");
                     fileWriter.write("Email: " + khachHang.getEmailKhachHang() + "\r\n");
-                    fileWriter.write("----------------------------------------------------------------\r\n");
+                    fileWriter.write("-------------------------------------------------------------------\r\n");
 
                     fileWriter.write("\r\nDanh sách sản phẩm\r\n");
                     fileWriter.write("STT\t" + "Sản phẩm\t" + "Đơn giá" + "\t\t" + "Số lượng\t" + "Thành tiền\r\n");
@@ -1867,15 +1884,15 @@ public class BanHangJPanel extends javax.swing.JPanel {
                         fileWriter.write(i + 1 + ".\t" + sanPham.getTenSanPham() + tab + decimalFormat.format(listChiTiet.get(i).getGiaSanPhamMua()) + tabDG + listChiTiet.get(i).getSoLuongMua() + "\t\t" + decimalFormat.format(listChiTiet.get(i).tinhTien()) + "\r\n");
 
                     }
-                    fileWriter.write("----------------------------------------------------------------\r\n");
+                    fileWriter.write("-------------------------------------------------------------------\r\n");
 
                     HoaDon hoaDon = new HoaDon();
-                    fileWriter.write("Tổng tiền: " + decimalFormat.format(hoaDon.getTongTien(listChiTiet)));
+                    fileWriter.write("\t\t\t\t\tTổng tiền: \t" + decimalFormat.format(hoaDon.getTongTien(listChiTiet)));
 
-                    fileWriter.write("\r\n----------------------------------------------------------------\r\n");
+                    fileWriter.write("\r\n-------------------------------------------------------------------\r\n");
                     fileWriter.write("\r\nXin cảm ơn quý khách\r\nHẹn gặp lại!");
                     fileWriter.close();
-                    JOptionPane.showMessageDialog(null, "Đã lưu file tại đường dẫn: " + jFileChooser.getSelectedFile(), "Message", JOptionPane.INFORMATION_MESSAGE, dung);
+                    JOptionPane.showMessageDialog(null, "Đã lưu hóa đơn tại đường dẫn: " + jFileChooser.getSelectedFile(), "Message", JOptionPane.INFORMATION_MESSAGE, dung);
                 } catch (IOException ex) {
                     Logger.getLogger(BanHangJPanel.class.getName()).log(Level.SEVERE, null, ex);
                 } finally {
@@ -1892,7 +1909,99 @@ public class BanHangJPanel extends javax.swing.JPanel {
 
         }
 
-    }//GEN-LAST:event_inHoaDonjButtonActionPerformed
+    }//GEN-LAST:event_inHoaDonBHTVjButtonActionPerformed
+
+    private void inHoaDonBHKTVjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inHoaDonBHKTVjButtonActionPerformed
+        // TODO add your handling code here:
+        
+        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+
+        int row = banHangKTVjTable.getSelectedRow();
+        if (row != -1) {
+
+            String maHoaDon = koThanhVienDefaultTableModel.getValueAt(row, 0).toString();
+            String maNhanVien = koThanhVienDefaultTableModel.getValueAt(row, 10).toString();
+            NhanVien nhanVien = NhanVienDAO.getNhanVien(maNhanVien);
+            String ngayXuat = koThanhVienDefaultTableModel.getValueAt(row, 9).toString();
+            String tenKhachHang = koThanhVienDefaultTableModel.getValueAt(row, 1).toString();
+            String diaChiKH = koThanhVienDefaultTableModel.getValueAt(row, 2).toString();
+            String soDienThoaiKH = koThanhVienDefaultTableModel.getValueAt(row, 3).toString();
+            
+            ArrayList<ChiTietHoaDon> listChiTiet = ChiTietHoaDonDAO.getMotChiTietHoaDon(Long.parseLong(maHoaDon));
+
+            JFileChooser jFileChooser = new JFileChooser();
+            jFileChooser.setCurrentDirectory(new java.io.File("."));
+            jFileChooser.setDialogTitle("Chọn thư mục để lưu");
+            jFileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            jFileChooser.setAcceptAllFileFilterUsed(false);
+            if (jFileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+                FileWriter fileWriter = null;
+                try {
+                    File file = new File(String.valueOf(jFileChooser.getSelectedFile()) + "\\\\hoadon.txt");
+                    fileWriter = new FileWriter(file);
+                    fileWriter.write("\t\tHÓA ĐƠN BÁN HÀNG\r\n");
+
+                    fileWriter.write("-------------------------------------------------------------------\r\n");
+                    fileWriter.write("\r\nMã Hóa đơn: " + maHoaDon + "\r\n");
+                    fileWriter.write("Ngày mua: " + ngayXuat + "\r\n");
+                    fileWriter.write("Mã nhân viên: " + maNhanVien + "\r\n");
+                    fileWriter.write("Nhân viên: " + nhanVien.getTenNhanVien() + "\r\n");
+
+                    fileWriter.write("-------------------------------------------------------------------\r\n");
+                    fileWriter.write("\r\n");
+
+                    fileWriter.write("Họ tên khách hàng: " + tenKhachHang + "\r\n");
+                    fileWriter.write("Số điện thoại: " +soDienThoaiKH + "\r\n");
+                    fileWriter.write("Địa chỉ: " + diaChiKH + "\r\n");
+                    fileWriter.write("-------------------------------------------------------------------\r\n");
+
+                    fileWriter.write("\r\nDanh sách sản phẩm\r\n");
+                    fileWriter.write("STT\t" + "Sản phẩm\t" + "Đơn giá" + "\t\t" + "Số lượng\t" + "Thành tiền\r\n");
+                    String tab = "";
+                    String tabDG = "";
+
+                    for (int i = 0; i < listChiTiet.size(); i++) {
+                        SanPham sanPham = SanPhamDAO.getMotSanPham(listChiTiet.get(i).getMaSanPhamMua());
+                        if (soSanhChuoi("Sản phẩm", sanPham.getTenSanPham())) {
+                            tab = "\t\t";
+                        }else{
+                            tab ="\t";
+                        }
+                        
+                         if (   "Đơn giá".length() < String.valueOf(decimalFormat.format(listChiTiet.get(i).getGiaSanPhamMua())).length()){
+                            tabDG ="\t";
+                        }else{
+                             tabDG ="\t\t";
+                        }
+
+                        fileWriter.write(i + 1 + ".\t" + sanPham.getTenSanPham() + tab + decimalFormat.format(listChiTiet.get(i).getGiaSanPhamMua()) + tabDG + listChiTiet.get(i).getSoLuongMua() + "\t\t" + decimalFormat.format(listChiTiet.get(i).tinhTien()) + "\r\n");
+
+                    }
+                    fileWriter.write("-------------------------------------------------------------------\r\n");
+
+                    HoaDon hoaDon = new HoaDon();
+                    fileWriter.write("\t\t\t\t\tTổng tiền: \t" + decimalFormat.format(hoaDon.getTongTien(listChiTiet)));
+
+                    fileWriter.write("\r\n-------------------------------------------------------------------\r\n");
+                    fileWriter.write("\r\nXin cảm ơn quý khách\r\nHẹn gặp lại!");
+                    fileWriter.close();
+                    JOptionPane.showMessageDialog(null, "Đã lưu hóa đơn tại đường dẫn: " + jFileChooser.getSelectedFile(), "Message", JOptionPane.INFORMATION_MESSAGE, dung);
+                } catch (IOException ex) {
+                    Logger.getLogger(BanHangJPanel.class.getName()).log(Level.SEVERE, null, ex);
+                } finally {
+                    try {
+                        fileWriter.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(BanHangJPanel.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            } else {
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Chọn hóa đơn để in", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+
+        }
+    }//GEN-LAST:event_inHoaDonBHKTVjButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1904,7 +2013,8 @@ public class BanHangJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField hoTenBHKTVjTextField;
     private javax.swing.JButton huyBHKTVjButton;
     private javax.swing.JButton huyBHtvjButton;
-    private javax.swing.JButton inHoaDonjButton;
+    private javax.swing.JButton inHoaDonBHKTVjButton;
+    private javax.swing.JButton inHoaDonBHTVjButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
