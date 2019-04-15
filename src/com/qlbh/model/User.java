@@ -10,7 +10,7 @@ package com.qlbh.model;
  * @author HoangDucTung
  */
 public class User {
-    String idUser;
+    int idUser;
     String maNhanVien;
     String password;
     int role;
@@ -18,18 +18,18 @@ public class User {
     public User() {
     }
     
-    public User(String idUser, String maNhanVien, String password, int role) {
+    public User(int idUser, String maNhanVien, String password, int role) {
         this.idUser = idUser;
         this.maNhanVien = maNhanVien;
         this.password = password;
         this.role = role;
     }
 
-    public String getIdUser() {
+    public int getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(String idUser) {
+    public void setIdUser(int idUser) {
         this.idUser = idUser;
     }
 

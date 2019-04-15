@@ -306,7 +306,7 @@ public class AccountManager extends javax.swing.JFrame {
                 } else if (roleString.equals("Quản lí")) {
                     role = 2;
                 }
-                User user = new User(null, username, hashPassword, role);
+                User user = new User(0, username, hashPassword, role);
                 if (UserDAO.kiemTraUsernameTonTai(username)) {
                     JOptionPane.showMessageDialog(null, "Username đã tồn tại", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
                 } else {

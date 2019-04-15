@@ -7,8 +7,12 @@ package com.qlbh.view;
 
 import com.qlbh.bean.DanhMucBean;
 import com.qlbh.controller.ChuyenManHinhController;
+import com.qlbh.dao.UserDAO;
+import com.qlbh.model.User;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,30 +22,33 @@ public class MainJFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form MainJFrame
+     *
      * @param username
      */
+    User user = null;
+    ImageIcon sai = new ImageIcon("tinhsai.png");
+    ImageIcon dung = new ImageIcon("dau-check.png");
+
     public MainJFrame(String username) {
         initComponents();
         MainJFrame.super.setLocationRelativeTo(null);
         List<DanhMucBean> listDanhMuc = new ArrayList<>();
+
+        user = UserDAO.getMotUser(username);
+
         listDanhMuc.add(new DanhMucBean("TrangChinh", jPanelTrangChu, jLabelTrangChu, username));
         listDanhMuc.add(new DanhMucBean("SanPham", jPanelSanPham, jLabelSanPham, username));
         listDanhMuc.add(new DanhMucBean("NhaCungCap", jPanelNhaCungCap, jLabelNhaCungCap, username));
         listDanhMuc.add(new DanhMucBean("KhachHang", jPanelKhachHang, jLabelKhachHang, username));
         listDanhMuc.add(new DanhMucBean("BanHang", jPanelBanHang, jLabelBanHang, username));
-        listDanhMuc.add(new DanhMucBean("NhanVien", jPanelNhanVien, jLabelNhanVien, username));
+        listDanhMuc.add(new DanhMucBean("BieuDo", jPanelBieuDo, jLabelBieuDo, username));
         listDanhMuc.add(new DanhMucBean("TimKiemThongKe", jPanelTimKiemThongKe, jLabelTimKiemThongKe, username));
-        
+
         ChuyenManHinhController controller = new ChuyenManHinhController(jPanelXem, username);
         controller.setView(jPanelTrangChu, jLabelTrangChu);
         controller.setEvent(listDanhMuc);
-        
-       
-        
-        
-    }
 
-    
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -66,8 +73,8 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabelKhachHang = new javax.swing.JLabel();
         jPanelBanHang = new javax.swing.JPanel();
         jLabelBanHang = new javax.swing.JLabel();
-        jPanelNhanVien = new javax.swing.JPanel();
-        jLabelNhanVien = new javax.swing.JLabel();
+        jPanelBieuDo = new javax.swing.JPanel();
+        jLabelBieuDo = new javax.swing.JLabel();
         jPanelTimKiemThongKe = new javax.swing.JPanel();
         jLabelTimKiemThongKe = new javax.swing.JLabel();
         jPanelXem = new javax.swing.JPanel();
@@ -226,27 +233,32 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanelNhanVien.setBackground(new java.awt.Color(112, 193, 179));
+        jPanelBieuDo.setBackground(new java.awt.Color(112, 193, 179));
 
-        jLabelNhanVien.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelNhanVien.setForeground(new java.awt.Color(255, 22, 84));
-        jLabelNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/employee.png"))); // NOI18N
-        jLabelNhanVien.setText("BIỂU ĐỒ");
+        jLabelBieuDo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelBieuDo.setForeground(new java.awt.Color(255, 22, 84));
+        jLabelBieuDo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/employee.png"))); // NOI18N
+        jLabelBieuDo.setText("BIỂU ĐỒ");
+        jLabelBieuDo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelBieuDoMouseClicked(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanelNhanVienLayout = new javax.swing.GroupLayout(jPanelNhanVien);
-        jPanelNhanVien.setLayout(jPanelNhanVienLayout);
-        jPanelNhanVienLayout.setHorizontalGroup(
-            jPanelNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNhanVienLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelBieuDoLayout = new javax.swing.GroupLayout(jPanelBieuDo);
+        jPanelBieuDo.setLayout(jPanelBieuDoLayout);
+        jPanelBieuDoLayout.setHorizontalGroup(
+            jPanelBieuDoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBieuDoLayout.createSequentialGroup()
                 .addContainerGap(130, Short.MAX_VALUE)
-                .addComponent(jLabelNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelBieuDo, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60))
         );
-        jPanelNhanVienLayout.setVerticalGroup(
-            jPanelNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelNhanVienLayout.createSequentialGroup()
+        jPanelBieuDoLayout.setVerticalGroup(
+            jPanelBieuDoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBieuDoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelNhanVien, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+                .addComponent(jLabelBieuDo, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -287,7 +299,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(jPanelNhaCungCap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanelKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanelBanHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanelNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelBieuDo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanelTimKiemThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -306,7 +318,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelBanHang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelNhanVien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelBieuDo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelTimKiemThongKe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(33, 33, 33))
@@ -390,6 +402,13 @@ public class MainJFrame extends javax.swing.JFrame {
         System.exit(1);
     }//GEN-LAST:event_jMenu2MouseClicked
 
+    private void jLabelBieuDoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBieuDoMouseClicked
+        // TODO add your handling code here:
+//        if (user.getRole() == 2) {
+//            JOptionPane.showMessageDialog(null, "Không có quyền dùng chức năng này", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+//        }
+    }//GEN-LAST:event_jLabelBieuDoMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -428,9 +447,9 @@ public class MainJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelBanHang;
+    private javax.swing.JLabel jLabelBieuDo;
     private javax.swing.JLabel jLabelKhachHang;
     private javax.swing.JLabel jLabelNhaCungCap;
-    private javax.swing.JLabel jLabelNhanVien;
     private javax.swing.JLabel jLabelSanPham;
     private javax.swing.JLabel jLabelTimKiemThongKe;
     private javax.swing.JLabel jLabelTrangChu;
@@ -438,10 +457,10 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanelBanHang;
+    private javax.swing.JPanel jPanelBieuDo;
     private javax.swing.JPanel jPanelKhachHang;
     private javax.swing.JPanel jPanelMenu;
     private javax.swing.JPanel jPanelNhaCungCap;
-    private javax.swing.JPanel jPanelNhanVien;
     private javax.swing.JPanel jPanelRoot;
     private javax.swing.JPanel jPanelSanPham;
     private javax.swing.JPanel jPanelTimKiemThongKe;

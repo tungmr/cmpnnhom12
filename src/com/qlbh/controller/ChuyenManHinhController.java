@@ -6,10 +6,12 @@
 package com.qlbh.controller;
 
 import com.qlbh.bean.DanhMucBean;
+import com.qlbh.dao.UserDAO;
+import com.qlbh.model.User;
 import com.qlbh.view.BanHangJPanel;
 import com.qlbh.view.KhachHangJPanel;
 import com.qlbh.view.NhaCungCapJPanel;
-import com.qlbh.view.NhanVienJPanel;
+import com.qlbh.view.BieuDoJPanel;
 import com.qlbh.view.SanPhamJPanel;
 import com.qlbh.view.TimKiemThongKeJPanel;
 import com.qlbh.view.TrangChuJPanel;
@@ -18,7 +20,9 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -43,7 +47,7 @@ public class ChuyenManHinhController {
         loaiMacDinh = "TrangChu";
         jpnItem.setBackground(new Color(243, 255, 189));
         jlbItem.setBackground(new Color(243, 255, 189));
-        
+
         root.removeAll();
         root.setLayout(new BorderLayout());
         root.add(new TrangChuJPanel(username));
@@ -89,8 +93,16 @@ public class ChuyenManHinhController {
                 case "BanHang":
                     node = new BanHangJPanel(username);
                     break;
-                case "NhanVien":
-                    node = new NhanVienJPanel(username);
+                case "BieuDo":
+                    User user = UserDAO.getMotUser(username);
+                    if (user.getRole() == 2) {
+                        ImageIcon sai = new ImageIcon("tinhsai.png");
+                        JOptionPane.showMessageDialog(null, "Bạn không có quyền dùng chức năng này", "Message", JOptionPane.INFORMATION_MESSAGE,sai);
+                        node = new TrangChuJPanel(username);
+                    } else {
+                        node = new BieuDoJPanel(username);
+
+                    }
                     break;
                 case "TimKiemThongKe":
                     node = new TimKiemThongKeJPanel(username);
@@ -139,7 +151,7 @@ public class ChuyenManHinhController {
             // lúc được kick thì màu trên 
             if (item.getLoai().equalsIgnoreCase(kind)) {
                 item.getjPanel().setBackground(new Color(243, 255, 189));
-                item.getjLabel().setBackground(new Color (243, 255, 189));
+                item.getjLabel().setBackground(new Color(243, 255, 189));
             } else {
                 // không thì màu này
                 item.getjPanel().setBackground(new Color(112, 193, 179));
@@ -155,7 +167,5 @@ public class ChuyenManHinhController {
     public void setUsername(String username) {
         this.username = username;
     }
-    
-    
 
 }

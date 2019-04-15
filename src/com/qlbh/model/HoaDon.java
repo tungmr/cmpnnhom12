@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * @author HoangDucTung
  */
 public class HoaDon {
+
     private long maHoaDon;
     private String maKhachHangMua;
     private String tenKhachHangMua;
@@ -20,11 +21,12 @@ public class HoaDon {
     private String diaChiKhachHangMua;
     private Timestamp ngayMua;
     private String maNhanVienBan;
+    private double tongTienHoaDon;
 
     public HoaDon() {
     }
 
-    public HoaDon(long maHoaDon, String maKhachHangMua, String tenKhachHangMua, String soDienThoaiKH, String diaChiKhachHangMua,  Timestamp ngayMua, String maNhanVienBan) {
+    public HoaDon(long maHoaDon, String maKhachHangMua, String tenKhachHangMua, String soDienThoaiKH, String diaChiKhachHangMua, Timestamp ngayMua, String maNhanVienBan) {
         this.maHoaDon = maHoaDon;
         this.maKhachHangMua = maKhachHangMua;
         this.tenKhachHangMua = tenKhachHangMua;
@@ -32,6 +34,7 @@ public class HoaDon {
         this.diaChiKhachHangMua = diaChiKhachHangMua;
         this.ngayMua = ngayMua;
         this.maNhanVienBan = maNhanVienBan;
+
     }
 
     public long getMaHoaDon() {
@@ -65,8 +68,6 @@ public class HoaDon {
     public void setSoDienThoaiKH(String soDienThoaiKH) {
         this.soDienThoaiKH = soDienThoaiKH;
     }
-    
-    
 
     public String getDiaChiKhachHangMua() {
         return diaChiKhachHangMua;
@@ -78,13 +79,12 @@ public class HoaDon {
 
     public double getTongTien(ArrayList<ChiTietHoaDon> listChiTietHoaDon) {
         double tongTien = 0;
-        for (int i=0;i<listChiTietHoaDon.size();i++){
+        for (int i = 0; i < listChiTietHoaDon.size(); i++) {
             tongTien += listChiTietHoaDon.get(i).tinhTien();
         }
         return tongTien;
     }
 
-    
     public Timestamp getNgayMua() {
         return ngayMua;
     }
@@ -100,7 +100,18 @@ public class HoaDon {
     public void setMaNhanVienBan(String maNhanVienBan) {
         this.maNhanVienBan = maNhanVienBan;
     }
-    
-    
-            
+
+    public double getTongTienHoaDon() {
+        return tongTienHoaDon;
+    }
+
+    public void setTongTienHoaDon(ArrayList<ChiTietHoaDon> listChiTietHoaDon) {
+        double tongTien = 0;
+        for (int i = 0; i < listChiTietHoaDon.size(); i++) {
+            tongTien += listChiTietHoaDon.get(i).tinhTien();
+        }
+        this.tongTienHoaDon = tongTien;
+
+    }
+
 }

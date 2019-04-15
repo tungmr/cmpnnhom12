@@ -136,7 +136,7 @@
                               <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="jScrollPane1" pref="374" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="384" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="xuatTiemKiemjButton" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
@@ -324,13 +324,19 @@
                       <Component id="xuatThongKejButton" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                       <Component id="thangThongKejLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
-                      <Component id="thangThongKejComboBox" min="-2" pref="238" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="thongKejComboBox" pref="300" max="32767" attributes="0"/>
+                          <Component id="thangThongKejComboBox" pref="300" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
-                      <Component id="xemThangThongKejButton" min="-2" pref="138" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="xemThongKejButton" min="-2" pref="120" max="-2" attributes="0"/>
+                          <Component id="xemThangThongKejButton" min="-2" pref="120" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -341,12 +347,17 @@
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="thangThongKejLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="thangThongKejComboBox" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="xemThangThongKejButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="thangThongKejComboBox" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="xemThangThongKejButton" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" pref="537" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="thongKejComboBox" pref="40" max="32767" attributes="0"/>
+                          <Component id="xemThongKejButton" pref="40" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" pref="459" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="xuatThongKejButton" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -407,9 +418,9 @@
                   <Color blue="66" green="66" red="0" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/qlbh/images/hunter.png"/>
+                  <Image iconType="3" name="/com/qlbh/images/hunter (1).png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Xem"/>
+                <Property name="text" type="java.lang.String" value="XEM"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xemThangThongKejButtonActionPerformed"/>
@@ -458,6 +469,39 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xuatThongKejButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="thongKejComboBox">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="18" style="0"/>
+                </Property>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="2">
+                    <StringItem index="0" value=" "/>
+                    <StringItem index="1" value="Th&#x1ed1;ng k&#xea; 5 &#x111;&#x1a1;n h&#xe0;ng gi&#xe1; tr&#x1ecb; nh&#x1ea5;t"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="xemThongKejButton">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="0" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/qlbh/images/hunter (1).png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="XEM"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xemThongKejButtonActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

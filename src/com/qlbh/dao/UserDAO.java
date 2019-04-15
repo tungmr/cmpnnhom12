@@ -111,6 +111,26 @@ public class UserDAO {
         return false;
     }
     
+    public static User getMotUser(String username){
+        User user = new User();
+        String sql = "SELECT * FROM user WHERE ma_nhanVien=?";
+        Connection connection = JDBCConnection.myConnect();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, username);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                user.setIdUser(resultSet.getInt(1));
+                user.setMaNhanVien(resultSet.getString(2));
+                user.setPassword(resultSet.getString(3));
+                user.setRole(resultSet.getInt(4));
+                
+            }
+        } catch (Exception e) {
+        }
+        return user;
+    }
+    
     
 
 //    public static void main(String[] args) {

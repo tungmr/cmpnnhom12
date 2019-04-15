@@ -43,7 +43,7 @@ public class SanPhamJPanel extends javax.swing.JPanel {
         loadSanPham();
         loadMaNCC("");
         setEnabledButton();
-        maNhanVienSPjTextField.setText(username);
+        maNhanVienSPjTextField.setText(username.toUpperCase());
     }
 
     /**
@@ -319,7 +319,7 @@ public class SanPhamJPanel extends javax.swing.JPanel {
         listSanPham = SanPhamDAO.getListSanPham();
         for (SanPham sanPham : listSanPham) {
             sanPhamtableModel.addRow(new Object[]{
-                sanPham.getMaSanPham(), sanPham.getTenSanPham(), sanPham.getMaNhaCungCapSP(), sanPham.getSoLuong(), sanPham.getDonGia(), sanPham.getMaNhanVienSP()
+                sanPham.getMaSanPham(), sanPham.getTenSanPham(), sanPham.getMaNhaCungCapSP(), sanPham.getSoLuong(), format.format(sanPham.getDonGia()), sanPham.getMaNhanVienSP()
             });
         }
     }
@@ -576,9 +576,9 @@ public class SanPhamJPanel extends javax.swing.JPanel {
                     sanPhamtableModel.addRow(new Object[]{
                         listSP.get(i).getMaSanPham(),
                         listSP.get(i).getTenSanPham(),
+                        listSP.get(i).getMaNhaCungCapSP(),
                         listSP.get(i).getSoLuong(),
                         format.format(listSP.get(i).getDonGia()),
-                        listSP.get(i).getMaNhaCungCapSP(),
                         listSP.get(i).getMaNhanVienSP(),});
                 }
                 if (sanPhamtableModel.getRowCount() == 0) {

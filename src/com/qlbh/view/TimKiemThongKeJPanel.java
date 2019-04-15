@@ -18,6 +18,8 @@ import com.qlbh.model.SanPham;
 import com.qlbh.tools.Excel;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -75,6 +77,8 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         thongKejTable = new javax.swing.JTable();
         xuatThongKejButton = new javax.swing.JButton();
+        thongKejComboBox = new javax.swing.JComboBox<>();
+        xemThongKejButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
 
@@ -200,7 +204,7 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(timKiemjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(81, 81, 81)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
                 .addGap(27, 27, 27)
                 .addComponent(xuatTiemKiemjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
@@ -221,8 +225,8 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
 
         xemThangThongKejButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         xemThangThongKejButton.setForeground(new java.awt.Color(0, 102, 102));
-        xemThangThongKejButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/hunter.png"))); // NOI18N
-        xemThangThongKejButton.setText("Xem");
+        xemThangThongKejButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/hunter (1).png"))); // NOI18N
+        xemThangThongKejButton.setText("XEM");
         xemThangThongKejButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 xemThangThongKejButtonActionPerformed(evt);
@@ -253,6 +257,19 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
             }
         });
 
+        thongKejComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        thongKejComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Thống kê 5 đơn hàng giá trị nhất" }));
+
+        xemThongKejButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        xemThongKejButton.setForeground(new java.awt.Color(0, 102, 102));
+        xemThongKejButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/hunter (1).png"))); // NOI18N
+        xemThongKejButton.setText("XEM");
+        xemThongKejButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xemThongKejButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -269,9 +286,13 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
                 .addGap(90, 90, 90)
                 .addComponent(thangThongKejLabel)
                 .addGap(131, 131, 131)
-                .addComponent(thangThongKejComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(thongKejComboBox, 0, 300, Short.MAX_VALUE)
+                    .addComponent(thangThongKejComboBox, 0, 300, Short.MAX_VALUE))
                 .addGap(133, 133, 133)
-                .addComponent(xemThangThongKejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(xemThongKejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(xemThangThongKejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -280,10 +301,14 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
                 .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(thangThongKejLabel)
-                    .addComponent(thangThongKejComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(xemThangThongKejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
+                    .addComponent(thangThongKejComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(xemThangThongKejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(61, 61, 61)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(thongKejComboBox, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(xemThongKejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(xuatThongKejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -582,6 +607,74 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_xuatThongKejButtonActionPerformed
 
+    private void xemThongKejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xemThongKejButtonActionPerformed
+        // TODO add your handling code here:
+        try {
+            String luaChon = thongKejComboBox.getSelectedItem().toString();
+            thongKeTheoThangTableModel = (DefaultTableModel) thongKejTable.getModel();
+
+            thongKeTheoThangTableModel.setRowCount(0);
+            switch (luaChon) {
+                case " ":
+                    JOptionPane.showMessageDialog(null, "Vui lòng chọn để thống kê", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+                    break;
+                case "Thống kê 5 đơn hàng giá trị nhất":
+                    ArrayList<HoaDon> listHoaDon = HoaDonDAO.getListHoaDon();
+                    for (int i = 0; i < listHoaDon.size(); i++) {
+                        ArrayList<ChiTietHoaDon> listChiTiet = ChiTietHoaDonDAO.getMotChiTietHoaDon(listHoaDon.get(i).getMaHoaDon());
+                        listHoaDon.get(i).setTongTienHoaDon(listChiTiet);
+                    }
+
+                    Collections.sort(listHoaDon, new Comparator<HoaDon>() {
+                        @Override
+                        public int compare(HoaDon o1, HoaDon o2) {
+                            return o1.getTongTienHoaDon() > o2.getTongTienHoaDon() ? -1 : 1;
+                        }
+
+                    });
+
+                    for (int i = 0; i < 5; i++) {
+                        String[] col = {"STT", "Mã hóa đơn", "Mã khách hàng", "Tên khách hàng", "Số điện thoại", "Địa chỉ", "Tổng tiền", "Ngày mua", "Mã nhân viên"};
+                        thongKeTheoThangTableModel.setColumnIdentifiers(col);
+                        if (listHoaDon.get(i).getMaKhachHangMua() == null) {
+                            thongKeTheoThangTableModel.addRow(new Object[]{
+                                i + 1,
+                                listHoaDon.get(i).getMaHoaDon(),
+                                "",
+                                listHoaDon.get(i).getTenKhachHangMua(),
+                                listHoaDon.get(i).getSoDienThoaiKH(),
+                                listHoaDon.get(i).getDiaChiKhachHangMua(),
+                                format.format(listHoaDon.get(i).getTongTienHoaDon()),
+                                listHoaDon.get(i).getNgayMua(),
+                                listHoaDon.get(i).getMaNhanVienBan()
+                            });
+                        } else {
+                            KhachHang khachHang = KhachHangDAO.getMotKhachHang(listHoaDon.get(i).getMaKhachHangMua());
+                            thongKeTheoThangTableModel.addRow(new Object[]{
+                                i + 1,
+                                listHoaDon.get(i).getMaHoaDon(),
+                                listHoaDon.get(i).getMaKhachHangMua(),
+                                khachHang.getTenKhachHang(),
+                                khachHang.getSoDienThoaiKH(),
+                                khachHang.getDiaChiKhachHang(),
+                                format.format(listHoaDon.get(i).getTongTienHoaDon()),
+                                listHoaDon.get(i).getNgayMua(),
+                                listHoaDon.get(i).getMaNhanVienBan()
+                            });
+                        }
+
+                    }
+
+                    break;
+
+                default:
+                    break;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_xemThongKejButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -594,6 +687,7 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> loaiTimKiemjComboBox;
     private javax.swing.JComboBox<String> thangThongKejComboBox;
     private javax.swing.JLabel thangThongKejLabel;
+    private javax.swing.JComboBox<String> thongKejComboBox;
     private javax.swing.JTable thongKejTable;
     private javax.swing.JComboBox<String> thuocTimKiemjComboBox;
     private javax.swing.JLabel thuocTimKiemjLabel;
@@ -602,6 +696,7 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel tuKhoaTimKiemjLabel;
     private javax.swing.JTextField tuKhoaTimKiemjTextField;
     private javax.swing.JButton xemThangThongKejButton;
+    private javax.swing.JButton xemThongKejButton;
     private javax.swing.JButton xuatThongKejButton;
     private javax.swing.JButton xuatTiemKiemjButton;
     // End of variables declaration//GEN-END:variables
