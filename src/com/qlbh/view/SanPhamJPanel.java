@@ -40,10 +40,13 @@ public class SanPhamJPanel extends javax.swing.JPanel {
     public SanPhamJPanel(String username) {
         initComponents();
         sanPhamtableModel = (DefaultTableModel) sanPhamjTable.getModel();
+        sanPhamjTable.setAutoCreateRowSorter(true);
+        sanPhamjTable.getTableHeader().setReorderingAllowed(false);
         loadSanPham();
         loadMaNCC("");
         setEnabledButton();
         maNhanVienSPjTextField.setText(username.toUpperCase());
+        maNhanVienSPjTextField.setEditable(false);
     }
 
     /**
@@ -103,6 +106,7 @@ public class SanPhamJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        sanPhamjTable.getTableHeader().setReorderingAllowed(false);
         sanPhamjTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 sanPhamjTableMouseClicked(evt);
@@ -330,6 +334,8 @@ public class SanPhamJPanel extends javax.swing.JPanel {
 
     public void loadMaNCC(String maNhaCungCap) {
         ArrayList<String> listMaNCC = NhaCungCapDAO.getListMaNhaCungCap();
+        if (maNhaCungCap.equals(""))
+            maNhaCungCapSPjComboBox.addItem("");
         for (String maNCC : listMaNCC) {
             if (maNCC.equals(maNhaCungCap)) {
                 continue;
@@ -375,7 +381,6 @@ public class SanPhamJPanel extends javax.swing.JPanel {
         soLuongSanPhamjTextField.setText("");
         donGiaSanPhamjTextField.setText("");
         maNhaCungCapSPjComboBox.removeAllItems();
-        maNhaCungCapSPjComboBox.addItem("");
         loadMaNCC("");
 
 
@@ -422,7 +427,6 @@ public class SanPhamJPanel extends javax.swing.JPanel {
             }
         } else {
             JOptionPane.showMessageDialog(null, "Chọn một hàng để sửa");
-
         }
 
 

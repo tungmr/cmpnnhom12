@@ -440,7 +440,7 @@
                       <Color blue="54" green="16" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/com/qlbh/images/employee.png"/>
+                      <Image iconType="3" name="/com/qlbh/images/diagrammain.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="BI&#x1ec2;U &#x110;&#x1ed2;"/>
                   </Properties>

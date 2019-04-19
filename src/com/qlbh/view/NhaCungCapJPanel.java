@@ -101,6 +101,7 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        nhaCungCapjTable.getTableHeader().setReorderingAllowed(false);
         nhaCungCapjTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 nhaCungCapjTableMouseClicked(evt);

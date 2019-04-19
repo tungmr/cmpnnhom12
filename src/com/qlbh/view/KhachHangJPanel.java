@@ -102,6 +102,7 @@ public class KhachHangJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        khachHangjTable.getTableHeader().setReorderingAllowed(false);
         khachHangjTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 khachHangjTableMouseClicked(evt);
@@ -464,6 +465,7 @@ public class KhachHangJPanel extends javax.swing.JPanel {
     private void huyKhachHangjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huyKhachHangjButtonActionPerformed
         // TODO add your handling code here:
         maKhachHangjTextField.setText("");
+        maKhachHangjTextField.setEditable(true);
         hoTenKhachHangjTextField.setText("");
         diaChiKhachHangjTextField.setText("");
         emailKhachHangjTextField.setText("");

@@ -63,7 +63,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanel1">
+        <Container class="javax.swing.JPanel" name="thanhVienjPanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -71,8 +71,11 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="TH&#xc0;NH VI&#xca;N">
-                <Property name="tabTitle" type="java.lang.String" value="TH&#xc0;NH VI&#xca;N"/>
+              <JTabbedPaneConstraints tabName="TH&#xc0;NH VI&#xca;N   ">
+                <Property name="tabTitle" type="java.lang.String" value="TH&#xc0;NH VI&#xca;N   "/>
+                <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/qlbh/images/membership.png"/>
+                </Property>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -87,6 +90,8 @@
                               <Component id="maSanPhamBHtvjLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                               <Component id="maSanPhamBHtvjComboBox" min="-2" pref="170" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="soLuongBHtvjLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
@@ -103,26 +108,28 @@
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
-                              <Component id="soLuongBHtvjLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Component id="soLuongBHtvjTextField" min="-2" pref="183" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
-                              <Component id="themSLBHTVjButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="401" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                              <Component id="themSPBHTVjButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="suaSPBHTVjButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="xoaSPBHTVjButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="themBHtvjButton" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="themBHtvjButton" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="suaBHtvjButton" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="suaBHtvjButton" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="xoaBHtvjButton" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="xoaBHtvjButton" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="huyBHtvjButton" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="huyBHtvjButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="713" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
@@ -143,16 +150,18 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Group type="102" attributes="0">
+                              <Component id="xemTatCaDonHangBHTVjButton" min="-2" pref="188" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="locDonHangBHTVjButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="inHoaDonBHTVjButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="xuatBHtvjButton" min="-2" pref="150" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jScrollPane1" pref="1378" max="32767" attributes="0"/>
-                              <Component id="jScrollPane3" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="jScrollPane1" alignment="0" pref="1378" max="32767" attributes="0"/>
+                          <Component id="jScrollPane3" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="401" max="-2" attributes="0"/>
                   </Group>
@@ -161,13 +170,19 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="soLuongBHtvjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="soLuongBHtvjTextField" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="maSanPhamBHtvjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="maSanPhamBHtvjComboBox" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="themSLBHTVjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="maSanPhamBHtvjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="maSanPhamBHtvjComboBox" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="soLuongBHtvjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="soLuongBHtvjTextField" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="themSPBHTVjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="suaSPBHTVjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="xoaSPBHTVjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="146" max="-2" attributes="0"/>
@@ -197,19 +212,21 @@
                               </Group>
                               <EmptySpace type="unrelated" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="themBHtvjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
-                                  <Component id="suaBHtvjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
-                                  <Component id="xoaBHtvjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
-                                  <Component id="huyBHtvjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Component id="themBHtvjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="suaBHtvjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="xoaBHtvjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="huyBHtvjButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="jScrollPane1" pref="340" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="324" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="xuatBHtvjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
                           <Component id="inHoaDonBHTVjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="xemTatCaDonHangBHTVjButton" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="locDonHangBHTVjButton" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -291,7 +308,7 @@
                       </TableColumnModel>
                     </Property>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -550,7 +567,7 @@
                       </TableColumnModel>
                     </Property>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -559,15 +576,21 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="themSLBHTVjButton">
+            <Component class="javax.swing.JButton" name="themSPBHTVjButton">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="0" type="rgb"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/com/qlbh/images/plusbh.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="TH&#xca;M S&#x1ea2;N PH&#x1ea8;M"/>
+                <Property name="text" type="java.lang.String" value="TH&#xca;M"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="themSLBHTVjButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="themSPBHTVjButtonActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="ngayMuaBHtvjLabel">
@@ -606,9 +629,59 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inHoaDonBHTVjButtonActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JButton" name="xemTatCaDonHangBHTVjButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="XEM T&#x1ea4;T C&#x1ea2; &#x110;&#x1a0;N H&#xc0;NG"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xemTatCaDonHangBHTVjButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="suaSPBHTVjButton">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="0" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/qlbh/images/edit bh.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="S&#x1eec;A"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="suaSPBHTVjButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="xoaSPBHTVjButton">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="0" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/qlbh/images/databasebh.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="X&#xd3;A"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xoaSPBHTVjButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="locDonHangBHTVjButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="L&#x1ecc;C"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="locDonHangBHTVjButtonActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel2">
+        <Container class="javax.swing.JPanel" name="khongThanhVienjPanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -616,8 +689,11 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="KH&#xd4;NG TH&#xc0;NH VI&#xca;N">
-                <Property name="tabTitle" type="java.lang.String" value="KH&#xd4;NG TH&#xc0;NH VI&#xca;N"/>
+              <JTabbedPaneConstraints tabName="KH&#xd4;NG TH&#xc0;NH VI&#xca;N   ">
+                <Property name="tabTitle" type="java.lang.String" value="KH&#xd4;NG TH&#xc0;NH VI&#xca;N   "/>
+                <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/qlbh/images/no-disturb-symbol-in-a-circle.png"/>
+                </Property>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -628,34 +704,40 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="maSanPhamBHKTVjLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                      <Component id="maSanPhamBHKTVjComboBox" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="maSanPhamBHKTVjComboBox" min="-2" pref="252" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="soLuongBHktvjLabel" min="-2" pref="142" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="soLuongBHKTVjTextField" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
-                      <Component id="themSLBHKTVjButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="soLuongBHKTVjTextField" min="-2" pref="134" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="themSPBHKTVjButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="suaSPBHKTVjButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="xoaSPBHKTVjButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="xemTatCaDonHangBHKTVjButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="locDonHangBHKTVjButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="inHoaDonBHKTVjButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="xuatBHKTVjButton" min="-2" pref="150" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jScrollPane4" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jScrollPane4" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="themBHKTVjButton" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
@@ -670,50 +752,66 @@
                                           </Group>
                                       </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                              <Component id="hoTenBHKTVjLabel" min="-2" pref="167" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="hoTenBHKTVjTextField" min="-2" pref="250" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="jLabel3" min="-2" pref="18" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="maNhanVienBHKTVjLabel" min="-2" pref="167" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                              <Component id="hoTenBHKTVjLabel" min="-2" pref="167" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="themBHKTVjButton" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="suaBHKTVjButton" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="maNhanVienBHKTVjTextField" min="-2" pref="250" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
-                                      <EmptySpace type="unrelated" pref="131" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="maNhanVienBHKTVjTextField" pref="250" max="32767" attributes="0"/>
-                                          <Component id="hoTenBHKTVjTextField" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="31" pref="73" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="diaChiBHKTVjLabel" min="-2" pref="167" max="-2" attributes="0"/>
-                                          <Component id="ngayMuaBHtvjLabel1" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="diaChiBHKTVjLabel" min="-2" pref="167" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="ngayMuaBHtvjLabel1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="diaChiBHKTVjTextField" max="32767" attributes="0"/>
-                                          <Component id="ngayMuaBHKTVjTextField" max="32767" attributes="0"/>
+                                          <Component id="ngayMuaBHKTVjTextField" min="-2" pref="198" max="-2" attributes="0"/>
+                                          <Component id="diaChiBHKTVjTextField" min="-2" pref="201" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="suaBHKTVjButton" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="xoaBHKTVjButton" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="huyBHKTVjButton" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="122" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="xoaBHKTVjButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="huyBHKTVjButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -726,10 +824,12 @@
                           <Component id="maSanPhamBHKTVjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="soLuongBHktvjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="soLuongBHKTVjTextField" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="themSLBHKTVjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="themSPBHKTVjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="suaSPBHKTVjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="xoaSPBHKTVjButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="jScrollPane4" pref="160" max="32767" attributes="0"/>
+                      <Component id="jScrollPane4" pref="161" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="maDonHangBHKTVjLabel" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
@@ -741,33 +841,31 @@
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="soDienThoaiBHKTVjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="soDienThoaiBHKTVjTextField" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="maNhanVienBHKTVjLabel" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                              <Component id="maNhanVienBHKTVjTextField" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                              <Component id="ngayMuaBHtvjLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ngayMuaBHKTVjTextField" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="soDienThoaiBHKTVjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="soDienThoaiBHKTVjTextField" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="maNhanVienBHKTVjLabel" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="maNhanVienBHKTVjTextField" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="ngayMuaBHtvjLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ngayMuaBHKTVjTextField" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="themBHKTVjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
-                          <Component id="suaBHKTVjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
-                          <Component id="xoaBHKTVjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
-                          <Component id="huyBHKTVjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="themBHKTVjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="suaBHKTVjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="xoaBHKTVjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="huyBHKTVjButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" pref="303" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" pref="302" max="32767" attributes="0"/>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="xuatBHKTVjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
                           <Component id="inHoaDonBHKTVjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="xemTatCaDonHangBHKTVjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="locDonHangBHKTVjButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -856,7 +954,7 @@
                       </TableColumnModel>
                     </Property>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -902,7 +1000,7 @@
                   <Color blue="66" green="66" red="0" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/qlbh/images/plus.png"/>
+                  <Image iconType="3" name="/com/qlbh/images/plusbh.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="TH&#xca;M"/>
               </Properties>
@@ -919,7 +1017,7 @@
                   <Color blue="66" green="66" red="0" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/qlbh/images/x-button.png"/>
+                  <Image iconType="3" name="/com/qlbh/images/x-buttonbh.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="H&#x1ee6;Y"/>
               </Properties>
@@ -1040,7 +1138,7 @@
                   <Color blue="66" green="66" red="0" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/qlbh/images/edit (1).png"/>
+                  <Image iconType="3" name="/com/qlbh/images/edit bh.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="S&#x1eec;A"/>
               </Properties>
@@ -1074,7 +1172,7 @@
                   <Color blue="66" green="66" red="0" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/qlbh/images/database.png"/>
+                  <Image iconType="3" name="/com/qlbh/images/databasebh.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="X&#xd3;A"/>
               </Properties>
@@ -1093,8 +1191,8 @@
                         <Column editable="false" title="STT" type="java.lang.Object"/>
                         <Column editable="false" title="M&#xe3; s&#x1ea3;n ph&#x1ea9;m" type="java.lang.Object"/>
                         <Column editable="false" title="T&#xea;n s&#x1ea3;n ph&#x1ea9;m" type="java.lang.Object"/>
-                        <Column editable="false" title="&#x110;&#x1a1;n gi&#xe1;" type="java.lang.Object"/>
                         <Column editable="false" title="S&#x1ed1; l&#x1b0;&#x1ee3;ng" type="java.lang.Object"/>
+                        <Column editable="false" title="&#x110;&#x1a1;n gi&#xe1;" type="java.lang.Object"/>
                         <Column editable="false" title="Th&#xe0;nh ti&#x1ec1;n" type="java.lang.Object"/>
                       </Table>
                     </Property>
@@ -1133,7 +1231,7 @@
                       </TableColumnModel>
                     </Property>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1142,15 +1240,21 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="themSLBHKTVjButton">
+            <Component class="javax.swing.JButton" name="themSPBHKTVjButton">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="0" type="rgb"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/com/qlbh/images/plusbh.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="TH&#xca;M S&#x1ea2;N PH&#x1ea8;M"/>
+                <Property name="text" type="java.lang.String" value="TH&#xca;M"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="themSLBHKTVjButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="themSPBHKTVjButtonActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="ngayMuaBHtvjLabel1">
@@ -1211,6 +1315,56 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inHoaDonBHKTVjButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="suaSPBHKTVjButton">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="0" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/qlbh/images/edit bh.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="S&#x1eec;A"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="suaSPBHKTVjButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="xoaSPBHKTVjButton">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="0" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/qlbh/images/databasebh.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="X&#xd3;A"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xoaSPBHKTVjButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="xemTatCaDonHangBHKTVjButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="XEM T&#x1ea4;T C&#x1ea2; &#x110;&#x1a0;N H&#xc0;NG"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xemTatCaDonHangBHKTVjButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="locDonHangBHKTVjButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="L&#x1ecc;C"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="locDonHangBHKTVjButtonActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

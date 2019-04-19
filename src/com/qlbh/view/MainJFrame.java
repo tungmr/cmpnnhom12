@@ -237,7 +237,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabelBieuDo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabelBieuDo.setForeground(new java.awt.Color(255, 22, 84));
-        jLabelBieuDo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/employee.png"))); // NOI18N
+        jLabelBieuDo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/images/diagrammain.png"))); // NOI18N
         jLabelBieuDo.setText("BIỂU ĐỒ");
         jLabelBieuDo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

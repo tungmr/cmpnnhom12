@@ -60,7 +60,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanel1">
+        <Container class="javax.swing.JPanel" name="timKiemjPanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -68,8 +68,11 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="T&#xec;m ki&#x1ebf;m">
-                <Property name="tabTitle" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m"/>
+              <JTabbedPaneConstraints tabName="T&#xcc;M KI&#x1ebe;M   ">
+                <Property name="tabTitle" type="java.lang.String" value="T&#xcc;M KI&#x1ebe;M   "/>
+                <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/qlbh/images/search5.png"/>
+                </Property>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -136,7 +139,7 @@
                               <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="jScrollPane1" pref="384" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="366" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="xuatTiemKiemjButton" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
@@ -163,7 +166,7 @@
                       <TableColumnModel selectionModel="0"/>
                     </Property>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -297,7 +300,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel2">
+        <Container class="javax.swing.JPanel" name="thongKejPanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -305,8 +308,11 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Th&#x1ed1;ng k&#xea;">
-                <Property name="tabTitle" type="java.lang.String" value="Th&#x1ed1;ng k&#xea;"/>
+              <JTabbedPaneConstraints tabName="TH&#x1ed0;NG K&#xca;   ">
+                <Property name="tabTitle" type="java.lang.String" value="TH&#x1ed0;NG K&#xca;   "/>
+                <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/qlbh/images/analysis5.png"/>
+                </Property>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -356,7 +362,7 @@
                           <Component id="xemThongKejButton" pref="40" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" pref="459" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" pref="441" max="32767" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="xuatThongKejButton" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -448,7 +454,7 @@
                     </Property>
                     <Property name="enabled" type="boolean" value="false"/>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -477,9 +483,11 @@
                   <Font name="Tahoma" size="18" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="2">
+                  <StringArray count="4">
                     <StringItem index="0" value=" "/>
                     <StringItem index="1" value="Th&#x1ed1;ng k&#xea; 5 &#x111;&#x1a1;n h&#xe0;ng gi&#xe1; tr&#x1ecb; nh&#x1ea5;t"/>
+                    <StringItem index="2" value="Th&#x1ed1;ng k&#xea; s&#x1ed1; l&#x1b0;&#x1ee3;ng &#x111;&#x1a1;n h&#xe0;ng c&#x1ee7;a t&#x1eeb;ng nh&#xe2;n vi&#xea;n"/>
+                    <StringItem index="3" value="Th&#x1ed1;ng k&#xea; c&#xe1;c s&#x1ea3;n ph&#x1ea9;m b&#xe1;n nhi&#x1ec1;u nh&#x1ea5;t"/>
                   </StringArray>
                 </Property>
               </Properties>
