@@ -6,6 +6,7 @@
 package com.qlbh.view;
 
 import com.qlbh.dao.BieuDoNhanVienDAO;
+import com.qlbh.dao.BieuDoSanPhamDAO;
 import com.qlbh.dao.ChiTietHoaDonDAO;
 import com.qlbh.dao.HoaDonDAO;
 import com.qlbh.dao.KhachHangDAO;
@@ -14,6 +15,7 @@ import com.qlbh.dao.NhanVienDAO;
 import com.qlbh.dao.SanPhamDAO;
 import com.qlbh.dao.UserDAO;
 import com.qlbh.model.BieuDoNhanVien;
+import com.qlbh.model.BieuDoSanPham;
 import com.qlbh.model.ChiTietHoaDon;
 import com.qlbh.model.HoaDon;
 import com.qlbh.model.KhachHang;
@@ -717,6 +719,29 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
                         }
                         break;
                     case "Thống kê các sản phẩm bán nhiều nhất":
+                        ArrayList<BieuDoSanPham> listSPBanChay = BieuDoSanPhamDAO.getListBieuDoSanPham();
+                        String[] colSP = {"STT", "Mã sản phẩm", "Tên sản phẩm", "Mã nhà cung cấp", "Đơn giá", "Số lượng", "Mã nhân viên", "Số lượng đã bán"};
+                        thongKeTheoThangTableModel.setColumnIdentifiers(colSP);
+                        Collections.sort(listSPBanChay, new Comparator<BieuDoSanPham>() {
+                            @Override
+                            public int compare(BieuDoSanPham o1, BieuDoSanPham o2) {
+                               return o1.getSoLuongBan() > o2.getSoLuongBan() ? -1 : 1 ;
+                            }
+
+                        });
+                        for (int i = 0; i < listSPBanChay.size(); i++) {
+                            SanPham sanPham = SanPhamDAO.getMotSanPham(listSPBanChay.get(i).getMaSanPham());
+                            thongKeTheoThangTableModel.addRow(new Object[]{
+                                i + 1,
+                                sanPham.getMaSanPham(),
+                                sanPham.getTenSanPham(),
+                                sanPham.getMaNhaCungCapSP(),
+                                sanPham.getDonGia(),
+                                sanPham.getSoLuong(),
+                                sanPham.getMaNhanVienSP(),
+                                listSPBanChay.get(i).getSoLuongBan()
+                            });
+                        }
                         break;
                     default:
                         break;

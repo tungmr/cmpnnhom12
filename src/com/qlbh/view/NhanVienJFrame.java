@@ -8,9 +8,12 @@ package com.qlbh.view;
 import com.qlbh.dao.NhanVienDAO;
 import com.qlbh.model.NhanVien;
 import com.qlbh.tools.DatesConversion;
+import com.qlbh.tools.Excel;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -26,7 +29,8 @@ public class NhanVienJFrame extends javax.swing.JFrame {
     DefaultTableModel nhanVienTableModel;
     ImageIcon sai = new ImageIcon("tinhsai.png");
     ImageIcon dung = new ImageIcon("dau-check.png");
-    
+    DecimalFormat decimalFormat = new DecimalFormat("### ### ###");
+
     public NhanVienJFrame() {
         initComponents();
         nhanVienTableModel = (DefaultTableModel) nhanVienjTable.getModel();
@@ -67,7 +71,6 @@ public class NhanVienJFrame extends javax.swing.JFrame {
         ngaySinhjDateChooser = new com.toedter.calendar.JDateChooser();
         soDienThoaijTextField = new javax.swing.JTextField();
         emailjTextField = new javax.swing.JTextField();
-        chucVujTextField = new javax.swing.JTextField();
         luongjTextField = new javax.swing.JTextField();
         suaNhanVienjButton = new javax.swing.JButton();
         xoaNhanVienjButton = new javax.swing.JButton();
@@ -82,6 +85,8 @@ public class NhanVienJFrame extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        chucVujComboBox = new javax.swing.JComboBox<>();
+        jLabel18 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -186,8 +191,6 @@ public class NhanVienJFrame extends javax.swing.JFrame {
 
         emailjTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        chucVujTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
         luongjTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         suaNhanVienjButton.setBackground(new java.awt.Color(1, 22, 39));
@@ -229,6 +232,11 @@ public class NhanVienJFrame extends javax.swing.JFrame {
         xuatNhanVienjButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         xuatNhanVienjButton.setForeground(new java.awt.Color(253, 255, 252));
         xuatNhanVienjButton.setText("XUẤT");
+        xuatNhanVienjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xuatNhanVienjButtonActionPerformed(evt);
+            }
+        });
 
         themNhanVienjButton.setBackground(new java.awt.Color(1, 22, 39));
         themNhanVienjButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -261,6 +269,11 @@ public class NhanVienJFrame extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 0, 0));
         jLabel15.setText("* Các trường có dấu sao là bắt buộc");
+
+        chucVujComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Nhân viên", "Ban giám đốc" }));
+
+        jLabel18.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel18.setText("*");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -300,8 +313,8 @@ public class NhanVienJFrame extends javax.swing.JFrame {
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(20, 20, 20)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                             .addComponent(hoTenjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -311,10 +324,12 @@ public class NhanVienJFrame extends javax.swing.JFrame {
                                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                             .addComponent(soDienThoaijTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel18)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(chucVujTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(chucVujComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel17)
                                         .addGap(56, 56, 56)
@@ -370,7 +385,8 @@ public class NhanVienJFrame extends javax.swing.JFrame {
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(soDienThoaijTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(emailjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel12))
+                        .addComponent(jLabel12)
+                        .addComponent(jLabel18))
                     .addComponent(ngaySinhjDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -378,10 +394,10 @@ public class NhanVienJFrame extends javax.swing.JFrame {
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(diaChijTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chucVujTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(luongjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16)
-                    .addComponent(jLabel17))
+                    .addComponent(jLabel17)
+                    .addComponent(chucVujComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(suaNhanVienjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -461,9 +477,16 @@ public class NhanVienJFrame extends javax.swing.JFrame {
         ArrayList<NhanVien> listNhanVien = NhanVienDAO.getListNhanVien();
         for (NhanVien nhanVien : listNhanVien) {
             nhanVienTableModel.addRow(new Object[]{
-                nhanVien.getMaNhanVien(), nhanVien.getTenNhanVien(), nhanVien.isGioiTinh() == true ? "Nam" : "Nữ", nhanVien.getNgaySinh(), nhanVien.getSoDienThoai(), nhanVien.getEmailNhanVien(), nhanVien.getDiaChiNhanVien(), nhanVien.getChucVu(), nhanVien.getLuongNhanVien()
+                nhanVien.getMaNhanVien(), nhanVien.getTenNhanVien(), nhanVien.isGioiTinh() == true ? "Nam" : "Nữ", nhanVien.getNgaySinh(), nhanVien.getSoDienThoai(), nhanVien.getEmailNhanVien(), nhanVien.getDiaChiNhanVien(), nhanVien.getChucVu(), decimalFormat.format(nhanVien.getLuongNhanVien())
             });
         }
+    }
+
+    public void setMacDinhChucVu() {
+        chucVujComboBox.removeAllItems();
+        chucVujComboBox.addItem(" ");
+        chucVujComboBox.addItem("Nhân viên");
+        chucVujComboBox.addItem("Ban giám đốc");
     }
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
@@ -507,11 +530,16 @@ public class NhanVienJFrame extends javax.swing.JFrame {
         } else {
             diaChijTextField.setText("");
         }
-        if (nhanVienTableModel.getValueAt(row, 7) != null) {
-            chucVujTextField.setText(nhanVienTableModel.getValueAt(row, 7).toString());
+
+        chucVujComboBox.removeAllItems();
+        chucVujComboBox.addItem(nhanVienTableModel.getValueAt(row, 7).toString());
+        if (nhanVienTableModel.getValueAt(row, 7).toString().equals("Nhân viên")) {
+            chucVujComboBox.addItem("Ban giám đốc");
         } else {
-            chucVujTextField.setText("");
+            chucVujComboBox.addItem("Nhân viên");
+
         }
+
         if (nhanVienTableModel.getValueAt(row, 8) != null) {
             luongjTextField.setText(nhanVienTableModel.getValueAt(row, 8).toString());
         } else {
@@ -522,59 +550,73 @@ public class NhanVienJFrame extends javax.swing.JFrame {
     private void themNhanVienjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_themNhanVienjButtonActionPerformed
         // TODO add your handling code here:
         try {
+
             String maNhanVien = maNhanVienjTextField.getText().toUpperCase();
-            if (NhanVienDAO.kiemTraMaNhanVienDaTonTai(maNhanVien)) {
-                JOptionPane.showMessageDialog(null, "Mã nhân viên đã tồn tại", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
-                
+            String tenNV = hoTenjTextField.getText();
+            String nSinh = ngaySinhjDateChooser.getDate().toString();
+            String soDT = soDienThoaijTextField.getText();
+            String luong = luongjTextField.getText();
+            String chucVu = chucVujComboBox.getSelectedItem().toString();
+            boolean kiemTraGT = !namjRadioButton.isSelected() && !nujRadioButton.isSelected();
+            if (maNhanVien.contains(" ") || maNhanVien.equals("")) {
+                JOptionPane.showMessageDialog(null, "Kiểm tra lại mã nhân viên", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+
+            } else if (tenNV.equals("") || nSinh.equals("") || soDT.equals("") || luong.equals("") || chucVu.equals(" ") || kiemTraGT == true) {
+                JOptionPane.showMessageDialog(null, "Vui lòng điền vào các trường bắt buộc");
+
             } else {
-                NhanVien nhanVien = new NhanVien();
-                nhanVien.setMaNhanVien(maNhanVien);
-                nhanVien.setTenNhanVien(hoTenjTextField.getText());
-                nhanVien.setGioiTinh(namjRadioButton.isSelected() ? true : false);
-                nhanVien.setNgaySinh( DatesConversion.convertUtilToSql(ngaySinhjDateChooser.getDate()));
-                if (soDienThoaijTextField.getText() != null) {
-                    nhanVien.setSoDienThoai(soDienThoaijTextField.getText());
+                if (NhanVienDAO.kiemTraMaNhanVienDaTonTai(maNhanVien)) {
+                    JOptionPane.showMessageDialog(null, "Mã nhân viên đã tồn tại", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+
                 } else {
-                    nhanVien.setSoDienThoai("");
+
+                    NhanVien nhanVien = new NhanVien();
+                    nhanVien.setMaNhanVien(maNhanVien);
+                    nhanVien.setTenNhanVien(tenNV);
+                    nhanVien.setGioiTinh(namjRadioButton.isSelected() ? true : false);
+                    nhanVien.setNgaySinh(DatesConversion.convertUtilToSql(ngaySinhjDateChooser.getDate()));
+
+                    nhanVien.setSoDienThoai(soDT);
+
+                    if (emailjTextField.getText() != null) {
+                        nhanVien.setEmailNhanVien(emailjTextField.getText());
+                    } else {
+                        nhanVien.setEmailNhanVien("");
+                    }
+                    if (diaChijTextField.getText() != null) {
+                        nhanVien.setDiaChiNhanVien(diaChijTextField.getText());
+                    } else {
+                        nhanVien.setDiaChiNhanVien("");
+                    }
+                    nhanVien.setChucVu(chucVu);
+                    nhanVien.setLuongNhanVien(Double.parseDouble(luong));
+                    if (NhanVienDAO.themNhanVien(nhanVien)) {
+                        maNhanVienjTextField.setText("");
+                        hoTenjTextField.setText("");
+                        ngaySinhjDateChooser.setCalendar(null);
+                        namjRadioButton.setSelected(false);
+                        nujRadioButton.setSelected(false);
+                        soDienThoaijTextField.setText("");
+                        emailjTextField.setText("");
+                        diaChijTextField.setText("");
+                        setMacDinhChucVu();
+                        luongjTextField.setText("");
+                        nhanVienTableModel.addRow(new Object[]{
+                            nhanVien.getMaNhanVien(), nhanVien.getTenNhanVien(), nhanVien.isGioiTinh() == true ? "Nam" : "Nữ", nhanVien.getNgaySinh(), nhanVien.getSoDienThoai(), nhanVien.getEmailNhanVien(), nhanVien.getDiaChiNhanVien(), nhanVien.getChucVu(), decimalFormat.format(nhanVien.getLuongNhanVien())
+                        });
+                        JOptionPane.showMessageDialog(null, "Đã thêm nhân viên!", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Có lỗi xảy ra, thử lại sau!", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+
+                    }
+
                 }
-                if (emailjTextField.getText() != null) {
-                    nhanVien.setEmailNhanVien(emailjTextField.getText());
-                } else {
-                    nhanVien.setEmailNhanVien("");
-                }
-                if (diaChijTextField.getText() != null) {
-                    nhanVien.setDiaChiNhanVien(diaChijTextField.getText());
-                } else {
-                    nhanVien.setDiaChiNhanVien("");
-                }
-                nhanVien.setChucVu(chucVujTextField.getText());
-                nhanVien.setLuongNhanVien(Double.parseDouble(luongjTextField.getText()));
-                if (NhanVienDAO.themNhanVien(nhanVien)) {
-                    nhanVienTableModel.addRow(new Object[]{
-                        nhanVien.getMaNhanVien(), nhanVien.getTenNhanVien(), nhanVien.isGioiTinh() == true ? "Nam" : "Nữ", nhanVien.getNgaySinh(), nhanVien.getSoDienThoai(), nhanVien.getEmailNhanVien(), nhanVien.getDiaChiNhanVien(), nhanVien.getChucVu(), nhanVien.getLuongNhanVien()
-                    });
-                    JOptionPane.showMessageDialog(null, "Đã thêm nhân viên!", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Có lỗi xảy ra, thử lại sau!", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
-                    
-                }
-                
             }
+
         } catch (Exception e) {
-            e.printStackTrace();
-           // JOptionPane.showMessageDialog(null, "Kiểm tra giá trị nhập vào", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+            JOptionPane.showMessageDialog(null, "Kiểm tra giá trị nhập vào", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
         }
-        
-        maNhanVienjTextField.setText("");
-        hoTenjTextField.setText("");
-        ngaySinhjDateChooser.setCalendar(null);
-        namjRadioButton.setSelected(false);
-        nujRadioButton.setSelected(false);
-        soDienThoaijTextField.setText("");
-        emailjTextField.setText("");
-        diaChijTextField.setText("");
-        chucVujTextField.setText("");
-        luongjTextField.setText("");
+
 
     }//GEN-LAST:event_themNhanVienjButtonActionPerformed
 
@@ -584,65 +626,78 @@ public class NhanVienJFrame extends javax.swing.JFrame {
             int row = nhanVienjTable.getSelectedRow();
             if (row != -1) {
                 String maNhanVien = maNhanVienjTextField.getText().toUpperCase();
-                NhanVien nhanVien = new NhanVien();
-                nhanVien.setTenNhanVien(hoTenjTextField.getText());
-                nhanVien.setGioiTinh(namjRadioButton.isSelected() ? true : false);
-                nhanVien.setNgaySinh( DatesConversion.convertUtilToSql(ngaySinhjDateChooser.getDate()));
-                if (soDienThoaijTextField.getText() != null) {
+                String tenNV = hoTenjTextField.getText();
+                String nSinh = ngaySinhjDateChooser.getDate().toString();
+                String soDT = soDienThoaijTextField.getText();
+                String luong = luongjTextField.getText();
+                String chucVu = chucVujComboBox.getSelectedItem().toString();
+
+                if (tenNV.equals("") || nSinh.equals("") || soDT.equals("") || luong.equals("") || chucVu.equals(" ")) {
+                    JOptionPane.showMessageDialog(null, "Vui lòng điền vào các trường bắt buộc");
+
+                } else {
+                    NhanVien nhanVien = new NhanVien();
+                    nhanVien.setTenNhanVien(hoTenjTextField.getText());
+                    nhanVien.setGioiTinh(namjRadioButton.isSelected() ? true : false);
+                    nhanVien.setNgaySinh(DatesConversion.convertUtilToSql(ngaySinhjDateChooser.getDate()));
+
                     nhanVien.setSoDienThoai(soDienThoaijTextField.getText());
-                } else {
-                    nhanVien.setSoDienThoai("");
-                }
-                if (emailjTextField.getText() != null) {
-                    nhanVien.setEmailNhanVien(emailjTextField.getText());
-                } else {
-                    nhanVien.setEmailNhanVien("");
-                }
-                if (diaChijTextField.getText() != null) {
-                    nhanVien.setDiaChiNhanVien(diaChijTextField.getText());
-                } else {
-                    nhanVien.setDiaChiNhanVien("");
-                }
-                nhanVien.setChucVu(chucVujTextField.getText());
-                nhanVien.setLuongNhanVien(Double.parseDouble(luongjTextField.getText()));
-                if (NhanVienDAO.suaNhanVien(nhanVien, maNhanVien)) {
-                    nhanVienTableModel.setValueAt(nhanVien.getTenNhanVien(), row, 1);
-                    nhanVienTableModel.setValueAt(nhanVien.isGioiTinh() == true ? "Nam" : "Nữ", row, 2);
-                    nhanVienTableModel.setValueAt(nhanVien.getNgaySinh(), row, 3);
-                    nhanVienTableModel.setValueAt(nhanVien.getSoDienThoai(), row, 4);
-                    nhanVienTableModel.setValueAt(nhanVien.getEmailNhanVien(), row, 5);
-                    nhanVienTableModel.setValueAt(nhanVien.getDiaChiNhanVien(), row, 6);
-                    nhanVienTableModel.setValueAt(nhanVien.getChucVu(), row, 7);
-                    nhanVienTableModel.setValueAt(nhanVien.getLuongNhanVien(), row, 8);
-                    JOptionPane.showMessageDialog(null, "Đã chỉnh sửa nhân viên!", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Có lỗi xảy ra, thử lại sau!", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
-                    
+
+                    if (emailjTextField.getText() != null) {
+                        nhanVien.setEmailNhanVien(emailjTextField.getText());
+                    } else {
+                        nhanVien.setEmailNhanVien("");
+                    }
+                    if (diaChijTextField.getText() != null) {
+                        nhanVien.setDiaChiNhanVien(diaChijTextField.getText());
+                    } else {
+                        nhanVien.setDiaChiNhanVien("");
+                    }
+                    nhanVien.setChucVu(chucVujComboBox.getSelectedItem().toString());
+                    nhanVien.setLuongNhanVien(Double.parseDouble(luongjTextField.getText()));
+                    if (NhanVienDAO.suaNhanVien(nhanVien, maNhanVien)) {
+
+                        maNhanVienjTextField.setText("");
+                        maNhanVienjTextField.setEditable(true);
+                        hoTenjTextField.setText("");
+                        ngaySinhjDateChooser.setCalendar(null);
+                        namjRadioButton.setSelected(false);
+                        nujRadioButton.setSelected(false);
+                        soDienThoaijTextField.setText("");
+                        emailjTextField.setText("");
+                        diaChijTextField.setText("");
+                        setMacDinhChucVu();
+                        luongjTextField.setText("");
+                        maNhanVienjTextField.setEditable(true);
+
+                        themNhanVienjButton.setEnabled(true);
+                        nhapNhanVienjButton.setEnabled(true);
+                        huyNhanVienjButton.setEnabled(false);
+                        xuatNhanVienjButton.setEnabled(true);
+
+                        nhanVienTableModel.setValueAt(nhanVien.getTenNhanVien(), row, 1);
+                        nhanVienTableModel.setValueAt(nhanVien.isGioiTinh() == true ? "Nam" : "Nữ", row, 2);
+                        nhanVienTableModel.setValueAt(nhanVien.getNgaySinh(), row, 3);
+                        nhanVienTableModel.setValueAt(nhanVien.getSoDienThoai(), row, 4);
+                        nhanVienTableModel.setValueAt(nhanVien.getEmailNhanVien(), row, 5);
+                        nhanVienTableModel.setValueAt(nhanVien.getDiaChiNhanVien(), row, 6);
+                        nhanVienTableModel.setValueAt(nhanVien.getChucVu(), row, 7);
+                        nhanVienTableModel.setValueAt(nhanVien.getLuongNhanVien(), row, 8);
+                        JOptionPane.showMessageDialog(null, "Đã chỉnh sửa nhân viên!", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Có lỗi xảy ra, thử lại sau!", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+
+                    }
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Chọn một hàng để sửa!", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
-                
+
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Kiểm tra lại thông tin nhập vào!", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
-            
+
         }
-        maNhanVienjTextField.setText("");
-        maNhanVienjTextField.setEditable(true);
-        hoTenjTextField.setText("");
-        ngaySinhjDateChooser.setCalendar(null);
-        namjRadioButton.setSelected(false);
-        nujRadioButton.setSelected(false);
-        soDienThoaijTextField.setText("");
-        emailjTextField.setText("");
-        diaChijTextField.setText("");
-        chucVujTextField.setText("");
-        luongjTextField.setText("");
-        
-        themNhanVienjButton.setEnabled(true);
-        nhapNhanVienjButton.setEnabled(true);
-        huyNhanVienjButton.setEnabled(false);
-        xuatNhanVienjButton.setEnabled(true);
+
 
     }//GEN-LAST:event_suaNhanVienjButtonActionPerformed
 
@@ -657,25 +712,25 @@ public class NhanVienJFrame extends javax.swing.JFrame {
                     if (NhanVienDAO.xoaNhanVien(maNhanVien)) {
                         nhanVienTableModel.removeRow(row);
                         JOptionPane.showMessageDialog(null, "Đã xóa!", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
-                        
+
                     } else {
                         JOptionPane.showMessageDialog(null, "Có lỗi xảy ra, thử lại sau!", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
-                        
+
                     }
-                    
+
                 } else if (luachon == JOptionPane.NO_OPTION) {
                     JOptionPane.showMessageDialog(null, "Đã hủy việc xóa!", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
-                    
+
                 }
-                
+
             } else {
                 JOptionPane.showMessageDialog(null, "Chọn một hàng để xóa!", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
-                
+
             }
-            
+
         } catch (Exception e) {
         }
-        
+        maNhanVienjTextField.setEditable(true);
         maNhanVienjTextField.setText("");
         hoTenjTextField.setText("");
         ngaySinhjDateChooser.setCalendar(null);
@@ -684,9 +739,9 @@ public class NhanVienJFrame extends javax.swing.JFrame {
         soDienThoaijTextField.setText("");
         emailjTextField.setText("");
         diaChijTextField.setText("");
-        chucVujTextField.setText("");
+        setMacDinhChucVu();
         luongjTextField.setText("");
-        
+
         themNhanVienjButton.setEnabled(true);
         nhapNhanVienjButton.setEnabled(true);
         huyNhanVienjButton.setEnabled(false);
@@ -704,7 +759,7 @@ public class NhanVienJFrame extends javax.swing.JFrame {
         soDienThoaijTextField.setText("");
         emailjTextField.setText("");
         diaChijTextField.setText("");
-        chucVujTextField.setText("");
+        setMacDinhChucVu();
         luongjTextField.setText("");
         themNhanVienjButton.setEnabled(true);
         nhapNhanVienjButton.setEnabled(true);
@@ -712,6 +767,22 @@ public class NhanVienJFrame extends javax.swing.JFrame {
         xuatNhanVienjButton.setEnabled(true);
         nhanVienjTable.clearSelection();
     }//GEN-LAST:event_huyNhanVienjButtonActionPerformed
+
+    private void xuatNhanVienjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xuatNhanVienjButtonActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jFileChooser = new JFileChooser();
+        jFileChooser.setCurrentDirectory(new java.io.File("."));
+        jFileChooser.setDialogTitle("Chọn thư mục để lưu");
+        jFileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        jFileChooser.setAcceptAllFileFilterUsed(false);
+        if (jFileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            Excel.xuatFileExcel(nhanVienjTable, jFileChooser.getSelectedFile() + "\\\\nhanvien.xls");
+            JOptionPane.showMessageDialog(null, "Đã lưu file tại đường dẫn: " + jFileChooser.getSelectedFile(), "Message", JOptionPane.INFORMATION_MESSAGE, dung);
+        } else {
+            JOptionPane.showMessageDialog(null, "Vui lòng chọn nơi để lưu file");
+
+        }
+    }//GEN-LAST:event_xuatNhanVienjButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -750,7 +821,7 @@ public class NhanVienJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JTextField chucVujTextField;
+    private javax.swing.JComboBox<String> chucVujComboBox;
     private javax.swing.JTextField diaChijTextField;
     private javax.swing.JTextField emailjTextField;
     private javax.swing.JTextField hoTenjTextField;
@@ -764,6 +835,7 @@ public class NhanVienJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

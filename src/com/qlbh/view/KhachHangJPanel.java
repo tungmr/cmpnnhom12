@@ -539,6 +539,8 @@ public class KhachHangJPanel extends javax.swing.JPanel {
             Excel.xuatFileExcel(khachHangjTable, chooser.getSelectedFile() + "\\\\Khachhang.xls");
             JOptionPane.showMessageDialog(null, "Đã lưu file tại đường dẫn: " + chooser.getSelectedFile(), "Message", JOptionPane.INFORMATION_MESSAGE, dung);
         } else {
+            JOptionPane.showMessageDialog(null, "Vui lòng chọn nơi để lưu");
+
         }
     }//GEN-LAST:event_xuatKhachHangjButtonActionPerformed
 
