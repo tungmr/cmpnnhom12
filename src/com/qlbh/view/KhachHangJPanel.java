@@ -485,7 +485,6 @@ public class KhachHangJPanel extends javax.swing.JPanel {
             try {
                 int count = 0;
                 String duongDanExcel = jFileChooser.getSelectedFile().getAbsolutePath();
-                JOptionPane.showMessageDialog(null, duongDanExcel);
                 File file = new File(duongDanExcel);
                 Workbook workbook = Workbook.getWorkbook(file);
                 Sheet sheet = workbook.getSheet(0);
@@ -517,7 +516,7 @@ public class KhachHangJPanel extends javax.swing.JPanel {
 
                 }
                 if (count == row - 1) {
-                    JOptionPane.showMessageDialog(null, "Nhập file thành công", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+                    JOptionPane.showMessageDialog(null, "Nhập file thành công", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
 
                 }
             } catch (IOException ex) {
@@ -538,10 +537,7 @@ public class KhachHangJPanel extends javax.swing.JPanel {
         if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             Excel.xuatFileExcel(khachHangjTable, chooser.getSelectedFile() + "\\\\Khachhang.xls");
             JOptionPane.showMessageDialog(null, "Đã lưu file tại đường dẫn: " + chooser.getSelectedFile(), "Message", JOptionPane.INFORMATION_MESSAGE, dung);
-        } else {
-            JOptionPane.showMessageDialog(null, "Vui lòng chọn nơi để lưu");
-
-        }
+        } 
     }//GEN-LAST:event_xuatKhachHangjButtonActionPerformed
 
 

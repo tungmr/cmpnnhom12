@@ -334,8 +334,9 @@ public class SanPhamJPanel extends javax.swing.JPanel {
 
     public void loadMaNCC(String maNhaCungCap) {
         ArrayList<String> listMaNCC = NhaCungCapDAO.getListMaNhaCungCap();
-        if (maNhaCungCap.equals(""))
+        if (maNhaCungCap.equals("")) {
             maNhaCungCapSPjComboBox.addItem("");
+        }
         for (String maNCC : listMaNCC) {
             if (maNCC.equals(maNhaCungCap)) {
                 continue;
@@ -468,7 +469,7 @@ public class SanPhamJPanel extends javax.swing.JPanel {
             } catch (Exception e) {
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Chọn một hàng trong bảng để xóa");
+            JOptionPane.showMessageDialog(null, "Chọn một hàng để xóa");
         }
         themSanPhamjButton.setEnabled(true);
         nhapSanPhamjButton.setEnabled(true);
@@ -502,7 +503,6 @@ public class SanPhamJPanel extends javax.swing.JPanel {
             try {
                 int count = 0;
                 String duongDanExcel = jFileChooser.getSelectedFile().getAbsolutePath();
-                JOptionPane.showMessageDialog(null, duongDanExcel);
                 File file = new File(duongDanExcel);
                 Workbook workbook = Workbook.getWorkbook(file);
                 Sheet sheet = workbook.getSheet(0);
@@ -539,7 +539,7 @@ public class SanPhamJPanel extends javax.swing.JPanel {
                 }
 
                 if (count == row - 1) {
-                    JOptionPane.showMessageDialog(null, "Nhập file thành công", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+                    JOptionPane.showMessageDialog(null, "Nhập file thành công", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
 
                 }
 
@@ -561,7 +561,6 @@ public class SanPhamJPanel extends javax.swing.JPanel {
         if (jFileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             Excel.xuatFileExcel(sanPhamjTable, jFileChooser.getSelectedFile() + "\\\\Sanpham.xls");
             JOptionPane.showMessageDialog(null, "Đã lưu file tại đường dẫn: " + jFileChooser.getSelectedFile(), "Message", JOptionPane.INFORMATION_MESSAGE, dung);
-        } else {
         }
 
     }//GEN-LAST:event_xuatSanPhamjButtonActionPerformed

@@ -1967,10 +1967,7 @@ public class BanHangJPanel extends javax.swing.JPanel {
                 Excel.xuatFileExcel(banhangTVjTable, jFileChooser.getSelectedFile() + "\\\\Hoadonthanhvien.xls");
                 thanhVienDefaultTableModel.setRowCount(0);
                 JOptionPane.showMessageDialog(null, "Đã lưu file tại đường dẫn: " + jFileChooser.getSelectedFile(), "Message", JOptionPane.INFORMATION_MESSAGE, dung);
-            } else {
-                JOptionPane.showMessageDialog(null, "Vui lòng chọn nơi để lưu file");
-
-            }
+            } 
         } else {
             JOptionPane.showMessageDialog(null, "Không có hóa đơn nào để xuất");
 
@@ -1992,9 +1989,6 @@ public class BanHangJPanel extends javax.swing.JPanel {
                 Excel.xuatFileExcel(banHangKTVjTable, jFileChooser.getSelectedFile() + "\\\\Hoadonkhongthanhvien.xls");
                 koThanhVienDefaultTableModel.setRowCount(0);
                 JOptionPane.showMessageDialog(null, "Đã lưu file tại đường dẫn: " + jFileChooser.getSelectedFile(), "Message", JOptionPane.INFORMATION_MESSAGE, dung);
-            } else {
-                JOptionPane.showMessageDialog(null, "Vui lòng chọn nơi để lưu file");
-
             }
         } else {
             JOptionPane.showMessageDialog(null, "Không có hóa đơn nào để xuất");
@@ -2392,6 +2386,7 @@ public class BanHangJPanel extends javax.swing.JPanel {
     private void xemTatCaDonHangBHTVjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xemTatCaDonHangBHTVjButtonActionPerformed
         // TODO add your handling code here:
         if (user.getRole() == 1) {
+            huyBHtvjButton.setEnabled(true);
             loadBanHangThanhVien();
         } else {
             JOptionPane.showMessageDialog(null, "Bạn không thể dùng chức năng này", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
@@ -2404,6 +2399,7 @@ public class BanHangJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         // TODO add your handling code here:
         if (user.getRole() == 1) {
+            huyBHKTVjButton.setEnabled(true);
             loadBanHangKhongThanhVien();
         } else {
             JOptionPane.showMessageDialog(null, "Bạn không thể dùng chức năng này", "Message", JOptionPane.INFORMATION_MESSAGE, sai);

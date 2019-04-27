@@ -611,8 +611,7 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
         if (jFileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             Excel.xuatFileExcel(timKiemjTable, jFileChooser.getSelectedFile() + "\\\\timkiem.xls");
             JOptionPane.showMessageDialog(null, "Đã lưu file tại đường dẫn: " + jFileChooser.getSelectedFile(), "Message", JOptionPane.INFORMATION_MESSAGE, dung);
-        } else {
-        }
+        } 
     }//GEN-LAST:event_xuatTiemKiemjButtonActionPerformed
 
     private void xuatThongKejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xuatThongKejButtonActionPerformed
@@ -626,7 +625,6 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
             if (jFileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
                 Excel.xuatFileExcel(thongKejTable, jFileChooser.getSelectedFile() + "\\\\thongke.xls");
                 JOptionPane.showMessageDialog(null, "Đã lưu file tại đường dẫn: " + jFileChooser.getSelectedFile(), "Message", JOptionPane.INFORMATION_MESSAGE, dung);
-            } else {
             }
         } else {
             JOptionPane.showMessageDialog(null, "Bạn không có quyền dùng chức năng này", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
@@ -725,7 +723,7 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
                         Collections.sort(listSPBanChay, new Comparator<BieuDoSanPham>() {
                             @Override
                             public int compare(BieuDoSanPham o1, BieuDoSanPham o2) {
-                               return o1.getSoLuongBan() > o2.getSoLuongBan() ? -1 : 1 ;
+                                return o1.getSoLuongBan() > o2.getSoLuongBan() ? -1 : 1;
                             }
 
                         });

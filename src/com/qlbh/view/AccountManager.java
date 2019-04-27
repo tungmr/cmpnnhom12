@@ -27,7 +27,6 @@ public class AccountManager extends javax.swing.JFrame {
     DefaultTableModel userTableModel;
     ImageIcon sai = new ImageIcon("tinhsai.png");
     ImageIcon dung = new ImageIcon("dau-check.png");
-    private String username;
 
     public AccountManager(String username) {
         initComponents();
@@ -63,8 +62,8 @@ public class AccountManager extends javax.swing.JFrame {
         nhanVienjLabel = new javax.swing.JLabel();
         welcome = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        dangXuatjMenu = new javax.swing.JMenu();
+        thoatjMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản lí tài khoản");
@@ -118,7 +117,7 @@ public class AccountManager extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Role");
 
-        rolejComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Nhân viên", "Quản lí" }));
+        rolejComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Nhân viên", "Ban giám đốc" }));
 
         passwordjPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -246,21 +245,21 @@ public class AccountManager extends javax.swing.JFrame {
                 .addContainerGap(84, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("Đăng xuất");
-        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+        dangXuatjMenu.setText("Đăng xuất");
+        dangXuatjMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu1MouseClicked(evt);
+                dangXuatjMenuMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(dangXuatjMenu);
 
-        jMenu2.setText("thoát");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+        thoatjMenu.setText("thoát");
+        thoatjMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
+                thoatjMenuMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(thoatjMenu);
 
         setJMenuBar(jMenuBar1);
 
@@ -282,7 +281,7 @@ public class AccountManager extends javax.swing.JFrame {
         ArrayList<User> listUser = UserDAO.getListUser();
         for (int i = 0; i < listUser.size(); i++) {
             userTableModel.addRow(new Object[]{
-                i + 1, listUser.get(i).getMaNhanVien(), listUser.get(i).getPassword(), listUser.get(i).getRole() == 1 ? "Nhân viên" : "Quản lí"
+                i + 1, listUser.get(i).getMaNhanVien(), listUser.get(i).getPassword(), listUser.get(i).getRole() == 1 ? "Ban giám đốc" : "Nhân viên"
             });
         }
     }
@@ -295,26 +294,37 @@ public class AccountManager extends javax.swing.JFrame {
     private void themUserjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_themUserjButtonActionPerformed
         // TODO add your handling code here:
         try {
-            String username = usernamejTextField.getText();
-            if (NhanVienDAO.kiemTraMaNhanVienDaTonTai(username)) {
-                String password = String.valueOf(passwordjPasswordField.getPassword());
+            String userName = usernamejTextField.getText();
+            String password = String.valueOf(passwordjPasswordField.getPassword());
+            String roleString;
+            if (userName.equals("") || userName.contains(" ")) {
+                JOptionPane.showMessageDialog(null, "Kiểm tra lại username");
+            } else if (password.length() < 6) {
+                JOptionPane.showMessageDialog(null, "Mật khẩu phải lớn hơn hoặc bằng 6 ký tự");
+            } else if (NhanVienDAO.kiemTraMaNhanVienDaTonTai(userName)) {
                 String hashPassword = MD5.md5(password);
-                String roleString = rolejComboBox.getSelectedItem().toString();
+                roleString = NhanVienDAO.getNhanVien(userName).getChucVu();
                 int role = 0;
-                if (roleString.equals("Nhân viên")) {
+                if (roleString.equals("Ban giám đốc")) {
                     role = 1;
-                } else if (roleString.equals("Quản lí")) {
+                } else if (roleString.equals("Nhân viên")) {
                     role = 2;
                 }
-                User user = new User(0, username, hashPassword, role);
-                if (UserDAO.kiemTraUsernameTonTai(username)) {
+                User user = new User(0, userName, hashPassword, role);
+                if (UserDAO.kiemTraUsernameTonTai(userName)) {
                     JOptionPane.showMessageDialog(null, "Username đã tồn tại", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
                 } else {
                     if (UserDAO.themUser(user)) {
                         int rowCount = userTableModel.getRowCount();
                         userTableModel.addRow(new Object[]{
-                            rowCount + 1, user.getMaNhanVien(), user.getPassword(), user.getRole() == 1 ? "Nhân viên" : "Quản lí"
+                            rowCount + 1, user.getMaNhanVien(), user.getPassword(), user.getRole() == 1 ? "Ban giám đốc" : "Nhân viên"
                         });
+                        passwordjPasswordField.setText("");
+                        usernamejTextField.setText("");
+                        rolejComboBox.removeAllItems();
+                        rolejComboBox.addItem(" ");
+                        rolejComboBox.addItem("Nhân viên");
+                        rolejComboBox.addItem("Ban giám đốc");
                         JOptionPane.showMessageDialog(null, "Đã thêm user", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
 
                     } else {
@@ -329,12 +339,7 @@ public class AccountManager extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Kiểm tra thông tin nhập vào", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
 
         }
-        passwordjPasswordField.setText("");
-        usernamejTextField.setText("");
-        rolejComboBox.removeAllItems();
-        rolejComboBox.addItem("");
-        rolejComboBox.addItem("Nhân viên");
-        rolejComboBox.addItem("Quản lí");
+
     }//GEN-LAST:event_themUserjButtonActionPerformed
 
     private void nhanVienjLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nhanVienjLabelMousePressed
@@ -360,7 +365,7 @@ public class AccountManager extends javax.swing.JFrame {
         rolejComboBox.removeAllItems();
         rolejComboBox.addItem(userTableModel.getValueAt(row, 3).toString());
         if (userTableModel.getValueAt(row, 3).toString().equals("Nhân viên")) {
-            rolejComboBox.addItem("Quản lí");
+            rolejComboBox.addItem("Ban giám đốc");
         } else {
             rolejComboBox.addItem("Nhân viên");
         }
@@ -380,9 +385,9 @@ public class AccountManager extends javax.swing.JFrame {
                     passwordjPasswordField.setText("");
                     usernamejTextField.setText("");
                     rolejComboBox.removeAllItems();
-                    rolejComboBox.addItem("");
+                    rolejComboBox.addItem(" ");
                     rolejComboBox.addItem("Nhân viên");
-                    rolejComboBox.addItem("Quản lí");
+                    rolejComboBox.addItem("Ban giám đốc");
                     themUserjButton.setEnabled(true);
                     huyUserjButton.setEnabled(false);
                     userTableModel.removeRow(row);
@@ -408,9 +413,9 @@ public class AccountManager extends javax.swing.JFrame {
         passwordjPasswordField.setText("");
         usernamejTextField.setText("");
         rolejComboBox.removeAllItems();
-        rolejComboBox.addItem("");
+        rolejComboBox.addItem(" ");
         rolejComboBox.addItem("Nhân viên");
-        rolejComboBox.addItem("Quản lí");
+        rolejComboBox.addItem("Ban giám đốc");
         themUserjButton.setEnabled(true);
         huyUserjButton.setEnabled(false);
     }//GEN-LAST:event_huyUserjButtonActionPerformed
@@ -422,21 +427,24 @@ public class AccountManager extends javax.swing.JFrame {
         nhanVienJFrame.setResizable(false);
         nhanVienJFrame.setVisible(true);
         nhanVienJFrame.setDefaultCloseOperation(HIDE_ON_CLOSE);
+
     }//GEN-LAST:event_nhanVienjLabelMouseClicked
 
-    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+    private void dangXuatjMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dangXuatjMenuMouseClicked
         // TODO add your handling code here:
         LoginJFrame loginJFrame = new LoginJFrame();
         loginJFrame.setLocationRelativeTo(null);
         loginJFrame.setResizable(false);
         loginJFrame.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jMenu1MouseClicked
+        loginJFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        this.dispose();
+    }//GEN-LAST:event_dangXuatjMenuMouseClicked
+
+    private void thoatjMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thoatjMenuMouseClicked
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_jMenu2MouseClicked
+    }//GEN-LAST:event_thoatjMenuMouseClicked
 
     /**
      * @param args the command line arguments
@@ -474,13 +482,12 @@ public class AccountManager extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu dangXuatjMenu;
     private javax.swing.JButton huyUserjButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -488,6 +495,7 @@ public class AccountManager extends javax.swing.JFrame {
     private javax.swing.JPasswordField passwordjPasswordField;
     private javax.swing.JComboBox<String> rolejComboBox;
     private javax.swing.JButton themUserjButton;
+    private javax.swing.JMenu thoatjMenu;
     private javax.swing.JTable userjTable;
     private javax.swing.JTextField usernamejTextField;
     private javax.swing.JLabel welcome;

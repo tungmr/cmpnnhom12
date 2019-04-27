@@ -9,6 +9,8 @@ import com.qlbh.dao.NhanVienDAO;
 import com.qlbh.model.NhanVien;
 import com.qlbh.tools.DatesConversion;
 import com.qlbh.tools.Excel;
+import java.io.File;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,6 +18,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import jxl.Cell;
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
 
 /**
  *
@@ -88,8 +94,8 @@ public class NhanVienJFrame extends javax.swing.JFrame {
         chucVujComboBox = new javax.swing.JComboBox<>();
         jLabel18 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        dangXuatjMenu = new javax.swing.JMenu();
+        thoatjMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -227,6 +233,11 @@ public class NhanVienJFrame extends javax.swing.JFrame {
         nhapNhanVienjButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         nhapNhanVienjButton.setForeground(new java.awt.Color(253, 255, 252));
         nhapNhanVienjButton.setText("NHẬP");
+        nhapNhanVienjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nhapNhanVienjButtonActionPerformed(evt);
+            }
+        });
 
         xuatNhanVienjButton.setBackground(new java.awt.Color(1, 22, 39));
         xuatNhanVienjButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -442,18 +453,21 @@ public class NhanVienJFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jMenu1.setMnemonic('s');
-        jMenu1.setText("Quản lí tài khoản");
-        jMenu1.setToolTipText("");
-        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+        dangXuatjMenu.setText("Đăng xuất");
+        dangXuatjMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu1MouseClicked(evt);
+                dangXuatjMenuMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(dangXuatjMenu);
 
-        jMenu2.setText("Thoát");
-        jMenuBar1.add(jMenu2);
+        thoatjMenu.setText("Thoát");
+        thoatjMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                thoatjMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(thoatjMenu);
 
         setJMenuBar(jMenuBar1);
 
@@ -488,16 +502,6 @@ public class NhanVienJFrame extends javax.swing.JFrame {
         chucVujComboBox.addItem("Nhân viên");
         chucVujComboBox.addItem("Ban giám đốc");
     }
-
-    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
-        // TODO add your handling code here:
-        AccountManager accountManager = new AccountManager("administrator");
-        accountManager.setLocationRelativeTo(null);
-        accountManager.setResizable(false);
-        accountManager.setVisible(true);
-        this.dispose();
-
-    }//GEN-LAST:event_jMenu1MouseClicked
 
     private void nhanVienjTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nhanVienjTableMouseClicked
         // TODO add your handling code here:
@@ -535,7 +539,10 @@ public class NhanVienJFrame extends javax.swing.JFrame {
         chucVujComboBox.addItem(nhanVienTableModel.getValueAt(row, 7).toString());
         if (nhanVienTableModel.getValueAt(row, 7).toString().equals("Nhân viên")) {
             chucVujComboBox.addItem("Ban giám đốc");
+        } else if (nhanVienTableModel.getValueAt(row, 7).toString().equals("Ban giám đốc")) {
+            chucVujComboBox.addItem("Nhân viên");
         } else {
+            chucVujComboBox.addItem("Ban giám đốc");
             chucVujComboBox.addItem("Nhân viên");
 
         }
@@ -784,6 +791,94 @@ public class NhanVienJFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_xuatNhanVienjButtonActionPerformed
 
+    private void nhapNhanVienjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nhapNhanVienjButtonActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jFileChooser = new JFileChooser();
+        jFileChooser.setDialogTitle("Chọn file");
+        int chonFile = jFileChooser.showOpenDialog(null);
+        if (chonFile == JFileChooser.APPROVE_OPTION) {
+            try {
+                int count = 0;
+                String duongDanExcel = jFileChooser.getSelectedFile().getAbsolutePath();
+                File file = new File(duongDanExcel);
+                Workbook workbook = Workbook.getWorkbook(file);
+                Sheet sheet = workbook.getSheet(0);
+                int row = sheet.getRows();
+                for (int i = 1; i < row; i++) {
+                    Cell col1 = sheet.getCell(0, i);
+                    Cell col2 = sheet.getCell(1, i);
+                    Cell col3 = sheet.getCell(2, i);
+                    Cell col4 = sheet.getCell(3, i);
+                    Cell col5 = sheet.getCell(4, i);
+                    Cell col6 = sheet.getCell(5, i);
+                    Cell col7 = sheet.getCell(6, i);
+                    Cell col8 = sheet.getCell(7, i);
+                    Cell col9 = sheet.getCell(8, i);
+                    String maNhanVien = col1.getContents().toUpperCase();
+                    String tenNhanVien = col2.getContents();
+                    String gioiTinh = col3.getContents();
+                    String ngaySinh = col4.getContents();
+                    String soDienThoai = col5.getContents();
+                    String email = col6.getContents();
+                    String diaChi = col7.getContents();
+                    String chucVu = col8.getContents();
+                    String luong = col9.getContents();
+                    boolean gioiTinhNV = true;
+                    if (gioiTinh.equals("Nam")) {
+                        gioiTinhNV = true;
+                    } else if (gioiTinh.equals("Nữ")) {
+                        gioiTinhNV = false;
+                    }
+                    java.sql.Date ngaySinhNV = java.sql.Date.valueOf(ngaySinh);
+
+                    NhanVien nhanVien = new NhanVien(maNhanVien, tenNhanVien, chucVu, diaChi, soDienThoai, Double.parseDouble(luong), email, ngaySinhNV, gioiTinhNV);
+                    if (NhanVienDAO.themNhanVien(nhanVien)) {
+                        nhanVienTableModel.addRow(new Object[]{
+                            nhanVien.getMaNhanVien(),
+                            nhanVien.getTenNhanVien(),
+                            nhanVien.isGioiTinh() == true ? "Nam" : "Nữ",
+                            nhanVien.getNgaySinh(),
+                            nhanVien.getSoDienThoai(),
+                            nhanVien.getEmailNhanVien(),
+                            nhanVien.getDiaChiNhanVien(),
+                            nhanVien.getChucVu(),
+                            nhanVien.getLuongNhanVien()
+                        });
+                        count++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Kiểm tra lại giá trị trong file", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+                    }
+
+                }
+                if (count == row - 1) {
+                    JOptionPane.showMessageDialog(null, "Nhập file thành công", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
+
+                }
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Kiểm tra lại cấu trúc file", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+            } catch (BiffException ex) {
+                JOptionPane.showMessageDialog(null, "Kiểm tra lại cấu trúc file", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Vui lòng chọn file để nhập");
+        }
+    }//GEN-LAST:event_nhapNhanVienjButtonActionPerformed
+
+    private void thoatjMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thoatjMenuMouseClicked
+        // TODO add your handling code here:
+        System.exit(1);
+    }//GEN-LAST:event_thoatjMenuMouseClicked
+
+    private void dangXuatjMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dangXuatjMenuMouseClicked
+        // TODO add your handling code here:
+        LoginJFrame loginJFrame = new LoginJFrame();
+        loginJFrame.setLocationRelativeTo(null);
+        loginJFrame.setResizable(false);
+        loginJFrame.setVisible(true);
+        loginJFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.dispose();
+    }//GEN-LAST:event_dangXuatjMenuMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -822,6 +917,7 @@ public class NhanVienJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> chucVujComboBox;
+    private javax.swing.JMenu dangXuatjMenu;
     private javax.swing.JTextField diaChijTextField;
     private javax.swing.JTextField emailjTextField;
     private javax.swing.JTextField hoTenjTextField;
@@ -844,8 +940,6 @@ public class NhanVienJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -860,6 +954,7 @@ public class NhanVienJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField soDienThoaijTextField;
     private javax.swing.JButton suaNhanVienjButton;
     private javax.swing.JButton themNhanVienjButton;
+    private javax.swing.JMenu thoatjMenu;
     private javax.swing.JButton xoaNhanVienjButton;
     private javax.swing.JButton xuatNhanVienjButton;
     // End of variables declaration//GEN-END:variables

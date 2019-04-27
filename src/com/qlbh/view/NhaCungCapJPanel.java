@@ -452,8 +452,7 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
         if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             Excel.xuatFileExcel(nhaCungCapjTable, chooser.getSelectedFile() + "\\\\Nhacungcap.xls");
             JOptionPane.showMessageDialog(null, "Đã lưu file tại đường dẫn: " + chooser.getSelectedFile(), "Message", JOptionPane.INFORMATION_MESSAGE, dung);
-        } else {
-        }
+        } 
     }//GEN-LAST:event_xuatNCCjButtonActionPerformed
 
     private void nhapNCCjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nhapNCCjButtonActionPerformed
@@ -465,7 +464,6 @@ public class NhaCungCapJPanel extends javax.swing.JPanel {
             try {
                 int count = 0;
                 String duongDanExcel = jFileChooser.getSelectedFile().getAbsolutePath();
-                JOptionPane.showMessageDialog(null, duongDanExcel);
                 File file = new File(duongDanExcel);
                 Workbook workbook = Workbook.getWorkbook(file);
                 Sheet sheet = workbook.getSheet(0);

@@ -4,20 +4,20 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="dangXuatjMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng xu&#x1ea5;t"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu1MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="dangXuatjMenuMouseClicked"/>
           </Events>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="thoatjMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="tho&#xe1;t"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu2MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="thoatjMenuMouseClicked"/>
           </Events>
         </Menu>
       </SubComponents>
@@ -254,7 +254,7 @@
               <StringArray count="3">
                 <StringItem index="0" value=" "/>
                 <StringItem index="1" value="Nh&#xe2;n vi&#xea;n"/>
-                <StringItem index="2" value="Qu&#x1ea3;n l&#xed;"/>
+                <StringItem index="2" value="Ban gi&#xe1;m &#x111;&#x1ed1;c"/>
               </StringArray>
             </Property>
           </Properties>
