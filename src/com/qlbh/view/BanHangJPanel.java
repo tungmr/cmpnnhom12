@@ -1148,7 +1148,6 @@ public class BanHangJPanel extends javax.swing.JPanel {
                 } else {
                     if (kiemTraTrungLapMaSanPham(sanPhamThanhVienDefaultTableModel, sanPhamBHTVjTable, maSanPham)) {
                         JOptionPane.showMessageDialog(null, "Trùng lặp mã sản phẩm, vui lòng nhập lại!", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
-                        //sanPhamThanhVienDefaultTableModel.setRowCount(0);
                     } else {
                         if (SanPhamDAO.kiemTraDuSoLuong(maSanPham, soLuong)) {
                             SanPham sanPham = SanPhamDAO.getMotSanPham(maSanPham);
@@ -1158,24 +1157,7 @@ public class BanHangJPanel extends javax.swing.JPanel {
                             sanPhamThanhVienDefaultTableModel.addRow(new Object[]{
                                 sanPhamThanhVienDefaultTableModel.getRowCount() + 1, maSanPham, sanPham.getTenSanPham(), soLuong, format2.format(sanPham.getDonGia()), format.format(sanPham.getDonGia() * soLuong)
                             });
-//                            long maHoaDon = Long.parseLong(maDonHangBHtvjTextField.getText());
-//                            ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon();
-//                            chiTietHoaDon.setMaHoaDonChiTiet(maHoaDon);
-//                            chiTietHoaDon.setMaSanPhamMua(maSanPham);
-//                            chiTietHoaDon.setGiaSanPhamMua(sanPham.getDonGia());
-//                            chiTietHoaDon.setSoLuongMua(soLuong);
-//                            if (ChiTietHoaDonDAO.themChiTietHoaDon(chiTietHoaDon)) {
-//                                SanPhamDAO.capNhapSoLuongSanPham(maSanPham, sanPham.getSoLuong() - soLuong);
-////                                thanhVienDefaultTableModel.setRowCount(0);
-////                                loadBanHang();
-//                                loadBanHangThanhVienMotHoaDon(maHoaDon);
-//
-//                                JOptionPane.showMessageDialog(null, "Đã thêm sản phẩm!", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
-//                                setMacDinhBHTV();
-//                            } else {
-//                                JOptionPane.showMessageDialog(null, "Có lỗi xảy ra, thử lại sau!", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
-//
-//                            }
+
 
                         } else {
                             JOptionPane.showMessageDialog(null, "Sản phẩm không đủ số lượng!", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
@@ -1191,7 +1173,6 @@ public class BanHangJPanel extends javax.swing.JPanel {
                 } else {
                     if (kiemTraTrungLapMaSanPham(sanPhamThanhVienDefaultTableModel, sanPhamBHTVjTable, maSanPham)) {
                         JOptionPane.showMessageDialog(null, "Trùng lặp mã sản phẩm, vui lòng nhập lại!", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
-                        sanPhamThanhVienDefaultTableModel.setRowCount(0);
                     } else {
                         if (SanPhamDAO.kiemTraDuSoLuong(maSanPham, soLuong)) {
                             SanPham sanPham = SanPhamDAO.getMotSanPham(maSanPham);
@@ -1219,6 +1200,7 @@ public class BanHangJPanel extends javax.swing.JPanel {
     private void banhangTVjTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_banhangTVjTableMouseClicked
         // TODO add your handling code here:
         try {
+            xoaSPBHTVjButton.setEnabled(false);
             huyBHtvjButton.setEnabled(true);
             themBHtvjButton.setEnabled(false);
             sanPhamThanhVienDefaultTableModel.setRowCount(0);
@@ -1429,6 +1411,7 @@ public class BanHangJPanel extends javax.swing.JPanel {
 
                 loadBanHangThanhVienMotHoaDon(maHoaDon);
                 JOptionPane.showMessageDialog(null, "Đã sửa", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
+                xoaSPBHTVjButton.setEnabled(true);
 
             } else {
                 JOptionPane.showMessageDialog(null, "Chọn một đơn hàng để sửa", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
@@ -1530,7 +1513,6 @@ public class BanHangJPanel extends javax.swing.JPanel {
                 } else {
                     if (kiemTraTrungLapMaSanPham(sanPhamKhongThanhVienDefaultTableModel, sanPhamBHKTVjTable, maSanPham)) {
                         JOptionPane.showMessageDialog(null, "Trùng lặp mã sản phẩm, vui lòng nhập lại!", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
-                        //sanPhamKhongThanhVienDefaultTableModel.setRowCount(0);
                     } else {
                         if (SanPhamDAO.kiemTraDuSoLuong(maSanPham, soLuong)) {
                             SanPham sanPham = SanPhamDAO.getMotSanPham(maSanPham);
@@ -1541,22 +1523,6 @@ public class BanHangJPanel extends javax.swing.JPanel {
                                 sanPhamKhongThanhVienDefaultTableModel.getRowCount() + 1, maSanPham, sanPham.getTenSanPham(), soLuong, format2.format(sanPham.getDonGia()), format.format(sanPham.getDonGia() * soLuong)
                             });
 
-//                            long maHoaDon = Long.parseLong(maDonHangBHKTVjTextField.getText());
-//                            ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon();
-//                            chiTietHoaDon.setMaHoaDonChiTiet(maHoaDon);
-//                            chiTietHoaDon.setMaSanPhamMua(maSanPham);
-//                            chiTietHoaDon.setGiaSanPhamMua(sanPham.getDonGia());
-//                            chiTietHoaDon.setSoLuongMua(soLuong);
-//                            if (ChiTietHoaDonDAO.themChiTietHoaDon(chiTietHoaDon)) {
-//                                SanPhamDAO.capNhapSoLuongSanPham(maSanPham, sanPham.getSoLuong() - soLuong);
-//                                koThanhVienDefaultTableModel.setRowCount(0);
-//                                loadBanHang();
-//                                JOptionPane.showMessageDialog(null, "Đã thêm sản phẩm!", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
-//                                setMacDinhBHKTV();
-//                            } else {
-//                                JOptionPane.showMessageDialog(null, "Có lỗi xảy ra, thử lại sau!", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
-//
-//                            }
                         } else {
                             JOptionPane.showMessageDialog(null, "Sản phẩm không đủ số lượng!", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
 
@@ -1572,7 +1538,6 @@ public class BanHangJPanel extends javax.swing.JPanel {
                 } else {
                     if (kiemTraTrungLapMaSanPham(sanPhamKhongThanhVienDefaultTableModel, sanPhamBHKTVjTable, maSanPham)) {
                         JOptionPane.showMessageDialog(null, "Trùng lặp mã sản phẩm, vui lòng nhập lại!", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
-                        sanPhamKhongThanhVienDefaultTableModel.setRowCount(0);
                     } else {
                         if (SanPhamDAO.kiemTraDuSoLuong(maSanPham, soLuong)) {
                             SanPham sanPham = SanPhamDAO.getMotSanPham(maSanPham);
@@ -1788,6 +1753,7 @@ public class BanHangJPanel extends javax.swing.JPanel {
 
                     loadBanHangKhongThanhVienMotHoaDon(maHoaDon);
                     JOptionPane.showMessageDialog(null, "Đã sửa", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
+                    xoaSPBHKTVjButton.setEnabled(true);
                 }
 
             } else {
@@ -1816,6 +1782,7 @@ public class BanHangJPanel extends javax.swing.JPanel {
     private void banHangKTVjTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_banHangKTVjTableMouseClicked
         // TODO add your handling code here:
         try {
+            xoaSPBHKTVjButton.setEnabled(false);
             huyBHKTVjButton.setEnabled(true);
             themBHKTVjButton.setEnabled(false);
             sanPhamKhongThanhVienDefaultTableModel.setRowCount(0);

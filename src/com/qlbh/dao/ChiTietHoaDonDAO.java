@@ -133,10 +133,23 @@ public class ChiTietHoaDonDAO {
         }
         return false;
     }
+    
+    
+    public static boolean khongChuaHoaDon(long maHoaDon){
+        String sql = "SELECT * FROM chitiethoadon WHERE ma_hd=?";
+        Connection connection = JDBCConnection.myConnect();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setLong(1, maHoaDon);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next())
+                return false;
+        } catch (Exception e) {
+        }
+        return true;
+    }
 
     public static void main(String[] args) {
-        if (ChiTietHoaDonDAO.xoaMotChiTietHoaDon(1554706531644L, "MG")){
-            System.out.println("com.qlbh.dao.ChiTietHoaDonDAO.main()");
-        }
+//        System.out.println(ChiTietHoaDonDAO.khongChuaHoaDon(1556126059906L));
     }
 }

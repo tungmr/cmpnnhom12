@@ -240,13 +240,14 @@ public class LoginJFrame extends javax.swing.JFrame {
                 if (username.equals("administrator")) {
                     if (AdminDAO.checkLogin(username, password)) {
                         AccountManager accountManager = new AccountManager(username);
-                        //accountManager.setUsername(username);
                         accountManager.setLocationRelativeTo(null);
                         accountManager.setResizable(false);
                         accountManager.setVisible(true);
                         this.dispose();
 
                     } else {
+                        usernamejTextField.setText("");
+                        passwordjPasswordField.setText("");
                         thongBaojLabel.setText("Mật khẩu không đúng");
                     }
                 } else {
@@ -256,6 +257,8 @@ public class LoginJFrame extends javax.swing.JFrame {
                         mainJFrame.setVisible(true);
                         this.dispose();
                     } else {
+                        usernamejTextField.setText("");
+                        passwordjPasswordField.setText("");
                         thongBaojLabel.setText("Tên đăng nhập hoặc mật khẩu không đúng");
 
                     }

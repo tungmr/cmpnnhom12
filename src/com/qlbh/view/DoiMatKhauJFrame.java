@@ -80,6 +80,11 @@ public class DoiMatKhauJFrame extends javax.swing.JFrame {
         matKhauMoijPasswordField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         reMatKhauMoijPasswordField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        reMatKhauMoijPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                reMatKhauMoijPasswordFieldKeyPressed(evt);
+            }
+        });
 
         thongBaojLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -154,7 +159,7 @@ public class DoiMatKhauJFrame extends javax.swing.JFrame {
     private void capNhapjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_capNhapjButtonActionPerformed
         // TODO add your handling code here:
         String matKhauHT = String.valueOf(matKhauHTjPasswordField.getPassword());
-       
+
         if (UserDAO.checkUser(nhanVien.getMaNhanVien(), matKhauHT)) {
             String matKhauMoi = String.valueOf(matKhauMoijPasswordField.getPassword());
             String reMatKhauMoi = String.valueOf(reMatKhauMoijPasswordField.getPassword());
@@ -162,15 +167,24 @@ public class DoiMatKhauJFrame extends javax.swing.JFrame {
                 thongBaojLabel.setText("Mật khẩu mới không khớp");
                 thongBaojLabel.setForeground(Color.red);
             } else {
-                if (UserDAO.doiMatKhauUser(nhanVien.getMaNhanVien(), matKhauMoi)) {
-                    thongBaojLabel.setText("Đổi mật khẩu thành công");
-                    thongBaojLabel.setForeground(Color.GREEN);
+                if (matKhauMoi.length() < 6) {
+                    thongBaojLabel.setText("Mật khẩu phải lơn hơn hoặc bằng 6 ký tự");
 
                 } else {
-                    thongBaojLabel.setText("Có lỗi xảy ra, thử lại sau");
-                    thongBaojLabel.setForeground(Color.red);
+                    if (matKhauMoi.equals(matKhauHT)) {
+                        thongBaojLabel.setText("Mật khẩu mới phải khác mật khẩu hiện tại");
 
+                    }else if (UserDAO.doiMatKhauUser(nhanVien.getMaNhanVien(), matKhauMoi)) {
+                        thongBaojLabel.setText("Đổi mật khẩu thành công");
+                        thongBaojLabel.setForeground(Color.GREEN);
+
+                    } else {
+                        thongBaojLabel.setText("Có lỗi xảy ra, thử lại sau");
+                        thongBaojLabel.setForeground(Color.red);
+
+                    }
                 }
+
             }
         } else {
             thongBaojLabel.setText("Mật khẩu cũ không đúng");
@@ -178,6 +192,42 @@ public class DoiMatKhauJFrame extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_capNhapjButtonActionPerformed
+
+    private void reMatKhauMoijPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_reMatKhauMoijPasswordFieldKeyPressed
+        // TODO add your handling code here:
+         String matKhauHT = String.valueOf(matKhauHTjPasswordField.getPassword());
+
+        if (UserDAO.checkUser(nhanVien.getMaNhanVien(), matKhauHT)) {
+            String matKhauMoi = String.valueOf(matKhauMoijPasswordField.getPassword());
+            String reMatKhauMoi = String.valueOf(reMatKhauMoijPasswordField.getPassword());
+            if (!matKhauMoi.equals(reMatKhauMoi)) {
+                thongBaojLabel.setText("Mật khẩu mới không khớp");
+                thongBaojLabel.setForeground(Color.red);
+            } else {
+                if (matKhauMoi.length() < 6) {
+                    thongBaojLabel.setText("Mật khẩu phải lơn hơn hoặc bằng 6 ký tự");
+
+                } else {
+                    if (matKhauMoi.equals(matKhauHT)) {
+                        thongBaojLabel.setText("Mật khẩu mới phải khác mật khẩu hiện tại");
+
+                    }else if (UserDAO.doiMatKhauUser(nhanVien.getMaNhanVien(), matKhauMoi)) {
+                        thongBaojLabel.setText("Đổi mật khẩu thành công");
+                        thongBaojLabel.setForeground(Color.GREEN);
+
+                    } else {
+                        thongBaojLabel.setText("Có lỗi xảy ra, thử lại sau");
+                        thongBaojLabel.setForeground(Color.red);
+
+                    }
+                }
+
+            }
+        } else {
+            thongBaojLabel.setText("Mật khẩu cũ không đúng");
+            thongBaojLabel.setForeground(Color.red);
+        }
+    }//GEN-LAST:event_reMatKhauMoijPasswordFieldKeyPressed
 
     /**
      * @param args the command line arguments

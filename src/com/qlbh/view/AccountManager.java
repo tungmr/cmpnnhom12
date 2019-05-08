@@ -302,7 +302,7 @@ public class AccountManager extends javax.swing.JFrame {
             } else if (password.length() < 6) {
                 JOptionPane.showMessageDialog(null, "Mật khẩu phải lớn hơn hoặc bằng 6 ký tự");
             } else if (NhanVienDAO.kiemTraMaNhanVienDaTonTai(userName)) {
-                String hashPassword = MD5.md5(password);
+                String hashPassword = MD5.md5(userName+password);
                 roleString = NhanVienDAO.getNhanVien(userName).getChucVu();
                 int role = 0;
                 if (roleString.equals("Ban giám đốc")) {

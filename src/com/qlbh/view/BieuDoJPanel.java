@@ -7,15 +7,11 @@ package com.qlbh.view;
 
 import com.qlbh.dao.BieuDoNhanVienDAO;
 import com.qlbh.dao.BieuDoSanPhamDAO;
-import com.qlbh.dao.NhanVienDAO;
 import com.qlbh.model.BieuDoNhanVien;
 import com.qlbh.model.BieuDoSanPham;
-import com.qlbh.model.NhanVien;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.util.ArrayList;
-import javax.swing.JFileChooser;
-import javax.swing.table.DefaultTableModel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;

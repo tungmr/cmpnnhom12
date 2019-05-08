@@ -8,6 +8,7 @@ package com.qlbh.view;
 import com.qlbh.dao.NhanVienDAO;
 import com.qlbh.model.NhanVien;
 import com.qlbh.tools.DatesConversion;
+import java.text.DecimalFormat;
 import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -25,6 +26,9 @@ public class TrangChuJPanel extends javax.swing.JPanel {
     NhanVien nhanVien = null;
     ImageIcon sai = new ImageIcon("tinhsai.png");
     ImageIcon dung = new ImageIcon("dau-check.png");
+    DecimalFormat format = new DecimalFormat("### ### ###");
+
+    
 
     public TrangChuJPanel(String username) {
         initComponents();
@@ -310,7 +314,7 @@ public class TrangChuJPanel extends javax.swing.JPanel {
         diaChijTextField.setText(nhanVien.getDiaChiNhanVien());
         chucVujTextField.setText(nhanVien.getChucVu());
         chucVujTextField.setEditable(false);
-        luongNVjTextField.setText(String.valueOf(nhanVien.getLuongNhanVien()));
+        luongNVjTextField.setText(String.valueOf(format.format(nhanVien.getLuongNhanVien())));
         luongNVjTextField.setEditable(false);
 
     }

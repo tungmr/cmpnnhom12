@@ -36,11 +36,11 @@
                                   <Component id="diaChiNhaCungCapjLabel" alignment="1" max="32767" attributes="0"/>
                                   <Component id="maNhaCungCapjLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="maNhaCungCapjTextField" max="32767" attributes="0"/>
-                                  <Component id="tenNhaCungCapjTextField" max="32767" attributes="0"/>
                                   <Component id="diaChiNhaCungCapjTextField" max="32767" attributes="0"/>
+                                  <Component id="tenNhaCungCapjTextField" max="32767" attributes="0"/>
+                                  <Component id="maNhaCungCapjTextField" pref="227" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -49,14 +49,14 @@
                               </Group>
                               <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="emailNhaCungCapjTextField" max="32767" attributes="0"/>
-                                  <Component id="soDienThoaiNCCjTextField" max="32767" attributes="0"/>
+                                  <Component id="emailNhaCungCapjTextField" pref="227" max="32767" attributes="0"/>
+                                  <Component id="soDienThoaiNCCjTextField" pref="227" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel1" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="402" max="32767" attributes="0"/>
                               <Component id="themNCCjButton" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="suaNCCjButton" min="-2" pref="150" max="-2" attributes="0"/>
@@ -71,14 +71,13 @@
                       <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="xuatNCCjButton" min="-2" pref="150" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jScrollPane1" pref="1290" max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="xuatNCCjButton" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane1" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -93,22 +92,22 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="maNhaCungCapjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="maNhaCungCapjTextField" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="maNhaCungCapjTextField" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="emailNhaCungCapjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="emailNhaCungCapjTextField" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="emailNhaCungCapjTextField" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="soDienThoaiNCCjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tenNhaCungCapjTextField" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                  <Component id="soDienThoaiNCCjTextField" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="tenNhaCungCapjTextField" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="soDienThoaiNCCjTextField" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="tenNhaCungCapjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="diaChiNhaCungCapjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="diaChiNhaCungCapjTextField" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="diaChiNhaCungCapjTextField" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -118,9 +117,9 @@
                   <Component id="themNCCjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
                   <Component id="suaNCCjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="394" max="32767" attributes="0"/>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="414" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="xuatNCCjButton" min="-2" pref="60" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
           </Group>
@@ -143,12 +142,7 @@
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Danh s&#xe1;ch nh&#xe0; cung c&#x1ea5;p">
-              <Font PropertyName="font" name="Tahoma" size="18" style="1"/>
-              <Color PropertyName="color" blue="66" green="66" red="0" type="rgb"/>
-            </TitledBorder>
-          </Border>
+          <Border info="null"/>
         </Property>
       </Properties>
 

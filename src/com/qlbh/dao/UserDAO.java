@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class UserDAO {
     
     public static boolean checkUser(String username, String password) {
-        String hashPassword = MD5.md5(password);
+        String hashPassword = MD5.md5(username+password);
         String sql = "SELECT * FROM user WHERE ma_nhanVien=? and password =?";
         Connection connection = JDBCConnection.myConnect();
         try {
@@ -36,7 +36,7 @@ public class UserDAO {
     }
 
     public static boolean doiMatKhauUser(String username, String password) {
-        String hashPassword = MD5.md5(password);
+        String hashPassword = MD5.md5(username+password);
         String sql = "UPDATE user SET password=? WHERE ma_nhanVien=?";
         Connection connection = JDBCConnection.myConnect();
         try {

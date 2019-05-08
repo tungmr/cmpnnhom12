@@ -79,15 +79,15 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                      <Component id="themKhachHangjButton" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Component id="themKhachHangjButton" min="-2" pref="145" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="suaKhachHangjButton" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Component id="suaKhachHangjButton" min="-2" pref="145" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="xoaKhachHangjButton" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Component id="xoaKhachHangjButton" min="-2" pref="145" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="huyKhachHangjButton" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Component id="huyKhachHangjButton" min="-2" pref="145" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="nhapKhachHangjButton" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Component id="nhapKhachHangjButton" min="-2" pref="145" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -124,11 +124,11 @@
               </Group>
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="themKhachHangjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
-                  <Component id="xoaKhachHangjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
-                  <Component id="suaKhachHangjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
-                  <Component id="huyKhachHangjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
-                  <Component id="nhapKhachHangjButton" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="themKhachHangjButton" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
+                  <Component id="xoaKhachHangjButton" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
+                  <Component id="suaKhachHangjButton" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
+                  <Component id="huyKhachHangjButton" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
+                  <Component id="nhapKhachHangjButton" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>

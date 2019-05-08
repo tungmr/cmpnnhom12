@@ -7,7 +7,9 @@ package com.qlbh.view;
 
 import com.qlbh.dao.NhaCungCapDAO;
 import com.qlbh.dao.SanPhamDAO;
+import com.qlbh.dao.UserDAO;
 import com.qlbh.model.SanPham;
+import com.qlbh.model.User;
 import com.qlbh.tools.Excel;
 import java.io.File;
 import java.io.IOException;
@@ -287,27 +289,27 @@ public class SanPhamJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(maSanPhamjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(donGiaSanPhamjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(donGiaSanPhamjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(donGiaSanPhamjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(tenSanPhamjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tenSanPhamjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(maNhaCungCapSPjLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                        .addComponent(maNhaCungCapSPjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(maNhaCungCapSPjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(tenSanPhamjLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(soLuongSanPhamjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(maNhanVienSPjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(soLuongSanPhamjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(maNhanVienSPjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(soLuongSanPhamjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(maNhanVienSPjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nhapSanPhamjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(huySanPhamjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(themSanPhamjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(xoaSanPhamjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(suaSanPhamjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nhapSanPhamjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(huySanPhamjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(themSanPhamjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(xoaSanPhamjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(suaSanPhamjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -346,6 +348,7 @@ public class SanPhamJPanel extends javax.swing.JPanel {
         }
     }
 
+
     private void themSanPhamjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_themSanPhamjButtonActionPerformed
         // TODO add your handling code here:
         try {
@@ -364,6 +367,12 @@ public class SanPhamJPanel extends javax.swing.JPanel {
                     sanPhamtableModel.addRow(new Object[]{
                         sanPham.getMaSanPham(), sanPham.getTenSanPham(), sanPham.getMaNhaCungCapSP(), sanPham.getSoLuong(), sanPham.getDonGia(), sanPham.getMaNhanVienSP()
                     });
+                    maSanPhamjTextField.setText("");
+                    tenSanPhamjTextField.setText("");
+                    soLuongSanPhamjTextField.setText("");
+                    donGiaSanPhamjTextField.setText("");
+                    maNhaCungCapSPjComboBox.removeAllItems();
+                    loadMaNCC("");
                     JOptionPane.showMessageDialog(null, "Đã thêm", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
 
                 } else {
@@ -377,13 +386,6 @@ public class SanPhamJPanel extends javax.swing.JPanel {
 
         }
 
-        maSanPhamjTextField.setText("");
-        tenSanPhamjTextField.setText("");
-        soLuongSanPhamjTextField.setText("");
-        donGiaSanPhamjTextField.setText("");
-        maNhaCungCapSPjComboBox.removeAllItems();
-        loadMaNCC("");
-
 
     }//GEN-LAST:event_themSanPhamjButtonActionPerformed
 
@@ -391,8 +393,8 @@ public class SanPhamJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int chonHang = sanPhamjTable.getSelectedRow();
         if (chonHang != -1) {
-            if (sanPhamtableModel.getValueAt(chonHang, 5).equals(maNhanVienSPjTextField.getText())) {
-
+            User user = UserDAO.getMotUser(maNhanVienSPjTextField.getText());
+            if (user.getRole() == 1 || maNhanVienSPjTextField.getText().equals(sanPhamtableModel.getValueAt(chonHang, 5).toString())) {
                 try {
                     SanPham sanPham = new SanPham();
                     String maSP = maSanPhamjTextField.getText().toUpperCase();
@@ -408,24 +410,33 @@ public class SanPhamJPanel extends javax.swing.JPanel {
                         sanPhamtableModel.setValueAt(sanPham.getMaNhaCungCapSP(), row, 2);
                         sanPhamtableModel.setValueAt(sanPham.getSoLuong(), row, 3);
                         sanPhamtableModel.setValueAt(sanPham.getDonGia(), row, 4);
+                        maSanPhamjTextField.setText("");
+                        tenSanPhamjTextField.setText("");
+                        soLuongSanPhamjTextField.setText("");
+                        donGiaSanPhamjTextField.setText("");
+                        maNhaCungCapSPjComboBox.removeAllItems();
+                        loadMaNCC("");
                         JOptionPane.showMessageDialog(null, "Đã sửa", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
-
                     } else {
                         JOptionPane.showMessageDialog(null, "Kiểm tra lại thông tin nhập vào", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
-
                     }
-
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, "Kiểm tra lại thông tin nhập vào", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
-
                 }
                 themSanPhamjButton.setEnabled(true);
                 nhapSanPhamjButton.setEnabled(true);
                 huySanPhamjButton.setEnabled(false);
             } else {
-                JOptionPane.showMessageDialog(null, "Không có quyền sửa sản phẩm này", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
-
+                JOptionPane.showMessageDialog(null, "Bạn không có quyền chỉnh sửa sản phẩm này!", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+                maSanPhamjTextField.setText("");
+                tenSanPhamjTextField.setText("");
+                soLuongSanPhamjTextField.setText("");
+                donGiaSanPhamjTextField.setText("");
+                maNhaCungCapSPjComboBox.removeAllItems();
+                loadMaNCC("");
+                sanPhamjTable.clearSelection();
             }
+
         } else {
             JOptionPane.showMessageDialog(null, "Chọn một hàng để sửa");
         }
@@ -453,21 +464,34 @@ public class SanPhamJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int row = sanPhamjTable.getSelectedRow();
         if (row != -1) {
-            maSanPhamjTextField.setEditable(false);
-            String maSP = maSanPhamjTextField.getText();
-            try {
-                int luaChon = JOptionPane.showConfirmDialog(null, "Bạn có chắn chắn muốn xóa không", "Message", JOptionPane.YES_NO_OPTION);
-                if (luaChon == JOptionPane.YES_OPTION) {
-                    if (SanPhamDAO.xoaSanPham(maSP)) {
-                        sanPhamtableModel.removeRow(row);
-                        JOptionPane.showMessageDialog(null, "Đã xóa", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
-                    }
-                } else if (luaChon == JOptionPane.NO_OPTION) {
+            User user = UserDAO.getMotUser(maNhanVienSPjTextField.getText());
+            if (user.getRole() == 1 || maNhanVienSPjTextField.getText().equals(sanPhamtableModel.getValueAt(row, 5).toString())) {
+                maSanPhamjTextField.setEditable(false);
+                String maSP = maSanPhamjTextField.getText();
+                try {
+                    int luaChon = JOptionPane.showConfirmDialog(null, "Bạn có chắn chắn muốn xóa không", "Message", JOptionPane.YES_NO_OPTION);
+                    if (luaChon == JOptionPane.YES_OPTION) {
+                        if (SanPhamDAO.xoaSanPham(maSP)) {
+                            sanPhamtableModel.removeRow(row);
+                            maSanPhamjTextField.setText("");
+                            tenSanPhamjTextField.setText("");
+                            soLuongSanPhamjTextField.setText("");
+                            donGiaSanPhamjTextField.setText("");
+                            maNhaCungCapSPjComboBox.removeAllItems();
+                            loadMaNCC("");
+                            JOptionPane.showMessageDialog(null, "Đã xóa", "Message", JOptionPane.INFORMATION_MESSAGE, dung);
+                        }
+                    } else if (luaChon == JOptionPane.NO_OPTION) {
 
-                    JOptionPane.showMessageDialog(null, "Đã hủy việc xóa", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+                        JOptionPane.showMessageDialog(null, "Đã hủy việc xóa", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+                    }
+                } catch (Exception e) {
                 }
-            } catch (Exception e) {
+            } else {
+                JOptionPane.showMessageDialog(null, "Bạn không có quyền xóa sản phẩm này!", "Message", JOptionPane.INFORMATION_MESSAGE, sai);
+                sanPhamjTable.clearSelection();
             }
+
         } else {
             JOptionPane.showMessageDialog(null, "Chọn một hàng để xóa");
         }

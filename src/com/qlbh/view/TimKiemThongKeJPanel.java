@@ -53,6 +53,7 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
 
     public TimKiemThongKeJPanel(String username) {
         initComponents();
+        kiemTraHoaDonRong();
         ketQuaTableModel = (DefaultTableModel) timKiemjTable.getModel();
         ketQuaThongKeSoLuongTableModel = (DefaultTableModel) thongKejTable.getModel();
         user = UserDAO.getMotUser(username);
@@ -351,6 +352,15 @@ public class TimKiemThongKeJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public void kiemTraHoaDonRong(){
+        ArrayList<HoaDon> listHoaDon = HoaDonDAO.getListHoaDon();
+        for (HoaDon hoaDon : listHoaDon){
+            if (ChiTietHoaDonDAO.khongChuaHoaDon(hoaDon.getMaHoaDon())){
+                HoaDonDAO.xoaHoaDon(hoaDon.getMaHoaDon());
+            }
+        }
+    }
+    
     private void loaiTimKiemjComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loaiTimKiemjComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_loaiTimKiemjComboBoxActionPerformed
